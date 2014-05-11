@@ -26,13 +26,15 @@
 @property (strong, nonatomic) NSArray *childNameList; // names of children of parent, array of NSString *
 @property (strong, nonatomic) NSArray *childUidList; // uid of each child, array of NSString *
 @property (strong, nonatomic) NSArray *childAvatars; // images of each child, array of UIImage
-@property (nonatomic) int selectedChildIndex; // which children is chosen in ChildMenu, KVO this
-@property (strong, nonatomic) NSNumber *selectedChild;
+@property (strong, nonatomic) NSArray *childRouteList; // array of MKPolyline for each children
+@property (strong, nonatomic) NSArray *childLocationsList; // array of CLLocation[] for each children
+@property (strong, nonatomic) NSArray *childRouteRendererList; // array of MKPolyline for children
+@property (strong, nonatomic) NSArray *childLastLocation; // array of CLLocation*
+
+@property (nonatomic) int curChildIndex; // which children is chosen in ChildMenu, KVO this
 
 @property CLLocation *lastLocation; // properties for the chosen child 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property MKPolyline *routeLine;
-@property MKPolylineRenderer *routeLineRenderer;
 
 - (NSString *)curChildName;
 - (NSString *)curChildUid;

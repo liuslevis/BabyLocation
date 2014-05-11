@@ -47,6 +47,7 @@
 		0493F05A191CC05700D36A42 /* AddFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F059191CC05700D36A42 /* AddFriendVC.m */; };
 		0493F05D191CCCC800D36A42 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F05C191CCCC800D36A42 /* MainVC.m */; };
 		0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */; };
+		049E3FC4191F59A200E1A4D9 /* LocationAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E3FC3191F59A200E1A4D9 /* LocationAPI.m */; };
 		04D0C957191E5592005738E8 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C955191E5592005738E8 /* boy.png */; };
 		04D0C958191E5592005738E8 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C956191E5592005738E8 /* girl.png */; };
 		04FDB3A8191DF60D007336F5 /* ChildMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDB3A7191DF60D007336F5 /* ChildMenuTVC.m */; };
@@ -129,6 +130,8 @@
 		0493F05C191CCCC800D36A42 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		0493F063191D131500D36A42 /* ChildrenMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildrenMapAnnotation.h; sourceTree = "<group>"; };
 		0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenMapAnnotation.m; sourceTree = "<group>"; };
+		049E3FC2191F59A200E1A4D9 /* LocationAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAPI.h; sourceTree = "<group>"; };
+		049E3FC3191F59A200E1A4D9 /* LocationAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAPI.m; sourceTree = "<group>"; };
 		04D0C955191E5592005738E8 /* boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boy.png; sourceTree = "<group>"; };
 		04D0C956191E5592005738E8 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		04FDB3A6191DF60D007336F5 /* ChildMenuTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildMenuTVC.h; sourceTree = "<group>"; };
@@ -293,6 +296,8 @@
 				0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */,
 				0493F05B191CCCC800D36A42 /* MainVC.h */,
 				0493F05C191CCCC800D36A42 /* MainVC.m */,
+				049E3FC2191F59A200E1A4D9 /* LocationAPI.h */,
+				049E3FC3191F59A200E1A4D9 /* LocationAPI.m */,
 			);
 			name = MainVC;
 			path = src/MainVC;
@@ -502,6 +507,7 @@
 				0442149A191A1E1700E98D2D /* qrspec.c in Sources */,
 				04421459191A1D8700E98D2D /* IIViewDeckController.m in Sources */,
 				0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */,
+				049E3FC4191F59A200E1A4D9 /* LocationAPI.m in Sources */,
 				044213F4191A11EA00E98D2D /* MainViewController.m in Sources */,
 				04421419191A129500E98D2D /* WelcomeVC.m in Sources */,
 				04421417191A129500E98D2D /* LoginTVC.m in Sources */,

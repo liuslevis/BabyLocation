@@ -15,7 +15,88 @@
 
 @implementation MainVC
 
-@synthesize selectedChildIndex=_selectedChildIndex ;
+-(NSArray *)childAvatars{
+    if (_childAvatars==nil) {
+        _childAvatars = [[NSArray alloc] init];
+    }
+    return _childAvatars;
+}
+
+-(NSArray *)childNameList{
+    if (_childNameList==nil) {
+        _childNameList = [[NSArray alloc] init];
+    }
+    return _childNameList;
+}
+
+-(NSArray *)childRouteRendererList{
+    if (_childRouteRendererList==nil) {
+        _childRouteRendererList = [[NSArray alloc] init];
+    }
+    return _childRouteRendererList;
+}
+
+-(NSArray *)childLastLocation{
+    if (_childLastLocation==nil) {
+        _childLastLocation = [[NSArray alloc] init];
+    }
+    return _childLastLocation;
+}
+
+-(NSArray *)childRouteList{
+    if (_childRouteList==nil) {
+        _childRouteList = [[NSArray alloc] init];
+    }
+    return _childRouteList;
+}
+
+-(NSArray *)childLocationsList{
+    if (_childLocationsList==nil) {
+        _childLocationsList = [[NSArray alloc] init];
+    }
+    return _childLocationsList;
+}
+
+- (NSString *)curChildName{
+    if ([self.childNameList count]>self.curChildIndex) {
+        return (NSString *)[self.childNameList objectAtIndex:self.curChildIndex];
+    }
+    return nil;
+}
+
+- (UIImage *)curChildAvatar{
+    if ([self.childAvatars count]>self.curChildIndex) {
+        return (UIImage *)[self.childAvatars objectAtIndex:self.curChildIndex];
+    }
+    return nil;
+}
+
+- (NSString *)curChildUid{
+    if ([self.childUidList count]>self.curChildIndex) {
+        return (NSString *)[self.childUidList objectAtIndex:self.curChildIndex];
+    }
+    return nil;
+}
+
+- (NSString *)childNameForIndex:(int)childIndex{
+    if ([self.childNameList count]>childIndex) {
+        return (NSString *)[self.childNameList objectAtIndex:childIndex];
+    }
+    return nil;
+}
+
+- (NSString *)childUidForIndex:(int)childIndex{
+    if ([self.childUidList count]>childIndex) {
+        return (NSString *)[self.childUidList objectAtIndex:childIndex];
+    }
+    return nil;
+}
+- (UIImage *)childAvatarForIndex:(int)childIndex{
+    if ([self.childAvatars count]>childIndex) {
+        return (UIImage *)[self.childAvatars objectAtIndex:childIndex];
+    }
+    return nil;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,28 +107,21 @@
     return self;
 }
 
--(void)updateScreenInfo{
-    // TODO: 添加头像
-    self.navigationItem.title = (NSString *)[self.childNameList objectAtIndex:self.selectedChildIndex];
-    // 显示孩子位置
-    [self pressShow:self];
-    
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.mapView.delegate = self;
+    self.mapView.delegate = self;
     
     if (DAVIDDEBUG){
         // 演示使用：直接设置孩子列表
-        self.childUidList = [NSArray arrayWithObjects: @"David",@"Mike",nil];
-        self.childNameList = [NSArray arrayWithObjects: @"小新",@"小葵",nil];
-
+        self.childUidList = [NSArray arrayWithObjects: @"XiaoKui",@"David",nil];
+        self.childNameList = [NSArray arrayWithObjects: @"小葵",@"小新",nil];
         self.childAvatars = [NSArray arrayWithObjects: // TODO: change to
-                             [UIImage imageNamed:@"boy"],[UIImage imageNamed:@"girl"], nil];
+                             [UIImage imageNamed:@"girl"],[UIImage imageNamed:@"boy"], nil];
     }else{
-        // TODO: 从服务器下载这个家长的孩子列表
+        // TODO: 从服务器下载这个家长的孩子信息列表  若下载失败 提示 （移出ViewDidLoad）
+        
     }
     // 默认选择第一个小孩 显示其位置
     [self updateScreenInfo];
@@ -90,53 +164,61 @@
 //    [self.placeHolder addSubview:deckController.view];
 }
 
-- (IBAction)pressShow:(id)sender {
+
+//更新主屏信息
+-(void)updateScreenInfo{
+    self.navigationItem.title = (NSString *)[self curChildName];
+    // 下载所有孩子的位置
+    [self pressUpdateAllChildsRouteLine:self];
+    // 显示孩子位置
+    [self pressShowCurrentChild:self];
+    
+}
+
+// 按键事件：显示当前选中的小孩
+- (IBAction)pressShowCurrentChild:(id)sender {
     NSLog(@"pressShow:查看 %@ 的位置",[self curChildName]);
-    [self showHistoryRouteOfChild:[self curChildUid]];
-    // 添加Pin
-    ChildrenMapAnnotation *childAnnotation = [[ChildrenMapAnnotation alloc] initWithCoordinates:self.lastLocation.coordinate
-                                                                                          title:self.curChildName subtitle:@"2分钟前"
-                                                                                           name:self.curChildName
-                                                                                            uid:self.curChildUid
-                                                                                         avatar:self.curChildAvatar];
+    // 添加所有孩子的最后位置Pin focus当前所选的孩子Pin
     [self.mapView removeAnnotations:self.mapView.annotations];
-    [self.mapView addAnnotation:childAnnotation];
-    [self.mapView showAnnotations:self.mapView.annotations animated:YES];
-    if(self.mapView.annotations.firstObject){
-        [self.mapView selectAnnotation:childAnnotation animated:YES];// 显示气泡
+    for (int childIndex = 0; childIndex < [self.childLocationsList count]; childIndex++){
+        NSString *childName = [self childNameForIndex:childIndex];
+        NSString *childUid = [self childUidForIndex:childIndex];
+        UIImage *childAvatar = [self childAvatarForIndex:childIndex];
+        NSArray *lastChildLocations =[self.childLocationsList objectAtIndex:childIndex];
+        CLLocation *lastLocation = [lastChildLocations lastObject];
+        ChildrenMapAnnotation *childAnnotation = [[ChildrenMapAnnotation alloc] initWithCoordinates:lastLocation.coordinate
+                                                                                              title:childName subtitle:@"2分钟前"
+                                                                                               name:childName
+                                                                                                uid:childUid
+                                                                                             avatar:childAvatar];
+        [self.mapView addAnnotation:childAnnotation];
+        
+        // 如果是当前选中的小孩，则
+        if(childIndex == self.curChildIndex){
+            [self.mapView selectAnnotation:childAnnotation animated:YES];// 显示气泡
+            [self focusOnLocation:lastLocation];// 移动camera到Pin处
+        }
     }
-    
-    [self focusOnLastLocation];// 移动camera到Pin处
-    
+    // 同时显示2个小孩。如果注释掉，则只显示选中的小孩
+    [self.mapView showAnnotations:self.mapView.annotations animated:YES];
 }
 
-- (NSString *)curChildName{
-    return (NSString *)[self.childNameList objectAtIndex:self.selectedChildIndex];
-}
-
-- (UIImage *)curChildAvatar{
-    return (UIImage *)[self.childAvatars objectAtIndex:self.selectedChildIndex];
-}
-
-- (NSString *)curChildUid{
-    return (NSString *)[self.childUidList objectAtIndex:self.selectedChildIndex];
-}
-
-- (void)focusOnLastLocation{
-    [self.mapView setCamera:[MKMapCamera cameraLookingAtCenterCoordinate:self.lastLocation.coordinate fromEyeCoordinate:self.lastLocation.coordinate eyeAltitude:5000]];
+- (void)focusOnLocation:(CLLocation *)location{
+    [self.mapView setCamera:[MKMapCamera cameraLookingAtCenterCoordinate:location.coordinate fromEyeCoordinate:location.coordinate eyeAltitude:5000]];
 }
 
 #pragma mark Show History Line of a Child
-// 显示某人textName的历史轨迹
-- (void)showHistoryRouteOfChild:(NSString *)name{
-    NSString *url = [NSString stringWithFormat:URL_TRACK_REQ_WITH_NAME,name];
+// 下载并返回某人textName的历史轨迹
+// return: NSArray of CLLocation*
+- (NSArray *)downloadHistoryRouteOfChild:(int)childIndex{
+    NSString *url = [NSString stringWithFormat:URL_TRACK_REQ_WITH_NAME,[self childUidForIndex:childIndex]];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSError *error;
     // TODO: change to Async
     NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     if (response==nil) {
         NSLog(@"ERR: no echo from server when query history :%@",url);
-        return;
+        return nil;
     }
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
     
@@ -145,9 +227,10 @@
     NSArray *latseq = [json objectForKey:@"latseq"];
     if ([timeseq count]!=[longseq count] || [longseq count]!=[latseq count] || [timeseq count]==0){
         NSLog(@"WARNING: the track download has wrong format!");
-        return;
+        return nil;
     }else{// Draw Track
         NSInteger len = [timeseq count];
+        NSLog(@"获得%@的轨迹，记录数量:%d",[self childNameForIndex:childIndex],len);
         NSMutableArray *locations = [[NSMutableArray alloc] init];
         for (NSInteger i = 0; i<len; i++) {
 //            NSLog(@" ts:%@,lat,long:%@",(NSString *)[timeseq objectAtIndex:i],(NSString *)[longseq objectAtIndex:i]);
@@ -157,46 +240,73 @@
                                   initWithLatitude:latitude
                                   longitude:longitude]];
         }
-        // add overlay 画历史轨迹
-        [self drawLineWithLocationArray:[locations copy]];
+        return [locations copy];
     }
-}
-// 用PolyLine和位置点画地图
-- (void)drawLineWithLocationArray:(NSArray *)locationArray
-{
-    int pointCount = [locationArray count];
-    CLLocationCoordinate2D *coordinateArray = (CLLocationCoordinate2D *)malloc(pointCount * sizeof(CLLocationCoordinate2D));
-    
-    for (int i = 0; i < pointCount; ++i) {
-        CLLocation *location = [locationArray objectAtIndex:i];
-        coordinateArray[i] = [location coordinate];
-        if (i==pointCount-1){
-            self.lastLocation = location;
-        }
-    }
-    // a overlay:MKPolyline with many points
-    self.routeLine = [MKPolyline polylineWithCoordinates:coordinateArray count:pointCount];
-    [self.mapView setVisibleMapRect:[self.routeLine boundingMapRect]];
-    [self.mapView addOverlay:self.routeLine];
-    free(coordinateArray);
-    coordinateArray = NULL;
 }
 
-#pragma mark - MKMapViewDelegate of Overlap
-// provide a renderer for a overlay:routeLine
-- (MKPolylineRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay
-{
-    if(overlay == self.routeLine) {
-        if(nil == self.routeLineRenderer) {
-            self.routeLineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:self.routeLine] ;
-            self.routeLineRenderer.fillColor = [UIColor redColor];
-            self.routeLineRenderer.strokeColor = [UIColor redColor];
-            self.routeLineRenderer.lineWidth = 5;
+// 按钮事件：下载每个小孩的位置，并添加Overlay (显示轨迹）
+- (IBAction)pressUpdateAllChildsRouteLine:(id)sender {
+    for (int childIndex = 0; childIndex < [self.childUidList count]; childIndex++) {
+        // 下载、绘画显示路径 RouteLine
+        NSArray *locations = [self downloadHistoryRouteOfChild:childIndex];
+        if (locations!=nil) {
+            MKPolyline *route =[self generateRouteFromLocations:locations];
+            route.title = [NSString stringWithFormat:@"%d",childIndex];
+            self.childRouteList = [self.childRouteList arrayByAddingObject:route];
+            self.childLocationsList = [self.childLocationsList arrayByAddingObject:locations];
         }
-        return self.routeLineRenderer;
     }
-    return nil;
+    [self.mapView addOverlays:self.childRouteList];
 }
+
+// 生成 MKPolyline routeline
+- (MKPolyline *)generateRouteFromLocations:(NSArray *)locations{
+    int pointCount = [locations count];
+    CLLocationCoordinate2D *coordinateArray = (CLLocationCoordinate2D *)malloc(pointCount * sizeof(CLLocationCoordinate2D));
+    for (int i = 0; i < pointCount; ++i) {
+        CLLocation *location = [locations objectAtIndex:i];
+        coordinateArray[i] = [location coordinate];
+    }
+    return [MKPolyline polylineWithCoordinates:coordinateArray count:pointCount];
+}
+
+#pragma mark - MKMapViewDelegate for Overlap
+// TODO: deprecated in iOS 7
+// 渲染 overlays，改变路线颜色在这里
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay
+{
+    NSLog(@"call vewForOverLay");
+    if([overlay class] == MKPolyline.class)
+    {
+        MKOverlayView* overlayView = nil;
+        MKPolyline* polyline = (MKPolyline *)overlay;
+        MKPolylineView  * routeLineView = [[MKPolylineView alloc] initWithPolyline:polyline];
+        
+        if([polyline.title isEqualToString:@"0"])
+        {
+            routeLineView.fillColor = [UIColor blueColor];
+            routeLineView.strokeColor = [UIColor blueColor];
+        }
+        else if([polyline.title isEqualToString:@"1"])
+        {
+            routeLineView.fillColor = [UIColor redColor];
+            routeLineView.strokeColor = [UIColor redColor];
+        }
+        else
+        {
+            routeLineView.fillColor = [UIColor orangeColor];
+            routeLineView.strokeColor = [UIColor orangeColor];
+        }
+        
+        routeLineView.lineWidth = 10;
+        routeLineView.lineCap = kCGLineCapSquare;
+        overlayView = routeLineView;
+        return overlayView;
+    } else {
+        return nil;
+    }
+}
+
 #pragma mark - MKMapViewDelegate of Annotation
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)aView{
     NSLog(@"didSelectAnnotationView");
@@ -208,11 +318,9 @@
     }else{
         NSLog(@"leftCalloutAccessoryView No");
     }
-    
-
-    
 }
 
+// 地图气泡Annotation
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation
 {
     if ([annotation isKindOfClass:[ChildrenMapAnnotation class]]) {
@@ -228,25 +336,48 @@
         annotationView.annotation = annotation;
         annotationView.canShowCallout = YES;
         
-        // Create a UIButton object add to AnnotationView
-        UIButton *rightButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-        [rightButton setTitle:annotation.title forState:UIControlStateNormal];
-        [annotationView setRightCalloutAccessoryView:rightButton];
+        // Cutom AnnotationView
         
-        // Avatar on left
-        NSString *childName = [(ChildrenMapAnnotation *)annotation name];
+        // Multiple UIButtons on right
+        int numOfButton = 4;
+        UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32*numOfButton, 32)];
+//        for (int i=0; i<numOfButton; i++){
+//            UIButton *button =[[UIButton alloc] initWithFrame:CGRectMake(32*i, 0, 32, 32)];
+//            [button setBackgroundColor:[UIColor redColor]];
+//            [rightView addSubview:button];
+//        }
+        UIButton *button =[[UIButton alloc] initWithFrame:CGRectMake(32*0, 0, 32, 32)];
+        [button setBackgroundColor:[UIColor redColor]];
+        [rightView addSubview:button];
+
+        button =[[UIButton alloc] initWithFrame:CGRectMake(32*1, 0, 32, 32)];
+        [button setBackgroundColor:[UIColor blueColor]];
+        [rightView addSubview:button];
+
+        button =[[UIButton alloc] initWithFrame:CGRectMake(32*2, 0, 32, 32)];
+        [button setBackgroundColor:[UIColor orangeColor]];
+        [rightView addSubview:button];
+
+        button =[[UIButton alloc] initWithFrame:CGRectMake(32*3, 0, 32, 32)];
+        [button setBackgroundColor:[UIColor yellowColor]];
+        [rightView addSubview:button];
+
+        [annotationView setRightCalloutAccessoryView:rightView];
+        
+//        CGRect rect = annotationView.bounds;
+//        NSLog(@"x=%f y=%f h=%f w=%f",rect.origin.x,rect.origin.y,rect.size.height,rect.size.width);
+
+        // Avatar on left 孩子头像 BUG
         UIImageView *leftImageView = [[UIImageView alloc] initWithImage:((ChildrenMapAnnotation *)annotation).avatar];
+        CGFloat resizedWidth = 48;
+        CGFloat resizedHeight = 48;
+        leftImageView.frame = CGRectMake(0, 0, resizedWidth, resizedHeight);
+        leftImageView.center = leftImageView.superview.center;
+
         [annotationView setLeftCalloutAccessoryView:leftImageView];
-        
-        
-        
         return annotationView;
-        
-        
     }
-    
     return nil;
-  
 }
 
 # pragma mark set ChildMenuTVC Delegate before Segue
@@ -262,7 +393,7 @@
 }
 
 -(void)didFindishedSelectChildAtIndex:(int)index{
-    self.selectedChildIndex = index;
+    self.curChildIndex = index;
     [self updateScreenInfo];
 }
 
