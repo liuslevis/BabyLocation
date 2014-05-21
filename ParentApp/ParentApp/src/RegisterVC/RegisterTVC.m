@@ -32,6 +32,16 @@
     [super viewDidLoad];
     
     [self bindRegisterBtnColorUpdate];
+
+    // tap empty place to dismiss keyboard
+    UITapGestureRecognizer*tap =[[UITapGestureRecognizer alloc]                                        initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:tap];
+}
+
+-(void)dismissKeyboard {
+    [self.textPasswd resignFirstResponder];
+    [self.textEmail resignFirstResponder];
+    [self.textPhoneNo resignFirstResponder];
 }
 
 # pragma mark 注册按钮颜色更新逻辑

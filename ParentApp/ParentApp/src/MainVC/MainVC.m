@@ -8,6 +8,7 @@
 
 #import "MainVC.h"
 #import "ChildMenuTVC.h"
+#import "DavidlauUtils.h"
 
 @interface MainVC ()
 @property (weak, nonatomic) IBOutlet UIView *placeHolder;
@@ -175,6 +176,23 @@
     
 }
 
+// 按下某个孩子气泡的按钮：发送消息
+- (IBAction)pressSendMessage:(id)sender{
+    // TODO: find out which kid to send
+    [DavidlauUtils alertTitle:@"功能说明" message:@"发送语音，文字消息给孩子客户端" delegate:nil cancelBtn:@"取消" otherBtnName:nil];
+}
+
+// 按下某个孩子气泡的按钮：设定安全区域 超出则报警
+- (IBAction)pressSetSafetyArea:(id)sender{
+    // TODO: find out which kid to send
+    [DavidlauUtils alertTitle:@"功能说明" message:@"设定孩子的安全区域，如学校附近2km，超出则通知家长" delegate:nil cancelBtn:@"取消" otherBtnName:nil];
+}
+
+// 按下某个孩子气泡的按钮：设定报警方式
+- (IBAction)pressSetAlertMode:(id)sender{
+    // TODO: find out which kid to send
+    [DavidlauUtils alertTitle:@"功能说明" message:@"设置孩子离开安全区域后的报警方式：电话，电邮，短信等等" delegate:nil cancelBtn:@"取消" otherBtnName:nil];
+}
 // 按键事件：显示当前选中的小孩
 - (IBAction)pressShowCurrentChild:(id)sender {
     NSLog(@"pressShow:查看 %@ 的位置",[self curChildName]);
@@ -211,16 +229,41 @@
 // 下载并返回某人textName的历史轨迹
 // return: NSArray of CLLocation*
 - (NSArray *)downloadHistoryRouteOfChild:(int)childIndex{
-    NSString *url = [NSString stringWithFormat:URL_TRACK_REQ_WITH_NAME,[self childUidForIndex:childIndex]];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    NSError *error;
-    // TODO: change to Async
-    NSData *response = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    if (response==nil) {
-        NSLog(@"ERR: no echo from server when query history :%@",url);
+    NSData *child_track_data;
+    if (DAVIDDEBUG) {
+        // Demo Mode, just load data from txt
+        NSString *trackFileName = childIndex==0? @"DavidTrack" : @"XiaoKuiTrack";
+        
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:trackFileName ofType:@"txt"];
+        NSLog(@"Load From file %@", filePath);
+        NSData *myData = [NSData dataWithContentsOfFile:filePath];
+        if (myData) {
+            child_track_data = [NSData dataWithContentsOfFile:filePath];
+        }else{
+            NSLog(@"ERR: cant load Demo's track data");
+            return nil;
+        }
+
+        
+        
+    }else{
+        // Download Track Data From Server
+        NSString *url = [NSString stringWithFormat:URL_TRACK_REQ_WITH_NAME,[self childUidForIndex:childIndex]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        // TODO: change to Async
+        child_track_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        if (child_track_data==nil) {
+            NSLog(@"ERR: no echo from server when query history :%@",url);
+            return nil;
+        }
+    }
+    
+    if (child_track_data == nil){
+        NSLog(@"ERR: cant download/load child track data");
         return nil;
     }
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingMutableLeaves error:&error];
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:child_track_data options:NSJSONReadingMutableLeaves error:&error];
     
     NSArray *timeseq = [json objectForKey:@"timeseq"];
     NSArray *longseq = [json objectForKey:@"longseq"];
@@ -339,7 +382,7 @@
         // Cutom AnnotationView
         
         // Multiple UIButtons on right
-        int numOfButton = 4;
+        int numOfButton = 3;
         UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32*numOfButton, 32)];
 //        for (int i=0; i<numOfButton; i++){
 //            UIButton *button =[[UIButton alloc] initWithFrame:CGRectMake(32*i, 0, 32, 32)];
@@ -347,20 +390,24 @@
 //            [rightView addSubview:button];
 //        }
         UIButton *button =[[UIButton alloc] initWithFrame:CGRectMake(32*0, 0, 32, 32)];
-        [button setBackgroundColor:[UIColor redColor]];
+        if([UIImage imageNamed:@"message"])
+            [button setImage:[UIImage imageNamed:@"message"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(pressSendMessage:) forControlEvents:UIControlEventTouchDown];
         [rightView addSubview:button];
 
         button =[[UIButton alloc] initWithFrame:CGRectMake(32*1, 0, 32, 32)];
-        [button setBackgroundColor:[UIColor blueColor]];
+        if([UIImage imageNamed:@"location"])
+            [button setImage:[UIImage imageNamed:@"location"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(pressSetSafetyArea:) forControlEvents:UIControlEventTouchDown];
         [rightView addSubview:button];
 
         button =[[UIButton alloc] initWithFrame:CGRectMake(32*2, 0, 32, 32)];
-        [button setBackgroundColor:[UIColor orangeColor]];
+        if([UIImage imageNamed:@"notification"])
+            [button setImage:[UIImage imageNamed:@"notification"] forState:UIControlStateNormal];
+        [button addTarget:self action:@selector(pressSetAlertMode:) forControlEvents:UIControlEventTouchDown];
         [rightView addSubview:button];
 
-        button =[[UIButton alloc] initWithFrame:CGRectMake(32*3, 0, 32, 32)];
-        [button setBackgroundColor:[UIColor yellowColor]];
-        [rightView addSubview:button];
+
 
         [annotationView setRightCalloutAccessoryView:rightView];
         

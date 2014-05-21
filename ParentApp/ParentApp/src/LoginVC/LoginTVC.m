@@ -32,6 +32,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // tap empty place to dismiss keyboard (BUG: LOGIN not work appropriate)
+//    UITapGestureRecognizer*tap =[[UITapGestureRecognizer alloc]                                        initWithTarget:self action:@selector(dismissKeyboard)];
+//    [self.view addGestureRecognizer:tap];
+
     [self bindLoginBtnColorUpdate];
     
     // Fake account for Demo
@@ -41,6 +46,12 @@
         self.labelLogin.textColor = DEFAULT_TINT_COLOR;
     }
 }
+
+-(void)dismissKeyboard {
+    [self.textPasswd resignFirstResponder];
+    [self.textPhoneNo resignFirstResponder];
+}
+
 
 # pragma mark 登录按钮颜色
 - (void)loginColorChanged{
@@ -80,22 +91,31 @@
         if (DAVIDDEBUG) { // Demo without validate
             // Pop Main UI
             
-            // Init with deckVC
-            ChildList* childList = [[ChildList alloc] initWithNibName:nil bundle:nil];
-            [childList addButton];
-            [childList addButton];
-            MainPage* main = [[MainPage alloc] initWithNibName:nil bundle:nil];
-            UIViewController *centerController = main;
-            centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
-            IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centerController
-                                                                                            leftViewController:childList
-                                                                                           rightViewController:nil];
-            deckController.rightSize = 0;
-            //main.list = childList;
-            [main setList:childList];
-            [deckController disablePanOverViewsOfClass:NSClassFromString(@"_UITableViewHeaderFooterContentView")];
+            // Init with deckVC 不能用
+//            ChildList* childList = [[ChildList alloc] initWithNibName:nil bundle:nil];
+//            [childList addButton];
+//            [childList addButton];
+//            MainPage* main = [[MainPage alloc] initWithNibName:nil bundle:nil];
+//            UIViewController *centerController = main;
+//            centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
+//            IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centerController
+//                                                                                            leftViewController:childList
+//                                                                                           rightViewController:nil];
+//            deckController.rightSize = 0;
+//            //main.list = childList;
+//            [main setList:childList];
+//            [deckController disablePanOverViewsOfClass:NSClassFromString(@"_UITableViewHeaderFooterContentView")];
+//
+//            [self presentViewController:deckController animated:YES completion:nil];
+            
+            // Init With Storyboard
+            UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
+            if (mainStoryboad){
+                [self presentViewController:[mainStoryboad instantiateInitialViewController]
+                               animated:YES
+                             completion:nil];
+            }
 
-            [self presentViewController:deckController animated:YES completion:nil];
             
         }else{// 符合条件 异步联网确认帐号
             // TODO: fill login Logic

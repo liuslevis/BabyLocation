@@ -11,13 +11,16 @@
 		040D8D6E190E9C1D0048D231 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6D190E9C1D0048D231 /* CoreGraphics.framework */; };
 		040D8D70190E9C1D0048D231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6F190E9C1D0048D231 /* UIKit.framework */; };
 		040D8D76190E9C1D0048D231 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D74190E9C1D0048D231 /* InfoPlist.strings */; };
-		040D8D7F190E9C1D0048D231 /* Login_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D7D190E9C1D0048D231 /* Login_iPhone.storyboard */; };
 		040D8D87190E9C1D0048D231 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D86190E9C1D0048D231 /* Images.xcassets */; };
 		040D8D8E190E9C1D0048D231 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D8D190E9C1D0048D231 /* XCTest.framework */; };
 		040D8D8F190E9C1D0048D231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6B190E9C1D0048D231 /* Foundation.framework */; };
 		040D8D90190E9C1D0048D231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6F190E9C1D0048D231 /* UIKit.framework */; };
 		040D8D98190E9C1D0048D231 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D96190E9C1D0048D231 /* InfoPlist.strings */; };
 		040D8D9A190E9C1D0048D231 /* ParentAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D8D99190E9C1D0048D231 /* ParentAppTests.m */; };
+		041819B419209C6800D5288A /* DavidTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B219209C6800D5288A /* DavidTrack.txt */; };
+		041819B519209C6800D5288A /* XiaoKuiTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B319209C6800D5288A /* XiaoKuiTrack.txt */; };
+		041819B71920A30E00D5288A /* Login_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B61920A30E00D5288A /* Login_iPhone.storyboard */; };
+		041819B91920A35000D5288A /* MainAndSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B81920A35000D5288A /* MainAndSettings.storyboard */; };
 		044213F2191A11EA00E98D2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EB191A11EA00E98D2D /* main.m */; };
 		044213F3191A11EA00E98D2D /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213ED191A11EA00E98D2D /* MainAppDelegate.m */; };
 		044213F4191A11EA00E98D2D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EF191A11EA00E98D2D /* MainViewController.m */; };
@@ -43,11 +46,15 @@
 		0442149C191A1E1700E98D2D /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421490191A1E1700E98D2D /* split.c */; };
 		0442149D191A1E1700E98D2D /* QRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421493191A1E1700E98D2D /* QRTest.m */; };
 		0442149E191A1E1700E98D2D /* QRTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421494191A1E1700E98D2D /* QRTest.xib */; };
-		0493F050191CB5A600D36A42 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0493F04F191CB5A600D36A42 /* Setting.storyboard */; };
+		0493F050191CB5A600D36A42 /* MainAndSettings_Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */; };
 		0493F05A191CC05700D36A42 /* AddFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F059191CC05700D36A42 /* AddFriendVC.m */; };
 		0493F05D191CCCC800D36A42 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F05C191CCCC800D36A42 /* MainVC.m */; };
 		0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */; };
 		049E3FC4191F59A200E1A4D9 /* LocationAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E3FC3191F59A200E1A4D9 /* LocationAPI.m */; };
+		04CD3E3C1920AAB80042BE90 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E391920AAB80042BE90 /* location.png */; };
+		04CD3E3D1920AAB80042BE90 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3A1920AAB80042BE90 /* message.png */; };
+		04CD3E3E1920AAB80042BE90 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3B1920AAB80042BE90 /* notification.png */; };
+		04CD3E401920B1AA0042BE90 /* screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3F1920B1A90042BE90 /* screenShot.png */; };
 		04D0C957191E5592005738E8 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C955191E5592005738E8 /* boy.png */; };
 		04D0C958191E5592005738E8 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C956191E5592005738E8 /* girl.png */; };
 		04FDB3A8191DF60D007336F5 /* ChildMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDB3A7191DF60D007336F5 /* ChildMenuTVC.m */; };
@@ -69,13 +76,16 @@
 		040D8D6D190E9C1D0048D231 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		040D8D6F190E9C1D0048D231 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		040D8D75190E9C1D0048D231 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		040D8D7E190E9C1D0048D231 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login_iPhone.storyboard; sourceTree = "<group>"; };
 		040D8D86190E9C1D0048D231 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		040D8D8C190E9C1D0048D231 /* ParentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		040D8D8D190E9C1D0048D231 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		040D8D95190E9C1D0048D231 /* ParentAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ParentAppTests-Info.plist"; sourceTree = "<group>"; };
 		040D8D97190E9C1D0048D231 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		040D8D99190E9C1D0048D231 /* ParentAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParentAppTests.m; sourceTree = "<group>"; };
+		041819B219209C6800D5288A /* DavidTrack.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DavidTrack.txt; sourceTree = "<group>"; };
+		041819B319209C6800D5288A /* XiaoKuiTrack.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XiaoKuiTrack.txt; sourceTree = "<group>"; };
+		041819B61920A30E00D5288A /* Login_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login_iPhone.storyboard; sourceTree = "<group>"; };
+		041819B81920A35000D5288A /* MainAndSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainAndSettings.storyboard; sourceTree = "<group>"; };
 		044213EB191A11EA00E98D2D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		044213EC191A11EA00E98D2D /* MainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainAppDelegate.h; path = "Supporting Files/MainAppDelegate.h"; sourceTree = "<group>"; };
 		044213ED191A11EA00E98D2D /* MainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainAppDelegate.m; path = "Supporting Files/MainAppDelegate.m"; sourceTree = "<group>"; };
@@ -123,7 +133,7 @@
 		04421492191A1E1700E98D2D /* QRTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRTest.h; sourceTree = "<group>"; };
 		04421493191A1E1700E98D2D /* QRTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRTest.m; sourceTree = "<group>"; };
 		04421494191A1E1700E98D2D /* QRTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRTest.xib; sourceTree = "<group>"; };
-		0493F04F191CB5A600D36A42 /* Setting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainAndSettings_Demo.storyboard; sourceTree = "<group>"; };
 		0493F058191CC05700D36A42 /* AddFriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendVC.h; sourceTree = "<group>"; };
 		0493F059191CC05700D36A42 /* AddFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendVC.m; sourceTree = "<group>"; };
 		0493F05B191CCCC800D36A42 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
@@ -132,6 +142,10 @@
 		0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenMapAnnotation.m; sourceTree = "<group>"; };
 		049E3FC2191F59A200E1A4D9 /* LocationAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAPI.h; sourceTree = "<group>"; };
 		049E3FC3191F59A200E1A4D9 /* LocationAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAPI.m; sourceTree = "<group>"; };
+		04CD3E391920AAB80042BE90 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		04CD3E3A1920AAB80042BE90 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
+		04CD3E3B1920AAB80042BE90 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
+		04CD3E3F1920B1A90042BE90 /* screenShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = screenShot.png; sourceTree = "<group>"; };
 		04D0C955191E5592005738E8 /* boy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = boy.png; sourceTree = "<group>"; };
 		04D0C956191E5592005738E8 /* girl.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = girl.png; sourceTree = "<group>"; };
 		04FDB3A6191DF60D007336F5 /* ChildMenuTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildMenuTVC.h; sourceTree = "<group>"; };
@@ -196,9 +210,11 @@
 		040D8D71190E9C1D0048D231 /* ParentApp */ = {
 			isa = PBXGroup;
 			children = (
+				041819B119209C6800D5288A /* DemoData */,
 				04FDB3A2191DF5D2007336F5 /* ChildMenu */,
-				040D8D7D190E9C1D0048D231 /* Login_iPhone.storyboard */,
-				0493F04F191CB5A600D36A42 /* Setting.storyboard */,
+				0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */,
+				041819B81920A35000D5288A /* MainAndSettings.storyboard */,
+				041819B61920A30E00D5288A /* Login_iPhone.storyboard */,
 				0442144D191A1D8700E98D2D /* ViewDeck */,
 				0493F062191D03CC00D36A42 /* OtherVC */,
 				0493F054191CBFD600D36A42 /* AddFriendVC */,
@@ -216,6 +232,7 @@
 		040D8D72190E9C1D0048D231 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04CD3E381920AAB80042BE90 /* Icons */,
 				04FDB3AA191E1262007336F5 /* ChildrenAvartars */,
 				04421480191A1E1700E98D2D /* QRSupport */,
 				040D8D86190E9C1D0048D231 /* Images.xcassets */,
@@ -247,6 +264,16 @@
 				040D8D96190E9C1D0048D231 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		041819B119209C6800D5288A /* DemoData */ = {
+			isa = PBXGroup;
+			children = (
+				041819B219209C6800D5288A /* DavidTrack.txt */,
+				041819B319209C6800D5288A /* XiaoKuiTrack.txt */,
+			);
+			name = DemoData;
+			path = src/DemoData;
 			sourceTree = "<group>";
 		};
 		0442140A191A129500E98D2D /* DavidlauUtils */ = {
@@ -376,6 +403,18 @@
 			path = src/OtherVC;
 			sourceTree = "<group>";
 		};
+		04CD3E381920AAB80042BE90 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				04CD3E3F1920B1A90042BE90 /* screenShot.png */,
+				04CD3E391920AAB80042BE90 /* location.png */,
+				04CD3E3A1920AAB80042BE90 /* message.png */,
+				04CD3E3B1920AAB80042BE90 /* notification.png */,
+			);
+			name = Icons;
+			path = src/Icons;
+			sourceTree = "<group>";
+		};
 		04FDB3A2191DF5D2007336F5 /* ChildMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,15 +514,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				04421455191A1D8700E98D2D /* ChildList.xib in Resources */,
+				041819B71920A30E00D5288A /* Login_iPhone.storyboard in Resources */,
+				04CD3E401920B1AA0042BE90 /* screenShot.png in Resources */,
+				041819B519209C6800D5288A /* XiaoKuiTrack.txt in Resources */,
 				04D0C958191E5592005738E8 /* girl.png in Resources */,
+				04CD3E3C1920AAB80042BE90 /* location.png in Resources */,
 				04421457191A1D8700E98D2D /* MainPage.xib in Resources */,
+				041819B419209C6800D5288A /* DavidTrack.txt in Resources */,
 				040D8D87190E9C1D0048D231 /* Images.xcassets in Resources */,
-				040D8D7F190E9C1D0048D231 /* Login_iPhone.storyboard in Resources */,
 				0442149E191A1E1700E98D2D /* QRTest.xib in Resources */,
+				041819B91920A35000D5288A /* MainAndSettings.storyboard in Resources */,
+				04CD3E3E1920AAB80042BE90 /* notification.png in Resources */,
 				04421408191A125100E98D2D /* ParentApp-Info.plist in Resources */,
 				04D0C957191E5592005738E8 /* boy.png in Resources */,
 				040D8D76190E9C1D0048D231 /* InfoPlist.strings in Resources */,
-				0493F050191CB5A600D36A42 /* Setting.storyboard in Resources */,
+				0493F050191CB5A600D36A42 /* MainAndSettings_Demo.storyboard in Resources */,
+				04CD3E3D1920AAB80042BE90 /* message.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,14 +602,6 @@
 				040D8D75190E9C1D0048D231 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		040D8D7D190E9C1D0048D231 /* Login_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				040D8D7E190E9C1D0048D231 /* Base */,
-			);
-			name = Login_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		040D8D96190E9C1D0048D231 /* InfoPlist.strings */ = {
