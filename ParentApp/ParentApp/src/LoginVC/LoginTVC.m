@@ -11,8 +11,10 @@
 #import "MainPage.h"
 #import "IIViewDeckController.h"
 #import "ChildList.h"
+#import "UserAuthAPI.h"
 
 @interface LoginTVC ()
+@property (strong, nonatomic)  NSString *uid;
 @property (weak, nonatomic) IBOutlet UITextField *textPhoneNo;
 @property (weak, nonatomic) IBOutlet UITextField *textPasswd;
 @property (weak, nonatomic) IBOutlet UILabel *labelLogin;
@@ -33,16 +35,32 @@
 {
     [super viewDidLoad];
     
+    // 检查UserDefault是否有登录记录，有则直接验证，进入主界面
+    NSString *savedUid = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:APP_USER_UID_KEY];
+    NSString *savedMd5 = [[NSUserDefaults standardUserDefaults]
+                          stringForKey:APP_USER_PASSWD_KEY];
+    NSLog(@"check userdefault:%@ %@",savedUid, savedMd5);
+    if ([UserAuthAPI verifyUid:savedUid passwdMd5:savedMd5]) {
+        // 跳转到主界面
+        UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
+        if (mainStoryboad){
+            [self presentViewController:[mainStoryboad instantiateInitialViewController]
+                               animated:YES
+                             completion:nil];
+        }
+    }
+    
     // tap empty place to dismiss keyboard (BUG: LOGIN not work appropriate)
 //    UITapGestureRecognizer*tap =[[UITapGestureRecognizer alloc]                                        initWithTarget:self action:@selector(dismissKeyboard)];
 //    [self.view addGestureRecognizer:tap];
 
     [self bindLoginBtnColorUpdate];
     
-    // Fake account for Demo
-    if (DAVIDDEBUG) {
-        self.textPhoneNo.text = @"132123456789";
-        self.textPasswd.text  = @"123456";
+    // Demo account for Demo
+    if (DEMO_MODE) {
+        self.textPhoneNo.text = DEMO_USER_1_PHONE;
+        self.textPasswd.text  = DEMO_USER_1_PASS;
         self.labelLogin.textColor = DEFAULT_TINT_COLOR;
     }
 }
@@ -88,7 +106,8 @@
         
 
         # pragma mark 跳转到主界面
-        if (DAVIDDEBUG) { // Demo without validate
+        if (LOGIN_WITHOUT_VERIFY) {
+            // Demo without validate
             // Pop Main UI
             
             // Init with deckVC 不能用
@@ -117,22 +136,42 @@
             }
 
             
-        }else{// 符合条件 异步联网确认帐号
-            // TODO: fill login Logic
-            [DavidlauUtils alertTitle:@"提示" message:@"正在登录" delegate:nil cancelBtn:@"取消" otherBtnName:nil];
+        }else{// 联网确认帐号密码
+            self.uid = self.textPhoneNo.text;
+            // TODO:添加阻塞动画
+            BOOL valid_user_info = [UserAuthAPI verifyUid:self.uid passwdMd5:[self.textPasswd.text md5]];
+            
+            if (valid_user_info==YES){
+                //成功登录，保存用户信息到NSUserDefault并跳转
+                NSString *valueToSave = self.uid;
+                [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:APP_USER_UID_KEY];
+                valueToSave = [self.textPasswd.text md5];
+                [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:APP_USER_PASSWD_KEY];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                // 跳转到主界面
+                UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
+                if (mainStoryboad){
+                    [self presentViewController:[mainStoryboad instantiateInitialViewController]
+                                       animated:YES
+                                     completion:nil];
+                }
+            }else{
+                [DavidlauUtils alertTitle:@"登录失败" message:@"用户名或密码错误" delegate:self cancelBtn:@"取消" otherBtnName:nil];
+            }
         }
     }
-
 }
 
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"Login other pressed!");
+
     if (LOGIN_BTN_ROW==indexPath.row && LOGIN_BTN_SECTION==indexPath.section) {
         NSLog(@"Login pressed!");
         [self pressLogin];
-    } 
+    }
 }
 
 

@@ -27,7 +27,6 @@
 		04421408191A125100E98D2D /* ParentApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04421406191A125100E98D2D /* ParentApp-Info.plist */; };
 		04421416191A129500E98D2D /* DavidlauUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140C191A129500E98D2D /* DavidlauUtils.m */; };
 		04421417191A129500E98D2D /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140F191A129500E98D2D /* LoginTVC.m */; };
-		04421418191A129500E98D2D /* RegisterTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421412191A129500E98D2D /* RegisterTVC.m */; };
 		04421419191A129500E98D2D /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421415191A129500E98D2D /* WelcomeVC.m */; };
 		04421454191A1D8700E98D2D /* ChildList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421448191A1D8700E98D2D /* ChildList.m */; };
 		04421455191A1D8700E98D2D /* ChildList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421449191A1D8700E98D2D /* ChildList.xib */; };
@@ -46,11 +45,13 @@
 		0442149C191A1E1700E98D2D /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421490191A1E1700E98D2D /* split.c */; };
 		0442149D191A1E1700E98D2D /* QRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421493191A1E1700E98D2D /* QRTest.m */; };
 		0442149E191A1E1700E98D2D /* QRTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421494191A1E1700E98D2D /* QRTest.xib */; };
+		0487BF8B192F6EBC009E9D4A /* UserAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */; };
+		0487BF90192F7CD8009E9D4A /* SignUpTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8F192F7CD8009E9D4A /* SignUpTVC.m */; };
+		0487BF94192FB3C0009E9D4A /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF93192FB3C0009E9D4A /* SettingsTVC.m */; };
 		0493F050191CB5A600D36A42 /* MainAndSettings_Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */; };
 		0493F05A191CC05700D36A42 /* AddFriendVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F059191CC05700D36A42 /* AddFriendVC.m */; };
 		0493F05D191CCCC800D36A42 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F05C191CCCC800D36A42 /* MainVC.m */; };
 		0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */; };
-		049E3FC4191F59A200E1A4D9 /* LocationAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E3FC3191F59A200E1A4D9 /* LocationAPI.m */; };
 		04CD3E3C1920AAB80042BE90 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E391920AAB80042BE90 /* location.png */; };
 		04CD3E3D1920AAB80042BE90 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3A1920AAB80042BE90 /* message.png */; };
 		04CD3E3E1920AAB80042BE90 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3B1920AAB80042BE90 /* notification.png */; };
@@ -98,8 +99,6 @@
 		0442140C191A129500E98D2D /* DavidlauUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DavidlauUtils.m; sourceTree = "<group>"; };
 		0442140E191A129500E98D2D /* LoginTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginTVC.h; sourceTree = "<group>"; };
 		0442140F191A129500E98D2D /* LoginTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginTVC.m; sourceTree = "<group>"; };
-		04421411191A129500E98D2D /* RegisterTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterTVC.h; sourceTree = "<group>"; };
-		04421412191A129500E98D2D /* RegisterTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterTVC.m; sourceTree = "<group>"; };
 		04421414191A129500E98D2D /* WelcomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeVC.h; sourceTree = "<group>"; };
 		04421415191A129500E98D2D /* WelcomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeVC.m; sourceTree = "<group>"; };
 		04421447191A1D8700E98D2D /* ChildList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChildList.h; path = ../MainVC/ChildList.h; sourceTree = "<group>"; };
@@ -133,6 +132,13 @@
 		04421492191A1E1700E98D2D /* QRTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRTest.h; sourceTree = "<group>"; };
 		04421493191A1E1700E98D2D /* QRTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRTest.m; sourceTree = "<group>"; };
 		04421494191A1E1700E98D2D /* QRTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRTest.xib; sourceTree = "<group>"; };
+		0487BF89192F6EBC009E9D4A /* UserAuthAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAuthAPI.h; sourceTree = "<group>"; };
+		0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAuthAPI.m; sourceTree = "<group>"; };
+		0487BF8C192F7468009E9D4A /* APIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIDefine.h; path = ParentApp/src/RESTfulAPI/APIDefine.h; sourceTree = SOURCE_ROOT; };
+		0487BF8E192F7CD8009E9D4A /* SignUpTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpTVC.h; sourceTree = "<group>"; };
+		0487BF8F192F7CD8009E9D4A /* SignUpTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpTVC.m; sourceTree = "<group>"; };
+		0487BF92192FB3C0009E9D4A /* SettingsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTVC.h; sourceTree = "<group>"; };
+		0487BF93192FB3C0009E9D4A /* SettingsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTVC.m; sourceTree = "<group>"; };
 		0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainAndSettings_Demo.storyboard; sourceTree = "<group>"; };
 		0493F058191CC05700D36A42 /* AddFriendVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendVC.h; sourceTree = "<group>"; };
 		0493F059191CC05700D36A42 /* AddFriendVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendVC.m; sourceTree = "<group>"; };
@@ -140,8 +146,6 @@
 		0493F05C191CCCC800D36A42 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		0493F063191D131500D36A42 /* ChildrenMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildrenMapAnnotation.h; sourceTree = "<group>"; };
 		0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenMapAnnotation.m; sourceTree = "<group>"; };
-		049E3FC2191F59A200E1A4D9 /* LocationAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationAPI.h; sourceTree = "<group>"; };
-		049E3FC3191F59A200E1A4D9 /* LocationAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationAPI.m; sourceTree = "<group>"; };
 		04CD3E391920AAB80042BE90 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		04CD3E3A1920AAB80042BE90 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		04CD3E3B1920AAB80042BE90 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
@@ -210,6 +214,9 @@
 		040D8D71190E9C1D0048D231 /* ParentApp */ = {
 			isa = PBXGroup;
 			children = (
+				0487BF91192FB3A5009E9D4A /* SettingsTVC */,
+				04421409191A129500E98D2D /* AppConstants.h */,
+				0487BF88192F6EAE009E9D4A /* RESTfulAPI */,
 				041819B119209C6800D5288A /* DemoData */,
 				04FDB3A2191DF5D2007336F5 /* ChildMenu */,
 				0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */,
@@ -219,10 +226,9 @@
 				0493F062191D03CC00D36A42 /* OtherVC */,
 				0493F054191CBFD600D36A42 /* AddFriendVC */,
 				04421446191A1D8700E98D2D /* MainVC */,
-				04421409191A129500E98D2D /* AppConstants.h */,
 				0442140A191A129500E98D2D /* DavidlauUtils */,
+				0487BF8D192F7CD8009E9D4A /* SignUpVC */,
 				0442140D191A129500E98D2D /* LoginVC */,
-				04421410191A129500E98D2D /* RegisterVC */,
 				04421413191A129500E98D2D /* WelcomeVC */,
 				040D8D72190E9C1D0048D231 /* Supporting Files */,
 			);
@@ -296,16 +302,6 @@
 			path = src/LoginVC;
 			sourceTree = "<group>";
 		};
-		04421410191A129500E98D2D /* RegisterVC */ = {
-			isa = PBXGroup;
-			children = (
-				04421411191A129500E98D2D /* RegisterTVC.h */,
-				04421412191A129500E98D2D /* RegisterTVC.m */,
-			);
-			name = RegisterVC;
-			path = src/RegisterVC;
-			sourceTree = "<group>";
-		};
 		04421413191A129500E98D2D /* WelcomeVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,8 +319,6 @@
 				0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */,
 				0493F05B191CCCC800D36A42 /* MainVC.h */,
 				0493F05C191CCCC800D36A42 /* MainVC.m */,
-				049E3FC2191F59A200E1A4D9 /* LocationAPI.h */,
-				049E3FC3191F59A200E1A4D9 /* LocationAPI.m */,
 			);
 			name = MainVC;
 			path = src/MainVC;
@@ -377,6 +371,37 @@
 				04421491191A1E1700E98D2D /* split.h */,
 			);
 			path = libqrencode;
+			sourceTree = "<group>";
+		};
+		0487BF88192F6EAE009E9D4A /* RESTfulAPI */ = {
+			isa = PBXGroup;
+			children = (
+				0487BF89192F6EBC009E9D4A /* UserAuthAPI.h */,
+				0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */,
+				0487BF8C192F7468009E9D4A /* APIDefine.h */,
+			);
+			name = RESTfulAPI;
+			path = src/RestfulAPI;
+			sourceTree = "<group>";
+		};
+		0487BF8D192F7CD8009E9D4A /* SignUpVC */ = {
+			isa = PBXGroup;
+			children = (
+				0487BF8E192F7CD8009E9D4A /* SignUpTVC.h */,
+				0487BF8F192F7CD8009E9D4A /* SignUpTVC.m */,
+			);
+			name = SignUpVC;
+			path = src/SignUpVC;
+			sourceTree = "<group>";
+		};
+		0487BF91192FB3A5009E9D4A /* SettingsTVC */ = {
+			isa = PBXGroup;
+			children = (
+				0487BF92192FB3C0009E9D4A /* SettingsTVC.h */,
+				0487BF93192FB3C0009E9D4A /* SettingsTVC.m */,
+			);
+			name = SettingsTVC;
+			path = src/SettingsTVC;
 			sourceTree = "<group>";
 		};
 		0493F054191CBFD600D36A42 /* AddFriendVC */ = {
@@ -549,22 +574,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FDB3A8191DF60D007336F5 /* ChildMenuTVC.m in Sources */,
-				04421418191A129500E98D2D /* RegisterTVC.m in Sources */,
+				0487BF90192F7CD8009E9D4A /* SignUpTVC.m in Sources */,
 				0442149A191A1E1700E98D2D /* qrspec.c in Sources */,
 				04421459191A1D8700E98D2D /* IIViewDeckController.m in Sources */,
 				0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */,
-				049E3FC4191F59A200E1A4D9 /* LocationAPI.m in Sources */,
 				044213F4191A11EA00E98D2D /* MainViewController.m in Sources */,
 				04421419191A129500E98D2D /* WelcomeVC.m in Sources */,
 				04421417191A129500E98D2D /* LoginTVC.m in Sources */,
 				04421497191A1E1700E98D2D /* QRCodeGenerator.m in Sources */,
 				04421495191A1E1700E98D2D /* bitstream.c in Sources */,
 				0442149C191A1E1700E98D2D /* split.c in Sources */,
+				0487BF94192FB3C0009E9D4A /* SettingsTVC.m in Sources */,
 				0442145A191A1D8700E98D2D /* IIWrapController.m in Sources */,
 				0493F05A191CC05700D36A42 /* AddFriendVC.m in Sources */,
 				04421458191A1D8700E98D2D /* IISideController.m in Sources */,
 				04421416191A129500E98D2D /* DavidlauUtils.m in Sources */,
 				044213F3191A11EA00E98D2D /* MainAppDelegate.m in Sources */,
+				0487BF8B192F6EBC009E9D4A /* UserAuthAPI.m in Sources */,
 				0442149D191A1E1700E98D2D /* QRTest.m in Sources */,
 				04421456191A1D8700E98D2D /* MainPage.m in Sources */,
 				04421498191A1E1700E98D2D /* qrencode.c in Sources */,

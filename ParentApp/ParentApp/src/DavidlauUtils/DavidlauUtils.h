@@ -36,3 +36,12 @@
 + (BOOL)isPhoneNumber:(NSString *)text;
 + (BOOL)isPasswd:(NSString *)text;
 @end
+
+#pragma mark add md5 method to NSData & NSString
+@interface NSString (DavidlauUtils)
+- (NSString *)md5;
+@end
+
+@interface NSData (DavidlauUtils)
+- (NSString*)md5;
+@end

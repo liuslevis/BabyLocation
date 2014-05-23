@@ -17,66 +17,11 @@ DATE_TIME_FORMAT = "%Y-%m-%d-%H:%M:%S"
 app = flask.Flask(__name__)
 app.debug = True
 
-@app.route('/signup/<uid>/<passwd>/<phone>/<name>/<email>/<uuid>',methods=['GET'])
-def signup(uid, passwd, phone, name, email, uuid):
-    info = "query:GET /signup/%s/%s/%s/%s/%s/%s"%(uid, passwd, phone, name, email, uuid)
-    print info
-    r = getRedis()
-
-    # check if has register
-    userkeys = r.hkeys( "user:%s"%str(uid) )
-    if userkeys!=None and len(userkeys)>0:
-        # uid already occupied
-        print "    ERR:uid already occupied" 
-        return jsonify(result="uid occupied")
-    else:
-        # uid available  
-
-        base = "user:%s" % str(uid)
-
-        result = r.hmset(base, \
-            { \
-            "uid"     :uid , \
-            "passwd"  :passwd , \
-            "phone"   :phone , \
-            "name"    :name , \
-            "email"   :email ,\
-            "uuid"    :uuid \
-            })
-
-        if result == True:
-            print " Sign up Success!"
-            return jsonify(result="sign up success")
-        else:
-            print " Sign up Failed!"
-            return jsonify(result="sign up")
-
-@app.route('/login/<uid>/<passwd>',methods=['GET'])
-def login(uid, passwd):
-    info = "query:GET /login/%s/%s"%(uid, passwd)
-    print info
-    r = getRedis()
-
-    # check if has register
-    userkeys = r.hkeys( "user:%s"%str(uid) )
-    if userkeys!=None and len(userkeys)>0:
-        # has uid
-        realpass = r.hget('user:%s'%uid, 'passwd')
-        print "real:%s try:%s"%(realpass,passwd)
-
-        if(realpass!=None):
-            if(realpass==passwd):
-                print "   login sucess!"
-                return jsonify(result="login success")
-            else:
-                print "   login failed: incorrect passwd !"
-                return jsonify(result="incorrect passwd")
-        else:
-            print "   ERR:!! login failed: has uid, no passwd"
-            return jsonify(result="has uid, no passwd record")
-
-    print "  login failed: no such uid"
-    return jsonify(result="no such uid")
+@app.route('/location/<content>',methods=['GET', 'POST'])
+def location(content):
+    str = "a query: /location/"+content
+    print str
+    return str  
 
 # Baby App Update a Location
 @app.route('/baby/<uid>/lat/<latitude>/long/<longitude>',methods=['GET'])
@@ -98,7 +43,7 @@ def updatetrack(uid,latitude,longitude):
     r = getRedis()
     r.rpush(key,value)
 
-    info = 'query:UPDATE a baby  @(%s,%s,%s)'%(uid,latitude,longitude) + ' Redis: RPUSH(%s,%s)'%(key,value)
+    info = 'UPDATE: a baby  @(%s,%s,%s)'%(uid,latitude,longitude) + ' Redis: RPUSH(%s,%s)'%(key,value)
     return info  
 
 # Parent App Query a track of baby
@@ -121,7 +66,7 @@ def querytrack(uid):
 
     # Return in JSON
     json = jsonify(timeseq=timeseq,latseq=latseq,longseq=longseq)
-    info =  'quert:GET track of @%s. %d record found.'%(uid,len(timeseq))
+    info =  'QUERY: track of @%s. %d record found.'%(uid,len(timeseq))
     print info
     return json
 

@@ -15,7 +15,7 @@
                         <sections>
                             <tableViewSection headerTitle="已有帐号" footerTitle=" " id="aCu-FB-usV">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell" textLabel="FgC-cV-RpO" style="IBUITableViewCellStyleDefault" id="Svt-OX-1Gn">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell Phone No" textLabel="FgC-cV-RpO" style="IBUITableViewCellStyleDefault" id="Svt-OX-1Gn">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Svt-OX-1Gn" id="AZV-hQ-xZ0">
@@ -38,7 +38,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell" textLabel="RLd-mG-WMI" style="IBUITableViewCellStyleDefault" id="EyL-dj-wSR">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell Passwd" textLabel="RLd-mG-WMI" style="IBUITableViewCellStyleDefault" id="EyL-dj-wSR">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EyL-dj-wSR" id="bTO-Fg-Phd">
@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="1119" y="-42"/>
         </scene>
-        <!--RegisterTVC - 注册-->
+        <!--Sign UpTVC - 注册-->
         <scene sceneID="iLM-g4-aIP">
             <objects>
-                <tableViewController id="gah-DN-TM6" customClass="RegisterTVC" sceneMemberID="viewController">
+                <tableViewController id="gah-DN-TM6" customClass="SignUpTVC" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="kaf-ne-fnT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,21 +142,21 @@
                         <sections>
                             <tableViewSection headerTitle=" " footerTitle=" " id="quh-JR-DqD">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell" textLabel="tHI-Kf-8kD" style="IBUITableViewCellStyleDefault" id="AWA-7W-IHu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Signup Info Cell Phone No" textLabel="kFe-Gp-nZa" style="IBUITableViewCellStyleDefault" id="Hf8-nZ-LmS">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AWA-7W-IHu" id="x7o-Mw-faR">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hf8-nZ-LmS" id="Car-ii-GyT">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tHI-Kf-8kD">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="手机" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kFe-Gp-nZa">
                                                     <rect key="frame" x="15" y="0.0" width="290" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="left" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="突发情况出现可及时联系您" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zlk-za-S09">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="left" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="突发情况可及时联系您" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9Ye-IL-502">
                                                     <rect key="frame" x="78" y="7" width="205" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -165,7 +165,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell" textLabel="lrk-eY-L3w" style="IBUITableViewCellStyleDefault" id="emm-GG-OD8">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Signup Info Cell Passwd" textLabel="lrk-eY-L3w" style="IBUITableViewCellStyleDefault" id="emm-GG-OD8">
                                         <rect key="frame" x="0.0" y="130" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emm-GG-OD8" id="mOM-I7-xt2">
@@ -188,8 +188,31 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell" textLabel="b1I-WA-QtR" style="IBUITableViewCellStyleDefault" id="5WR-8i-TCi">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Signup Info Cell Name" textLabel="tHI-Kf-8kD" style="IBUITableViewCellStyleDefault" id="AWA-7W-IHu">
                                         <rect key="frame" x="0.0" y="174" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AWA-7W-IHu" id="x7o-Mw-faR">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="名字" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tHI-Kf-8kD">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="left" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="如老赵" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zlk-za-S09">
+                                                    <rect key="frame" x="78" y="7" width="205" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Signup Info Cell Email" textLabel="b1I-WA-QtR" style="IBUITableViewCellStyleDefault" id="5WR-8i-TCi">
+                                        <rect key="frame" x="0.0" y="218" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5WR-8i-TCi" id="7i8-aW-BK4">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -215,8 +238,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " footerTitle=" " id="5gB-LX-w7v" userLabel="Table View Section -">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Login Info Cell" textLabel="esY-9S-I7V" style="IBUITableViewCellStyleDefault" id="dVk-QJ-dBq">
-                                        <rect key="frame" x="0.0" y="262" width="320" height="44"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="Signup Info Cell Login" textLabel="esY-9S-I7V" style="IBUITableViewCellStyleDefault" id="dVk-QJ-dBq">
+                                        <rect key="frame" x="0.0" y="306" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dVk-QJ-dBq" id="YBr-Ou-JYm">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -246,8 +269,9 @@
                     <connections>
                         <outlet property="labelRegister" destination="esY-9S-I7V" id="BNE-Eg-we1"/>
                         <outlet property="textEmail" destination="bf1-P7-YFR" id="Wij-kv-CUZ"/>
+                        <outlet property="textName" destination="zlk-za-S09" id="ck9-Wh-hcj"/>
                         <outlet property="textPasswd" destination="JW1-Ln-rrR" id="Wt8-Pt-PT3"/>
-                        <outlet property="textPhoneNo" destination="zlk-za-S09" id="u1W-63-iBF"/>
+                        <outlet property="textPhoneNo" destination="9Ye-IL-502" id="KPM-2w-5d2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mij-83-ac4" userLabel="First Responder" sceneMemberID="firstResponder"/>

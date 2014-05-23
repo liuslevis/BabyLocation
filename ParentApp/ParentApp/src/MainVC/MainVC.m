@@ -9,6 +9,7 @@
 #import "MainVC.h"
 #import "ChildMenuTVC.h"
 #import "DavidlauUtils.h"
+#import "APIDefine.h"
 
 @interface MainVC ()
 @property (weak, nonatomic) IBOutlet UIView *placeHolder;
@@ -114,7 +115,7 @@
     [super viewDidLoad];
     self.mapView.delegate = self;
     
-    if (DAVIDDEBUG){
+    if (DEMO_MODE){
         // 演示使用：直接设置孩子列表
         self.childUidList = [NSArray arrayWithObjects: @"XiaoKui",@"David",nil];
         self.childNameList = [NSArray arrayWithObjects: @"小葵",@"小新",nil];
@@ -230,7 +231,7 @@
 // return: NSArray of CLLocation*
 - (NSArray *)downloadHistoryRouteOfChild:(int)childIndex{
     NSData *child_track_data;
-    if (DAVIDDEBUG) {
+    if (DEMO_MODE) {
         // Demo Mode, just load data from txt
         NSString *trackFileName = childIndex==0? @"DavidTrack" : @"XiaoKuiTrack";
         

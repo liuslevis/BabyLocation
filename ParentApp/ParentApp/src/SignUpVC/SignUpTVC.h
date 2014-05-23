@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppConstants.h"
 #import "DavidlauUtils.h"
-@interface RegisterTVC : UITableViewController
+
+@interface SignUpTVC : UITableViewController
 
 @end
