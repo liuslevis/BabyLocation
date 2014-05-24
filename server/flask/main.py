@@ -18,9 +18,33 @@ app = flask.Flask(__name__)
 app.debug = True
 
 @app.route('/ping',methods=['GET'])
-def checkAvailable():
+def checkServerAvailable():
     print "query: GET /ping"
     return jsonify(result="server available")
+
+def hasUser(uid):
+    r = getRedis()
+    userkeys = r.hkeys( "user:%s"%str(uid) )
+    if userkeys!=None and len(userkeys)>0:
+        return True
+    return False
+
+@app.route('/addFriend/<uid>/<passwd>/<friendUid>',methods=['GET'])
+def addFriend(uid, passwd, friendUid):
+    info = "query:GET /addFriend/%s/%s/%s"%(uid, passwd, friendUid)
+    print info
+    if isValidUser(uid,passwd):
+        r = getRedis()
+        user_friend_key = "user:%s:friends"%uid
+        result = r.sadd(user_friend_key,friendUid)
+        if result==1:
+            return jsonify(result="add friend success")
+        else:
+            # already has
+            return jsonify(result="add friend success")
+
+    return jsonify(result="failed to add friend")
+
 
 @app.route('/signup/<uid>/<passwd>/<phone>/<name>/<email>/<uuid>',methods=['GET'])
 def signup(uid, passwd, phone, name, email, uuid):
@@ -29,8 +53,7 @@ def signup(uid, passwd, phone, name, email, uuid):
     r = getRedis()
 
     # check if has register
-    userkeys = r.hkeys( "user:%s"%str(uid) )
-    if userkeys!=None and len(userkeys)>0:
+    if hasUser(uid):
         # uid already occupied
         print "    ERR:uid already occupied" 
         return jsonify(result="uid occupied")
@@ -56,19 +79,29 @@ def signup(uid, passwd, phone, name, email, uuid):
             print " Sign up Failed!"
             return jsonify(result="sign up failed")
 
+def isValidUser(uid,tryPass):
+    r = getRedis()
+    uid = str(uid)
+    tryPass = str(tryPass)
+    userkeys = r.hkeys( "user:%s"%str(uid) )
+    if userkeys!=None and len(userkeys)>0:
+        # is valid User
+        realpass = r.hget('user:%s'%uid, 'passwd')
+        realpass = str(realpass)
+        if realpass!="" and realpass == tryPass:
+            return True
+    return False
+
 @app.route('/login/<uid>/<passwd>',methods=['GET'])
 def login(uid, passwd):
     info = "query:GET /login/%s/%s"%(uid, passwd)
     print info
     r = getRedis()
 
-    # check if has register
-    userkeys = r.hkeys( "user:%s"%str(uid) )
-    if userkeys!=None and len(userkeys)>0:
-        # has uid
+    # check if has user uid
+    if hasUser(uid):
+        # is valid User
         realpass = r.hget('user:%s'%uid, 'passwd')
-        print "real:%s try:%s"%(realpass,passwd)
-
         if(realpass!=None):
             if(realpass==passwd):
                 print "   login sucess!"

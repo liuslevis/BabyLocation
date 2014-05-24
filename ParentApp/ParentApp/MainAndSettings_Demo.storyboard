@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="2534" y="-443"/>
         </scene>
-        <!--Add FriendVC - 添加孩子-->
+        <!--Add Friend By QrVC - 添加孩子-->
         <scene sceneID="Z5n-w4-bLd">
             <objects>
-                <viewController id="XWn-BC-iNd" customClass="AddFriendVC" sceneMemberID="viewController">
+                <viewController id="XWn-BC-iNd" customClass="AddFriendByQrVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KcV-se-4eZ"/>
                         <viewControllerLayoutGuide type="bottom" id="rYi-Ld-cMw"/>

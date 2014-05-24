@@ -24,4 +24,8 @@
 
 + (BOOL)isServerRunning;
 
++(BOOL)addFriend:(NSString *)friendUid
+       withMyUid:(NSString *)myUid
+       passwdMd5:(NSString *)passwd;
+
 @end

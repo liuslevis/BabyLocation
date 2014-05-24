@@ -79,13 +79,13 @@
 {
     NSDictionary *json=[UserAuthAPI signInUid:uid passwdMd5:passwd];
     if (json==nil) {
-        return FALSE;
+        return NO;
     }
     NSString *result =(NSString *)[json objectForKey:@"result"];
     if ([@"login success" isEqualToString:result]) {
-        return TRUE;
+        return YES;
     }
-    return FALSE;
+    return NO;
 }
 
 + (BOOL)isServerRunning
@@ -100,7 +100,7 @@
     
     if(result_data==nil){
         NSLog(@"ERR: cant connect to server, check network! request url:%@ Error:%@",url,error1);
-        return FALSE;
+        return NO;
     }
     
     NSError *error;
@@ -109,15 +109,48 @@
     if(json){
         NSString *result = [json objectForKey:@"result"];
         if( [@"server available" isEqualToString:result]){
-            return TRUE;
+            return YES;
         }
     }else{
         NSLog(@"ERR: cant get JSON. request url:%@ Error:%@",url,error);
-
     }
     
-    return FALSE;
+    return NO;
 }
 
++(BOOL)addFriend:(NSString *)friendUid
+       withMyUid:(NSString *)myUid
+       passwdMd5:(NSString *)passwd
+{
+
+    NSString *url = [[NSString stringWithFormat:URL_ADD_FRIENDS_WITH_MYUID_MYPASSMD5_FRIENDUID,myUid,passwd,friendUid]  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if (VERBOSE_MODE) {
+        NSLog(@"add friend via uid, url:%@",url);
+    }
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSError *error1;
+    NSData *result_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error1];
+    
+    if(result_data==nil){
+        NSLog(@"ERR: cant connect to server, check network! request url:%@ Error:%@",url,error1);
+        return NO;
+    }
+    
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:result_data options:NSJSONReadingMutableLeaves error:&error];
+    
+    if(json){
+        NSString *result = [json objectForKey:@"result"];
+        if( [@"failed to add friend" isEqualToString:result]){
+            return NO;
+        }else if([@"add friend success" isEqualToString:result]){
+            return YES;
+        }
+    }else{
+        NSLog(@"ERR: cant get JSON. request url:%@ Error:%@",url,error);
+    }
+
+    return NO;
+}
 
 @end

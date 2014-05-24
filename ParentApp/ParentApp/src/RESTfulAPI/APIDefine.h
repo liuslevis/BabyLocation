@@ -14,6 +14,8 @@
 #define URL_TRACK_REQ_WITH_NAME @"http://127.0.0.1:7777/baby/%@/track"
 
 
+#define URL_ADD_FRIENDS_WITH_MYUID_MYPASSMD5_FRIENDUID @"http://127.0.0.1:7777/addFriend/%@/%@/%@"
+
 #define URL_SIGNUP_WITH_UID_PASS_PHONE_NAME_EMAIL_UUID @"http://127.0.0.1:7777/signup/%@/%@/%@/%@/%@/%@"
 
 #define URL_SIGNIN_WITH_UID_PASS @"http://127.0.0.1:7777/login/%@/%@"
