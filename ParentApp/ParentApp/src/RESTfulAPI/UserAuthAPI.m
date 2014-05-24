@@ -88,5 +88,36 @@
     return FALSE;
 }
 
++ (BOOL)isServerRunning
+{
+     NSString *url = [[NSString stringWithFormat:URL_CHECK_SERVER_AVAILABILITY]  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if (VERBOSE_MODE) {
+        NSLog(@"check server availability in url:%@",url);
+    }
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSError *error1;
+    NSData *result_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error1];
+    
+    if(result_data==nil){
+        NSLog(@"ERR: cant connect to server, check network! request url:%@ Error:%@",url,error1);
+        return FALSE;
+    }
+    
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:result_data options:NSJSONReadingMutableLeaves error:&error];
+    
+    if(json){
+        NSString *result = [json objectForKey:@"result"];
+        if( [@"server available" isEqualToString:result]){
+            return TRUE;
+        }
+    }else{
+        NSLog(@"ERR: cant get JSON. request url:%@ Error:%@",url,error);
+
+    }
+    
+    return FALSE;
+}
+
 
 @end

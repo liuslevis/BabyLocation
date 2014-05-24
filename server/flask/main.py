@@ -17,6 +17,11 @@ DATE_TIME_FORMAT = "%Y-%m-%d-%H:%M:%S"
 app = flask.Flask(__name__)
 app.debug = True
 
+@app.route('/ping',methods=['GET'])
+def checkAvailable():
+    print "query: GET /ping"
+    return jsonify(result="server available")
+
 @app.route('/signup/<uid>/<passwd>/<phone>/<name>/<email>/<uuid>',methods=['GET'])
 def signup(uid, passwd, phone, name, email, uuid):
     info = "query:GET /signup/%s/%s/%s/%s/%s/%s"%(uid, passwd, phone, name, email, uuid)
@@ -49,7 +54,7 @@ def signup(uid, passwd, phone, name, email, uuid):
             return jsonify(result="sign up success")
         else:
             print " Sign up Failed!"
-            return jsonify(result="sign up")
+            return jsonify(result="sign up failed")
 
 @app.route('/login/<uid>/<passwd>',methods=['GET'])
 def login(uid, passwd):

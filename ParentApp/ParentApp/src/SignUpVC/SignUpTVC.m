@@ -82,7 +82,11 @@
 
 #pragma mark 注册逻辑
 - (void)pressRegister{
-    // TODO fill register logic
+    if (NO==[UserAuthAPI isServerRunning]){
+        [DavidlauUtils alertTitle:@"注册失败" message:@"服务器君似乎挂了，我们正努力抢救她" delegate:self cancelBtn:@"取消" otherBtnName:nil];
+        return;
+    }
+    
     // 确认帐号密码合法
     if (![DavidlauUtils isPhoneNumber:self.textPhoneNo.text]) {
         NSString *warning = [NSString stringWithFormat: @"请填%d位手机号码",PHONE_LEN];

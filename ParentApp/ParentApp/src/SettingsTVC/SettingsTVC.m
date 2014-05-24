@@ -53,7 +53,13 @@
                            animated:YES
                          completion:nil];
     }
+}
 
+- (void)pressCloseApp
+{
+    NSLog(@"CloseApp pressed!");
+    [DavidlauUtils alertTitle:@"待完成" message:@"把GPS关闭 发送通知给服务器 用户离线 跳转到HOME" delegate:self cancelBtn:@"取消" otherBtnName:nil];
+    
 }
 
 #pragma mark - Table view data source
@@ -63,6 +69,10 @@
     if (LOGOUT_BTN_ROW==indexPath.row && LOGOUT_BTN_SECTION==indexPath.section) {
         [self pressLogout];
     }
+    if (CLOSE_APP_BTN_ROW==indexPath.row && CLOSE_APP_BTN_SECTION==indexPath.section) {
+        [self pressCloseApp];
+    }
+
 }
 
 /*

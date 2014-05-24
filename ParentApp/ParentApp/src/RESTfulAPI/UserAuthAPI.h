@@ -22,4 +22,6 @@
 + (BOOL) verifyUid:(NSString *)uid
             passwdMd5:(NSString *)passwd;
 
++ (BOOL)isServerRunning;
+
 @end

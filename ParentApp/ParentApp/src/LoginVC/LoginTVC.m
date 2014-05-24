@@ -139,8 +139,15 @@
         }else{// 联网确认帐号密码
             self.uid = self.textPhoneNo.text;
             // TODO:添加阻塞动画
-            BOOL valid_user_info = [UserAuthAPI verifyUid:self.uid passwdMd5:[self.textPasswd.text md5]];
             
+            //检查服务器连通
+            if (NO==[UserAuthAPI isServerRunning]) {
+                [DavidlauUtils alertTitle:@"无法登录" message:@"我们的服务器似正在抢救中，请稍候再试" delegate:self cancelBtn:@"取消" otherBtnName:nil];
+                return;
+            }
+            
+            //验证用户信息
+            BOOL valid_user_info = [UserAuthAPI verifyUid:self.uid passwdMd5:[self.textPasswd.text md5]];
             if (valid_user_info==YES){
                 //成功登录，保存用户信息到NSUserDefault并跳转
                 NSString *valueToSave = self.uid;

@@ -24,6 +24,9 @@
 #define LOGOUT_BTN_SECTION 3
 #define LOGOUT_BTN_ROW 0
 
+#define CLOSE_APP_BTN_SECTION 3
+#define CLOSE_APP_BTN_ROW 1
+
 #define DEFAULT_TINT_COLOR [UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]
 
 #define REGISTER_BTN_SECTION 1
