@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface UserAuthAPI : NSObject
 
@@ -27,5 +28,8 @@
 +(BOOL)addFriend:(NSString *)friendUid
        withMyUid:(NSString *)myUid
        passwdMd5:(NSString *)passwd;
+
++(BOOL)updateLocationWithUid:(NSString *)uid
+                          atCLLocation:(CLLocation *)location;
 
 @end

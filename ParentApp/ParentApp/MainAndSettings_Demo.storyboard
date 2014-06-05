@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Iix-W4-fwZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Iix-W4-fwZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -384,10 +384,10 @@
             </objects>
             <point key="canvasLocation" x="2534" y="-443"/>
         </scene>
-        <!--Add Friend By QrVC - 添加孩子-->
+        <!--GenerateQR CodeVC - 添加孩子-->
         <scene sceneID="Z5n-w4-bLd">
             <objects>
-                <viewController id="XWn-BC-iNd" customClass="AddFriendByQrVC" sceneMemberID="viewController">
+                <viewController id="XWn-BC-iNd" customClass="GenerateQRCodeVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KcV-se-4eZ"/>
                         <viewControllerLayoutGuide type="bottom" id="rYi-Ld-cMw"/>

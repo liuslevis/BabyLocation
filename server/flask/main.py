@@ -134,10 +134,13 @@ def updatetrack(uid,latitude,longitude):
     key = 'baby:'+uid+':tracklist'
     value = lat_long_time
     r = getRedis()
-    r.rpush(key,value)
+    res = r.rpush(key,value) #return num of elem in list (>=1)
+    info = 'query:UPDATE a baby  @(%s,%s,%s)'%(uid,latitude,longitude) + ' Redis: RPUSH(%s,%s)'%(key,value) + "result:%d"%res
 
-    info = 'query:UPDATE a baby  @(%s,%s,%s)'%(uid,latitude,longitude) + ' Redis: RPUSH(%s,%s)'%(key,value)
-    return info  
+    print info
+    if res>=1:
+        return jsonify(result="update location success")  
+    return jsonify(result="failed to update location")  
 
 # Parent App Query a track of baby
 # return JSON  {timeseq:[str,...],latseq:[str,...],longseq:[str,...]} 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Iix-W4-fwZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Iix-W4-fwZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -240,8 +240,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="扫一扫添加" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G0-PK-2mZ">
-                                                    <rect key="frame" x="220" y="11" width="67" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="扫描宝贝端的二维码" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0G0-PK-2mZ">
+                                                    <rect key="frame" x="170" y="11" width="117" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -250,7 +250,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="XWn-BC-iNd" kind="push" id="edy-Xk-WIy"/>
+                                            <segue destination="eeB-pq-pkN" kind="push" id="dG8-HM-vWS"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="vEX-nf-h2r">
@@ -292,7 +292,48 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qzy-Sf-PHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2534" y="-1148"/>
+            <point key="canvasLocation" x="2534" y="-1280"/>
+        </scene>
+        <!--Add Friend ByQR CodeVC-->
+        <scene sceneID="9au-bn-Z8B">
+            <objects>
+                <viewController id="eeB-pq-pkN" customClass="AddFriendByQRCodeVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yI7-As-lRC"/>
+                        <viewControllerLayoutGuide type="bottom" id="IC1-Fz-ebp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oY8-ti-DdE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-6L-lLO">
+                                <rect key="frame" x="50" y="87" width="169" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jx-KH-5dD">
+                                <rect key="frame" x="240" y="91" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressAddFriend:" destination="eeB-pq-pkN" eventType="touchUpInside" id="aLz-OM-tG9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WC6-zX-ccl"/>
+                    <connections>
+                        <outlet property="addButton" destination="5jx-KH-5dD" id="8N8-t1-Ogb"/>
+                        <outlet property="textField" destination="Aw6-6L-lLO" id="gEf-m5-C8Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Byr-9O-x2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3082" y="-1701"/>
         </scene>
         <!--View Controller - 关于我们-->
         <scene sceneID="sYu-DU-8PC">
@@ -562,10 +603,10 @@
             </objects>
             <point key="canvasLocation" x="3082" y="-806"/>
         </scene>
-        <!--Add Friend By QrVC - 通过二维码-->
+        <!--GenerateQR CodeVC - 通过二维码-->
         <scene sceneID="Z5n-w4-bLd">
             <objects>
-                <viewController id="XWn-BC-iNd" customClass="AddFriendByQrVC" sceneMemberID="viewController">
+                <viewController id="XWn-BC-iNd" customClass="GenerateQRCodeVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KcV-se-4eZ"/>
                         <viewControllerLayoutGuide type="bottom" id="rYi-Ld-cMw"/>
@@ -602,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJD-9e-EXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3082" y="-1538"/>
+            <point key="canvasLocation" x="3508" y="-1459"/>
         </scene>
         <!--Child MenuTVC-->
         <scene sceneID="WC3-oM-cXy">
