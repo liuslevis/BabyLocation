@@ -54,7 +54,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.delegate.childNameList count];
+    return [SingleModel.sharedInstance.friends count];
 }
 
 
@@ -66,9 +66,23 @@
     if(!cell){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Children Tabel View Cell"];
     }
-    cell.textLabel.text = (NSString *)[self.delegate.childNameList objectAtIndex:indexPath.row];
-    cell.imageView.image = (UIImage *)[self.delegate.childAvatars objectAtIndex:indexPath.row];
-//    cell.textLabel.text = @"小朋友";
+
+    UserInfo *kidInfo = (UserInfo *)[SingleModel.sharedInstance.friends objectAtIndex:indexPath.row];
+    if(kidInfo){
+        cell.textLabel.text = [kidInfo.nickname length]> 0 ? kidInfo.nickname :kidInfo.uid;
+        if (kidInfo.avatar){
+            cell.imageView.image = kidInfo.avatar;
+        }else{
+            if([kidInfo.gender isEqualToString:@"boy"]){
+                cell.imageView.image = [UIImage imageNamed:@"boy"];
+            }else if([kidInfo.gender isEqualToString:@"girl"]){
+                cell.imageView.image = [UIImage imageNamed:@"girl"];
+            }else{
+                cell.imageView.image = [UIImage imageNamed:@"happyface"];
+
+            }
+        }
+    }
     return cell;
 }
 
@@ -77,7 +91,6 @@
     // change delegate's current selected children status
     [self.delegate didFindishedSelectChildAtIndex:path.row];
     [self.navigationController popToRootViewControllerAnimated:YES];
-
 }
 
 
@@ -124,10 +137,9 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"segue to :%@",[[segue destinationViewController] class]);
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//}
 
 
 @end

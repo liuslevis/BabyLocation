@@ -11,7 +11,5 @@
 // I'll call delegate method: [self.delegate method] as follow
 @protocol ChildMenuTVCDelegate <NSObject>
 @required
--(NSArray *)childNameList;
--(NSArray *)childAvatars;
 -(void)didFindishedSelectChildAtIndex:(int)index;
 @end

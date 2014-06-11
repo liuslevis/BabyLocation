@@ -22,6 +22,8 @@
 		041819B71920A30E00D5288A /* Login_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B61920A30E00D5288A /* Login_iPhone.storyboard */; };
 		041819B91920A35000D5288A /* MainAndSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B81920A35000D5288A /* MainAndSettings.storyboard */; };
 		043930021930B1CB0085E73A /* AddFriendByUid.m in Sources */ = {isa = PBXBuildFile; fileRef = 043930011930B1CB0085E73A /* AddFriendByUid.m */; };
+		043B0EA11941A01700429477 /* SingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA01941A01700429477 /* SingleModel.m */; };
+		043B0EA41941A1FE00429477 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA31941A1FE00429477 /* UserInfo.m */; };
 		044213F2191A11EA00E98D2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EB191A11EA00E98D2D /* main.m */; };
 		044213F3191A11EA00E98D2D /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213ED191A11EA00E98D2D /* MainAppDelegate.m */; };
 		044213F4191A11EA00E98D2D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EF191A11EA00E98D2D /* MainViewController.m */; };
@@ -46,6 +48,8 @@
 		0442149C191A1E1700E98D2D /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421490191A1E1700E98D2D /* split.c */; };
 		0442149D191A1E1700E98D2D /* QRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421493191A1E1700E98D2D /* QRTest.m */; };
 		0442149E191A1E1700E98D2D /* QRTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421494191A1E1700E98D2D /* QRTest.xib */; };
+		04757B0019486F72009F151F /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757AFF19486F72009F151F /* footprint.png */; };
+		04757B0219487050009F151F /* happyface.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757B0119487050009F151F /* happyface.png */; };
 		0487BF8B192F6EBC009E9D4A /* UserAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */; };
 		0487BF90192F7CD8009E9D4A /* SignUpTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8F192F7CD8009E9D4A /* SignUpTVC.m */; };
 		0487BF94192FB3C0009E9D4A /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF93192FB3C0009E9D4A /* SettingsTVC.m */; };
@@ -91,6 +95,10 @@
 		041819B81920A35000D5288A /* MainAndSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainAndSettings.storyboard; sourceTree = "<group>"; };
 		043930001930B1CB0085E73A /* AddFriendByUid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendByUid.h; sourceTree = "<group>"; };
 		043930011930B1CB0085E73A /* AddFriendByUid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendByUid.m; sourceTree = "<group>"; };
+		043B0E9F1941A01700429477 /* SingleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleModel.h; sourceTree = "<group>"; };
+		043B0EA01941A01700429477 /* SingleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleModel.m; sourceTree = "<group>"; };
+		043B0EA21941A1FE00429477 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		043B0EA31941A1FE00429477 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		044213EB191A11EA00E98D2D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		044213EC191A11EA00E98D2D /* MainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainAppDelegate.h; path = "Supporting Files/MainAppDelegate.h"; sourceTree = "<group>"; };
 		044213ED191A11EA00E98D2D /* MainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainAppDelegate.m; path = "Supporting Files/MainAppDelegate.m"; sourceTree = "<group>"; };
@@ -136,6 +144,8 @@
 		04421492191A1E1700E98D2D /* QRTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRTest.h; sourceTree = "<group>"; };
 		04421493191A1E1700E98D2D /* QRTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRTest.m; sourceTree = "<group>"; };
 		04421494191A1E1700E98D2D /* QRTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRTest.xib; sourceTree = "<group>"; };
+		04757AFF19486F72009F151F /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprint.png; sourceTree = "<group>"; };
+		04757B0119487050009F151F /* happyface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happyface.png; sourceTree = "<group>"; };
 		0487BF89192F6EBC009E9D4A /* UserAuthAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAuthAPI.h; sourceTree = "<group>"; };
 		0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAuthAPI.m; sourceTree = "<group>"; };
 		0487BF8C192F7468009E9D4A /* APIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIDefine.h; path = ParentApp/src/RESTfulAPI/APIDefine.h; sourceTree = SOURCE_ROOT; };
@@ -220,8 +230,10 @@
 		040D8D71190E9C1D0048D231 /* ParentApp */ = {
 			isa = PBXGroup;
 			children = (
-				0487BF91192FB3A5009E9D4A /* SettingsTVC */,
 				04421409191A129500E98D2D /* AppConstants.h */,
+				04421446191A1D8700E98D2D /* MainVC */,
+				043B0E9E19419F0C00429477 /* Model */,
+				0487BF91192FB3A5009E9D4A /* SettingsTVC */,
 				0487BF88192F6EAE009E9D4A /* RESTfulAPI */,
 				041819B119209C6800D5288A /* DemoData */,
 				04FDB3A2191DF5D2007336F5 /* ChildMenu */,
@@ -231,7 +243,6 @@
 				0442144D191A1D8700E98D2D /* ViewDeck */,
 				0493F062191D03CC00D36A42 /* OtherVC */,
 				0493F054191CBFD600D36A42 /* AddFriendVC */,
-				04421446191A1D8700E98D2D /* MainVC */,
 				0442140A191A129500E98D2D /* DavidlauUtils */,
 				0487BF8D192F7CD8009E9D4A /* SignUpVC */,
 				0442140D191A129500E98D2D /* LoginVC */,
@@ -286,6 +297,18 @@
 			);
 			name = DemoData;
 			path = src/DemoData;
+			sourceTree = "<group>";
+		};
+		043B0E9E19419F0C00429477 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				043B0E9F1941A01700429477 /* SingleModel.h */,
+				043B0EA01941A01700429477 /* SingleModel.m */,
+				043B0EA21941A1FE00429477 /* UserInfo.h */,
+				043B0EA31941A1FE00429477 /* UserInfo.m */,
+			);
+			name = Model;
+			path = src/Model;
 			sourceTree = "<group>";
 		};
 		0442140A191A129500E98D2D /* DavidlauUtils */ = {
@@ -464,6 +487,8 @@
 		04FDB3AA191E1262007336F5 /* ChildrenAvartars */ = {
 			isa = PBXGroup;
 			children = (
+				04757B0119487050009F151F /* happyface.png */,
+				04757AFF19486F72009F151F /* footprint.png */,
 				04D0C955191E5592005738E8 /* boy.png */,
 				04D0C956191E5592005738E8 /* girl.png */,
 			);
@@ -552,9 +577,11 @@
 				041819B71920A30E00D5288A /* Login_iPhone.storyboard in Resources */,
 				04CD3E401920B1AA0042BE90 /* screenShot.png in Resources */,
 				041819B519209C6800D5288A /* XiaoKuiTrack.txt in Resources */,
+				04757B0219487050009F151F /* happyface.png in Resources */,
 				04D0C958191E5592005738E8 /* girl.png in Resources */,
 				04CD3E3C1920AAB80042BE90 /* location.png in Resources */,
 				04421457191A1D8700E98D2D /* MainPage.xib in Resources */,
+				04757B0019486F72009F151F /* footprint.png in Resources */,
 				041819B419209C6800D5288A /* DavidTrack.txt in Resources */,
 				040D8D87190E9C1D0048D231 /* Images.xcassets in Resources */,
 				0442149E191A1E1700E98D2D /* QRTest.xib in Resources */,
@@ -585,6 +612,7 @@
 			files = (
 				04FDB3A8191DF60D007336F5 /* ChildMenuTVC.m in Sources */,
 				0487BF90192F7CD8009E9D4A /* SignUpTVC.m in Sources */,
+				043B0EA41941A1FE00429477 /* UserInfo.m in Sources */,
 				0442149A191A1E1700E98D2D /* qrspec.c in Sources */,
 				04421459191A1D8700E98D2D /* IIViewDeckController.m in Sources */,
 				0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */,
@@ -610,6 +638,7 @@
 				0442149B191A1E1700E98D2D /* rscode.c in Sources */,
 				04421454191A1D8700E98D2D /* ChildList.m in Sources */,
 				0493F05D191CCCC800D36A42 /* MainVC.m in Sources */,
+				043B0EA11941A01700429477 /* SingleModel.m in Sources */,
 				044213F2191A11EA00E98D2D /* main.m in Sources */,
 				04421499191A1E1700E98D2D /* qrinput.c in Sources */,
 			);

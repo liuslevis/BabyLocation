@@ -6,8 +6,11 @@
 //  Copyright (c) 2014年 edu.sysu.davidlau.ios. All rights reserved.
 //
 
-#ifndef RegLogVeriUser_AppConstants_h
-#define RegLogVeriUser_AppConstants_h
+#ifndef AppConstants_h
+#define AppConstants_h
+
+#define DEMO_MODE YES
+#define VERBOSE_MODE YES
 
 #define APP_USER_UID_KEY @"BabyLocation_UserInfo_uid"
 #define APP_USER_PASSWD_KEY @"BabyLocation_UserInfo_passwd"
@@ -32,8 +35,7 @@
 #define REGISTER_BTN_SECTION 1
 #define REGISTER_BTN_ROW 0
 
-#define DEMO_MODE YES
-#define VERBOSE_MODE YES
+#define APP_DATE_TIME_FORMAT @"yyyy-MM-dd-HH:mm:ss"
 
 #define DEMO_USER_1_PHONE @"15200000008"
 #define DEMO_USER_1_PASS @"15200000008"

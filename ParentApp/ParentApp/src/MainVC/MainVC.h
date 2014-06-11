@@ -19,6 +19,8 @@
 #import "ChildrenMapAnnotation.h"
 #import "ChildMenuTVC.h"
 #import "ChildMenuTVCDelegate.h"
+#import "SingleModel.h"
+
 //#import "MyMapAnnotation.h"
 
 @interface MainVC : UIViewController < CLLocationManagerDelegate,MKMapViewDelegate,ChildMenuTVCDelegate>

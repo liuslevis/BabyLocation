@@ -75,6 +75,38 @@
     
 }
 
++ (NSString *)howLongIsTheInterval:(NSTimeInterval) interval
+{
+    int inter_abs = interval<0?-interval:interval;
+    long temp = 0;
+    NSString *result;
+    if (inter_abs < 60) {
+        result = [NSString stringWithFormat:@"刚刚"];
+    }
+    else if((temp = inter_abs/60) <60){
+        result = [NSString stringWithFormat:interval>0?@"%ld%@后":@"%ld%@前",temp,@"分"];
+    }
+    
+    else if((temp = temp/60) <24){
+        result = [NSString stringWithFormat:interval>0?@"%ld%@后":@"%ld%@前",temp,@"小时"];
+    }
+    
+    else if((temp = temp/24) <30){
+        result = [NSString stringWithFormat:interval>0?@"%ld%@后":@"%ld%@前",temp,@"日"];
+    }
+    
+    else if((temp = temp/30) <12){
+        result = [NSString stringWithFormat:interval>0?@"%ld%@后":@"%ld%@前",temp,@"月"];
+    }
+    else{
+        temp = temp/12;
+        result = [NSString stringWithFormat:interval>0?@"%ld%@后":@"%ld%@前",temp,@"年"];
+    }
+    return result;
+    
+
+}
+
 @end
 
 // md5 for NSString & NSData

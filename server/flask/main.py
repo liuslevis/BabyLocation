@@ -29,6 +29,27 @@ def hasUser(uid):
         return True
     return False
 
+
+@app.route('/friendList/<uid>/<passwd>',methods=['GET'])
+def queryFriendList(uid, passwd):
+    info = "query:GET /friendList/%s/%s"%(uid, passwd)
+    print info
+    if isValidUser(uid,passwd):
+        r = getRedis()
+        user_friend_key = "user:%s:friends"%uid
+        result_set = r.smembers(user_friend_key)
+
+    uids_str = ''
+    print result_set
+    if type(set())==type(result_set):
+        for uid in list(result_set):
+            uids_str += str(uid)+' '
+
+        return jsonify(result="query friends success",uid_list=uids_str)
+
+    return jsonify(result="query friends failed",uid_list=uids_str)
+
+
 @app.route('/addFriend/<uid>/<passwd>/<friendUid>',methods=['GET'])
 def addFriend(uid, passwd, friendUid):
     info = "query:GET /addFriend/%s/%s/%s"%(uid, passwd, friendUid)

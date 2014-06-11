@@ -7,6 +7,7 @@
 //
 
 #import "AddFriendByQRCodeVC.h"
+#import "SingleModel.h"
 
 @interface AddFriendByQRCodeVC ()
 
@@ -23,7 +24,10 @@
     return self;
 }
 - (IBAction)pressAddFriend:(id)sender {
-    NSLog(@"add:%@", self.textField.text);
+    NSString *friendUid = self.textField.text;
+    [[SingleModel sharedInstance] addFriend:friendUid];
+    [[SingleModel sharedInstance] updateAsync];// 更新好友列表
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad

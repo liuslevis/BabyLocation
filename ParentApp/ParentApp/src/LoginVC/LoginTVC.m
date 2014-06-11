@@ -12,6 +12,7 @@
 #import "IIViewDeckController.h"
 #import "ChildList.h"
 #import "UserAuthAPI.h"
+#import "SingleModel.h"
 
 @interface LoginTVC ()
 @property (strong, nonatomic)  NSString *uid;
@@ -40,8 +41,15 @@
                           stringForKey:APP_USER_UID_KEY];
     NSString *savedMd5 = [[NSUserDefaults standardUserDefaults]
                           stringForKey:APP_USER_PASSWD_KEY];
-    NSLog(@"check userdefault:%@ %@",savedUid, savedMd5);
+    if(VERBOSE_MODE) NSLog(@"check userdefault:%@ %@",savedUid, savedMd5);
+    
     if ([UserAuthAPI verifyUid:savedUid passwdMd5:savedMd5]) {
+        // 保存用户登录信息到Model
+        [SingleModel sharedInstance].userInfo.uid = savedUid;
+        [SingleModel sharedInstance].userInfo.passmd5 = savedMd5;
+
+        
+
         // 跳转到主界面
         UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
         if (mainStoryboad){
@@ -50,10 +58,6 @@
                              completion:nil];
         }
     }
-    
-    // tap empty place to dismiss keyboard (BUG: LOGIN not work appropriate)
-//    UITapGestureRecognizer*tap =[[UITapGestureRecognizer alloc]                                        initWithTarget:self action:@selector(dismissKeyboard)];
-//    [self.view addGestureRecognizer:tap];
 
     [self bindLoginBtnColorUpdate];
     
@@ -106,26 +110,8 @@
         
 
         # pragma mark 跳转到主界面
+        // Demo without validate
         if (LOGIN_WITHOUT_VERIFY) {
-            // Demo without validate
-            // Pop Main UI
-            
-            // Init with deckVC 不能用
-//            ChildList* childList = [[ChildList alloc] initWithNibName:nil bundle:nil];
-//            [childList addButton];
-//            [childList addButton];
-//            MainPage* main = [[MainPage alloc] initWithNibName:nil bundle:nil];
-//            UIViewController *centerController = main;
-//            centerController = [[UINavigationController alloc] initWithRootViewController:centerController];
-//            IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:centerController
-//                                                                                            leftViewController:childList
-//                                                                                           rightViewController:nil];
-//            deckController.rightSize = 0;
-//            //main.list = childList;
-//            [main setList:childList];
-//            [deckController disablePanOverViewsOfClass:NSClassFromString(@"_UITableViewHeaderFooterContentView")];
-//
-//            [self presentViewController:deckController animated:YES completion:nil];
             
             // Init With Storyboard
             UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
@@ -147,14 +133,18 @@
             }
             
             //验证用户信息
-            BOOL valid_user_info = [UserAuthAPI verifyUid:self.uid passwdMd5:[self.textPasswd.text md5]];
-            if (valid_user_info==YES){
+            if (YES==[UserAuthAPI verifyUid:self.uid passwdMd5:[self.textPasswd.text md5]]){
                 //成功登录，保存用户信息到NSUserDefault并跳转
                 NSString *valueToSave = self.uid;
                 [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:APP_USER_UID_KEY];
                 valueToSave = [self.textPasswd.text md5];
                 [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:APP_USER_PASSWD_KEY];
                 [[NSUserDefaults standardUserDefaults] synchronize];
+                
+                // 保存用户登录信息到Model
+                [SingleModel sharedInstance].userInfo.uid = self.uid;
+                [SingleModel sharedInstance].userInfo.passmd5 = [self.textPasswd.text md5];
+                
                 // 跳转到主界面
                 UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
                 if (mainStoryboad){
