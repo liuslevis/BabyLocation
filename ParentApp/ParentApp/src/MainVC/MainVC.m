@@ -221,7 +221,7 @@
 //        NSString *title = [childUid length]>0 ? childUid:@"宝贝";
 
         NSString *subtitle = @"？分钟之前";
-        
+        // 计算多久前
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:APP_DATE_TIME_FORMAT];
         if([SingleModel sharedInstance].friends &&

@@ -9,7 +9,7 @@
 #ifndef AppConstants_h
 #define AppConstants_h
 
-#define DEMO_MODE YES
+#define DEMO_MODE NO
 #define VERBOSE_MODE YES
 
 #define APP_USER_UID_KEY @"BabyLocation_UserInfo_uid"
