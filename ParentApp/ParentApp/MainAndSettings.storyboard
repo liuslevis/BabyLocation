@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Iix-W4-fwZ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--SettingsTVC - 设置-->
@@ -306,14 +307,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-6L-lLO">
-                                <rect key="frame" x="50" y="87" width="169" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aw6-6L-lLO">
+                                <rect key="frame" x="47" y="131" width="197" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jx-KH-5dD">
-                                <rect key="frame" x="240" y="91" width="22" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5jx-KH-5dD">
+                                <rect key="frame" x="252" y="135" width="22" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -322,13 +323,42 @@
                                     <action selector="pressAddFriend:" destination="eeB-pq-pkN" eventType="touchUpInside" id="aLz-OM-tG9"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLO-Ca-tNG">
+                                <rect key="frame" x="47" y="169" width="227" height="229"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="正在扫描儿童端的二维码..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w2Z-Wi-nIz">
+                                        <rect key="frame" x="20" y="104" width="187" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="w2Z-Wi-nIz" secondAttribute="centerX" id="Ni8-cS-zqQ"/>
+                                    <constraint firstAttribute="centerY" secondItem="w2Z-Wi-nIz" secondAttribute="centerY" id="oaU-Un-oym"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YLO-Ca-tNG" firstAttribute="trailing" secondItem="5jx-KH-5dD" secondAttribute="trailing" id="1DR-HC-DAP"/>
+                            <constraint firstItem="Aw6-6L-lLO" firstAttribute="width" secondItem="5jx-KH-5dD" secondAttribute="height" multiplier="197:22" id="8fo-IB-pE6"/>
+                            <constraint firstAttribute="centerX" secondItem="YLO-Ca-tNG" secondAttribute="centerX" id="BXK-i3-w2v"/>
+                            <constraint firstAttribute="centerY" secondItem="YLO-Ca-tNG" secondAttribute="centerY" id="Pgk-5t-Nbs"/>
+                            <constraint firstItem="YLO-Ca-tNG" firstAttribute="top" secondItem="5jx-KH-5dD" secondAttribute="bottom" constant="12" id="R5j-xE-y2H"/>
+                            <constraint firstItem="YLO-Ca-tNG" firstAttribute="top" secondItem="Aw6-6L-lLO" secondAttribute="bottom" constant="8" id="dAV-9i-HIx"/>
+                            <constraint firstItem="Aw6-6L-lLO" firstAttribute="leading" secondItem="YLO-Ca-tNG" secondAttribute="leading" id="mmd-7Z-M19"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="WC6-zX-ccl"/>
                     <connections>
                         <outlet property="addButton" destination="5jx-KH-5dD" id="8N8-t1-Ogb"/>
+                        <outlet property="statusLabel" destination="w2Z-Wi-nIz" id="0Rg-UL-Smg"/>
                         <outlet property="textField" destination="Aw6-6L-lLO" id="gEf-m5-C8Z"/>
+                        <outlet property="viewPreview" destination="YLO-Ca-tNG" id="bIp-f2-VbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Byr-9O-x2m" userLabel="First Responder" sceneMemberID="firstResponder"/>

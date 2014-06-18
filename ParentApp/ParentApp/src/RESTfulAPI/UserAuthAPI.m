@@ -25,10 +25,19 @@
         return nil;
     }
     NSString *uuid = [[NSUUID UUID] UUIDString];
-    NSString *url = [[NSString stringWithFormat:URL_SIGNUP_WITH_UID_PASS_PHONE_NAME_EMAIL_UUID,uid,passwd,phone,name,email,uuid] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *unencodedString = [NSString stringWithFormat:URL_SIGNUP_WITH_UID_PASS_PHONE_NAME_EMAIL_UUID,uid,passwd,phone,name,email,uuid];
+    
+    // encode url
+    NSString *url = [unencodedString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    // another
+//    NSString *url = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(    NULL,    (CFStringRef)unencodedString,    NULL,    (CFStringRef)@"!*'();:@&=+$,/?%#[]",    kCFStringEncodingUTF8 ));
+    
     if (VERBOSE_MODE) {
         NSLog(@"sign up url:%@",url);
     }
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSError *error1;
     NSData *result_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error1];

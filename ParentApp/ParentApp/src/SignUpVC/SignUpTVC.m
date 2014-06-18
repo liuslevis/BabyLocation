@@ -9,6 +9,7 @@
 #import "SignUpTVC.h"
 #import "UserAuthAPI.h"
 #import "AppConstants.h"
+#import "SingleModel.h" 
 
 @interface SignUpTVC ()
 @property (strong, nonatomic) NSString *uid;
@@ -67,7 +68,6 @@
     }
 }
 
-
 - (void) bindRegisterBtnColorUpdate{
     [self.textPasswd addTarget:self action:@selector(registerColorChanged) forControlEvents:UIControlEventAllEditingEvents ];
     [self.textPhoneNo addTarget:self action:@selector(registerColorChanged) forControlEvents:UIControlEventAllEditingEvents ];
@@ -123,6 +123,10 @@
                     valueToSave = [self.textPasswd.text md5];
                     [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:APP_USER_PASSWD_KEY];
                     [[NSUserDefaults standardUserDefaults] synchronize];
+                    
+                    // 保存用户登录信息到Model
+                    [SingleModel sharedInstance].userInfo.uid = self.uid;
+                    [SingleModel sharedInstance].userInfo.passmd5 = [self.textPasswd.text md5];
                     
                     UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
                     if (mainStoryboad){

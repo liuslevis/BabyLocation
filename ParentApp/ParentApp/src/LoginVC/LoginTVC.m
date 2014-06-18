@@ -16,6 +16,8 @@
 
 @interface LoginTVC ()
 @property (strong, nonatomic)  NSString *uid;
+@property (strong, nonatomic)  NSString *passwdmd5;
+@property (strong, nonatomic) UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UITextField *textPhoneNo;
 @property (weak, nonatomic) IBOutlet UITextField *textPasswd;
 @property (weak, nonatomic) IBOutlet UILabel *labelLogin;
@@ -32,9 +34,34 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"viewWillAppear init indicator");
+
+    [super viewWillAppear:animated];
+    
+//    // Add Activity Indicator View
+//    self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    self.indicator.frame = CGRectMake (30, 30, 80, 80);
+//    self.indicator.hidden = YES;
+//    self.indicator.center = self.view.center;
+//    [self.view insertSubview:self.indicator atIndex:100]; // to be on the safe side
+//    [self.view bringSubviewToFront:self.indicator];
+//    [UIApplication sharedApplication].networkActivityIndicatorVisible = TRUE;
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Add Activity Indicator View
+    self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.indicator.frame = CGRectMake (30, 30, 80, 80);
+    self.indicator.hidden = YES;
+    self.indicator.center = self.view.center;
+    [self.view insertSubview:self.indicator atIndex:100]; // to be on the safe side
+    [self.view bringSubviewToFront:self.indicator];
     
     // 检查UserDefault是否有登录记录，有则直接验证，进入主界面
     NSString *savedUid = [[NSUserDefaults standardUserDefaults]
@@ -43,22 +70,27 @@
                           stringForKey:APP_USER_PASSWD_KEY];
     if(VERBOSE_MODE) NSLog(@"check userdefault:%@ %@",savedUid, savedMd5);
     
-    if ([UserAuthAPI verifyUid:savedUid passwdMd5:savedMd5]) {
-        // 保存用户登录信息到Model
-        [SingleModel sharedInstance].userInfo.uid = savedUid;
-        [SingleModel sharedInstance].userInfo.passmd5 = savedMd5;
+    // 验证用户密码
+    if (savedUid!=nil ) {
+        self.textPhoneNo.text = savedUid;
 
-        
+        if ([UserAuthAPI verifyUid:savedUid passwdMd5:savedMd5]) {
+            // 保存用户登录信息到Model
+            [SingleModel sharedInstance].userInfo.uid = savedUid;
+            [SingleModel sharedInstance].userInfo.passmd5 = savedMd5;
 
-        // 跳转到主界面
-        UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
-        if (mainStoryboad){
-            [self presentViewController:[mainStoryboad instantiateInitialViewController]
-                               animated:YES
-                             completion:nil];
+            // 跳转到主界面
+            NSLog(@"jump to mainStoryboad 1");
+            UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
+            if (mainStoryboad){
+                [self presentViewController:[mainStoryboad instantiateInitialViewController]
+                                   animated:YES
+                                 completion:nil];
+            }
         }
     }
-
+    
+    // 绑定登录按钮颜色响应
     [self bindLoginBtnColorUpdate];
     
     // Demo account for Demo
@@ -123,9 +155,9 @@
 
             
         }else{// 联网确认帐号密码
+            //阻塞动画
             self.uid = self.textPhoneNo.text;
-            // TODO:添加阻塞动画
-            
+            self.passwdmd5 = [self.textPasswd.text md5];
             //检查服务器连通
             if (NO==[UserAuthAPI isServerRunning]) {
                 [DavidlauUtils alertTitle:@"无法登录" message:@"我们的服务器似正在抢救中，请稍候再试" delegate:self cancelBtn:@"取消" otherBtnName:nil];
@@ -133,19 +165,20 @@
             }
             
             //验证用户信息
-            if (YES==[UserAuthAPI verifyUid:self.uid passwdMd5:[self.textPasswd.text md5]]){
+            if (YES==[UserAuthAPI verifyUid:self.uid passwdMd5:self.passwdmd5]){
                 //成功登录，保存用户信息到NSUserDefault并跳转
                 NSString *valueToSave = self.uid;
                 [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:APP_USER_UID_KEY];
-                valueToSave = [self.textPasswd.text md5];
+                valueToSave = self.passwdmd5;
                 [[NSUserDefaults standardUserDefaults] setObject:valueToSave forKey:APP_USER_PASSWD_KEY];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 
                 // 保存用户登录信息到Model
                 [SingleModel sharedInstance].userInfo.uid = self.uid;
-                [SingleModel sharedInstance].userInfo.passmd5 = [self.textPasswd.text md5];
+                [SingleModel sharedInstance].userInfo.passmd5 = self.passwdmd5;
                 
                 // 跳转到主界面
+                NSLog(@"jump to mainStoryboad 2");
                 UIStoryboard *mainStoryboad = [UIStoryboard storyboardWithName:@"MainAndSettings" bundle:nil];
                 if (mainStoryboad){
                     [self presentViewController:[mainStoryboad instantiateInitialViewController]
@@ -155,6 +188,7 @@
             }else{
                 [DavidlauUtils alertTitle:@"登录失败" message:@"用户名或密码错误" delegate:self cancelBtn:@"取消" otherBtnName:nil];
             }
+
         }
     }
 }

@@ -13,6 +13,8 @@
 
 @interface MainVC ()
 @property (weak, nonatomic) IBOutlet UIView *placeHolder;
+@property (strong, nonatomic) UIActivityIndicatorView *indicator;
+@property BOOL isJustLogin;
 @end
 
 @implementation MainVC
@@ -112,11 +114,12 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"MainVC viewDidLoad{");
     [super viewDidLoad];
+    
     self.mapView.delegate = self;
-    
+    self.isJustLogin = YES;
     self.curChildIndex = 0;
-    
     
     // 设置 MainVC 监听 Model的值，若改变则 self.updateScreen
     [self setKVOFromModel:SingleModel.sharedInstance];
@@ -129,11 +132,23 @@
 ////                             [UIImage imageNamed:@"girl"],[UIImage imageNamed:@"boy"], nil];
 //    }else{// RELEASE MODE
 //}
-    
-    //更新小孩信息，默认选择第一个小孩 显示其位置
-    [self pressUpdateModel:self];
-        
+    NSLog(@"MainVC viewDidLoad}");
+}
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"MainVC viewDidAppear{");
+    [super viewDidAppear:animated];
+    //更新小孩信息，默认选择第一个小孩 显示其位置
+    if (self.isJustLogin) {
+        self.isJustLogin = NO;
+        [self pressUpdateModel:self];
+    }else{
+        [self didFinishedSelectChildAtIndex:self.curChildIndex];
+    }
+    
+
+    NSLog(@"MainVC viewDidAppear}");
 }
 
 // 设置KVO，当SingleModel有update，通知MainVC
@@ -168,16 +183,39 @@
         NSLog(@"MainVC KVO: Model userInfo changed!");
 
     }
-    
-    [self didFindishedSelectChildAtIndex:0];
-
 }
 
 // 更新SingleModel的信息，并显示儿童信息
 - (IBAction)pressUpdateModel:(id)sender {
-    // 更新Model的好友列表
-    [[SingleModel sharedInstance] updateAsync];
-    [self didFindishedSelectChildAtIndex:0];
+    NSLog(@"MainVC pressUpdateModel");
+
+    // 准备等待菊花
+    UIActivityIndicatorView __block  *indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    indicator.frame = CGRectMake (30, 30, 80, 80);
+    indicator.center = self.view.center;
+    [self.mapView insertSubview:indicator atIndex:100]; // to be on the safe side
+    [self.mapView bringSubviewToFront:indicator];
+    [indicator startAnimating];
+    
+    // 异步更新Model的好友列表(Sync 耗时）
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[SingleModel sharedInstance] updateSync];
+        
+        // 任务完成 消除等待菊花
+        if ([NSThread isMainThread]) {
+            [indicator stopAnimating];
+            [indicator removeFromSuperview];
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [indicator stopAnimating];
+                [indicator removeFromSuperview];
+            });
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //重新选中孩子
+            [self viewDidAppear:YES];
+        });
+    });
 }
 
 
@@ -185,11 +223,34 @@
 -(void)updateScreenInfo{
     NSLog(@"MainVC updateScreenInfo");
     self.navigationItem.title = [self curChildName];
-    // 显示所有孩子的位置
+    // 绘制所有孩子的路径
     [self drawAllChildsRouteLine];
-    // 显示孩子位置
-    [self pressShowCurrentChild:self];
-    
+    // 绘制所有孩子的Annotation，弹出一个
+    [self setChildrensAnnotationAndPop:self];
+}
+
+- (void)showWaitingIndicator{
+    //set up indicator
+    NSLog(@"Start Wating 1");
+    self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.indicator.frame = CGRectMake (30, 30, 80, 80);
+    self.indicator.hidden = NO;
+    self.indicator.center = self.view.center;
+    [self.view insertSubview:self.indicator atIndex:100]; // to be on the safe side
+    [self.view bringSubviewToFront:self.indicator];
+    [self.indicator startAnimating];
+
+
+}
+
+- (void)hideWaitingIndicator{
+    NSLog(@"Stop Wating");
+
+    if (self.indicator) {
+        [self.indicator removeFromSuperview];
+        [self.indicator stopAnimating];
+        self.indicator = nil;
+    }
 }
 
 // 按下某个孩子气泡的按钮：发送消息
@@ -210,7 +271,7 @@
     [DavidlauUtils alertTitle:@"功能说明" message:@"设置孩子离开安全区域后的报警方式：电话，电邮，短信等等" delegate:nil cancelBtn:@"取消" otherBtnName:nil];
 }
 // 按键事件：显示当前选中的小孩
-- (IBAction)pressShowCurrentChild:(id)sender {
+- (IBAction)setChildrensAnnotationAndPop:(id)sender {
     NSLog(@"pressShow:查看 %@ 的位置",[self curChildUid]);
     // 添加所有孩子的最后位置Pin focus当前所选的孩子Pin
     [self.mapView removeAnnotations:self.mapView.annotations];
@@ -284,7 +345,11 @@
             self.childLocationsList = [self.childLocationsList arrayByAddingObject:locations];
         }
     }
-    [self.mapView addOverlays:self.childRouteList];
+//    if([self.childRouteList count]){
+        NSLog(@"MainVC drawAllChildsRouteLine: addOverlays %d", [self.childRouteList count]);
+//        if(self.mapView.overlays) [self.mapView removeOverlays:self.mapView.overlays];
+        [self.mapView addOverlays:self.childRouteList];
+//    }
 }
 
 // 生成 MKPolyline routeline
@@ -417,7 +482,7 @@
     }
 }
 
--(void)didFindishedSelectChildAtIndex:(int)index{
+-(void)didFinishedSelectChildAtIndex:(int)index{
     self.curChildIndex = index;
     [self updateScreenInfo];
 }

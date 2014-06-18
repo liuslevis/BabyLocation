@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface AddFriendByQRCodeVC : UIViewController
+@interface AddFriendByQRCodeVC : UIViewController <AVCaptureMetadataOutputObjectsDelegate>
+
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (weak, nonatomic) IBOutlet UIButton *addButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UIView *viewPreview;
 
 @end

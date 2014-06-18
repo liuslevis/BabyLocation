@@ -89,7 +89,7 @@
 
 - (void)tableView:(UITableView *)sender didSelectRowAtIndexPath:(NSIndexPath *)path {
     // change delegate's current selected children status
-    [self.delegate didFindishedSelectChildAtIndex:path.row];
+    [self.delegate didFinishedSelectChildAtIndex:path.row];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

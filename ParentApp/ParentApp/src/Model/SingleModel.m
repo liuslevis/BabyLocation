@@ -41,10 +41,13 @@
 }
 
 // update info from Server
-- (void)updateAsync
+- (void)updateSync
 {
     if(VERBOSE_MODE) NSLog(@"SingleModel: updateAsync");
-    if ([SingleModel sharedInstance].userInfo!=nil && [SingleModel sharedInstance].userInfo.uid!=nil && [SingleModel sharedInstance].userInfo.passmd5!=nil) {
+    if ([SingleModel sharedInstance].userInfo!=nil &&
+        [SingleModel sharedInstance].userInfo.uid!=nil &&
+        [SingleModel sharedInstance].userInfo.passmd5!=nil)
+    {
         if (VERBOSE_MODE) NSLog(@"userinfo valid,begin to update");
         if([UserAuthAPI isServerRunning]){
             #pragma mark TODO: implement

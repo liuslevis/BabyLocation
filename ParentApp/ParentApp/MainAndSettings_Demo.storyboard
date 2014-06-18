@@ -526,7 +526,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="pressShowCurrentChild:" destination="zAC-sF-jnw" eventType="touchUpInside" id="dvE-q6-oAk"/>
+                                    <action selector="setChildrensAnnotationAndPop:" destination="zAC-sF-jnw" eventType="touchUpInside" id="Ci8-0k-ZRj"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VDQ-uI-qRb">

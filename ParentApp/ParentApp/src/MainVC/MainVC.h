@@ -40,5 +40,5 @@
 
 - (NSString *)curChildName;
 - (NSString *)curChildUid;
--(void)didFindishedSelectChildAtIndex:(int)index;
+-(void)didFinishedSelectChildAtIndex:(int)index;
 @end

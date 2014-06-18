@@ -11,5 +11,5 @@
 // I'll call delegate method: [self.delegate method] as follow
 @protocol ChildMenuTVCDelegate <NSObject>
 @required
--(void)didFindishedSelectChildAtIndex:(int)index;
+-(void)didFinishedSelectChildAtIndex:(int)index;
 @end
