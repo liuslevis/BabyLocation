@@ -18,7 +18,7 @@
 #define PASSWD_MIN_LEN 6
 #define PHONE_LEN 11
 
-#define DEMO_MODE YES
+#define DEMO_MODE NO
 #define VERBOSE_MODE YES
 
 #define ONLINE @"在线"

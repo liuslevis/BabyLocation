@@ -22,4 +22,7 @@
 @property CLLocation *currentLocation;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *focusOnMe;
+
+- (void)beginUpdateLocationMovedEvery:(CLLocationDistance)meters;
+
 @end

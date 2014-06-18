@@ -11,6 +11,9 @@
 #import "AppConstants.h"
 
 @interface MapVC ()
+
+- (IBAction)showMe:(id)sender;
+
 @end
 
 @implementation MapVC
@@ -39,6 +42,8 @@
     
     // Begin Update My Location, every 20m
     [self beginUpdateLocationMovedEvery:UPDATE_LOCATION_EVERY_METERS];
+    
+    [self showMe:self];
 }
 
 - (IBAction)showMe:(id)sender

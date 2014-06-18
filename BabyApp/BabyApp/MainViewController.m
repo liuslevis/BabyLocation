@@ -10,6 +10,7 @@
 #import "QRCodeGenerator.h"
 #import "UserAuthAPI.h"
 #import "AppConstants.h"
+#import "MapVC.h"
 
 #define PUBLISHER_ID @"56OJwTr4uNHFJbrW5F"
 #define PLACEMENT_ID @"16TLuznlAprmkNUEA85xGVHs"
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *QRImageView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *statusSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *retryButton;
 
 @end
 
@@ -106,6 +108,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"viewDidLoad");
     [self showUid];
     
     // switch target-action
@@ -115,6 +118,19 @@
     
     // Generate QR
     self.QRImageView.image = [self formQRwithCode:self.uidLabel.text ofSize:self.QRImageView.bounds.size.width];
+    
+    // 正式版隐藏二维码下的UID
+    if (DEMO_MODE==NO) {
+        self.uidLabel.hidden = YES;
+    }
+}
+
+// 每次点击该Tab VC，ping服务器并修改联通状态
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"ping server");
+    [self pingServerAndThenBeginUpdateAsync];
 }
 
 - (void)switchAction
@@ -122,21 +138,38 @@
     NSLog(@"switch:%d", self.statusSwitch.on);
     if (self.statusSwitch.on==YES) {
         self.statusLabel.text = ONLINE;
+        self.retryButton.hidden = YES;
     }else{
         self.statusLabel.text = OFFLINE;
+        self.retryButton.hidden = NO;
     }
 }
 
-- (void)pingServerAsync
+- (void)pingServerAndThenBeginUpdateAsync
 {
 #pragma mark TODO: implmnt Async
-    if(UserAuthAPI.isServerRunning){
-        self.statusLabel.text = ONLINE;
-        self.statusSwitch.on = YES;
-    }else{
-        self.statusLabel.text = OFFLINE;
-        self.statusSwitch.on = NO;
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if(UserAuthAPI.isServerRunning){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.statusLabel.text = ONLINE;
+                self.statusSwitch.on = YES;
+                self.retryButton.hidden = YES;
+                // 地图VC执行  Update My Location, every 20m
+                MapVC *mapVC = (MapVC *)[self.tabBarController.viewControllers objectAtIndex:1];
+                [mapVC beginUpdateLocationMovedEvery:UPDATE_LOCATION_EVERY_METERS];
+                
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.statusLabel.text = OFFLINE;
+                self.statusSwitch.on = NO;
+                self.retryButton.hidden = NO;
+                // 地图VC执行  Update My Location, every 20m
+                MapVC *mapVC = (MapVC *)[self.tabBarController.viewControllers objectAtIndex:1];
+                [mapVC beginUpdateLocationMovedEvery:UPDATE_LOCATION_EVERY_METERS];
+            });
+        }
+    });
     
 }
 
@@ -149,18 +182,17 @@
     [_dmAdView removeFromSuperview]; // 将⼲⼴广告试图从⽗父视图中移除
 }
 
-
-- (IBAction)pressRefresh:(id)sender {
+- (IBAction)pressRetry:(id)sender {
     // Try Connect to server
-    [self pingServerAsync];
+    [self pingServerAndThenBeginUpdateAsync];
+
     
-    
-    // Switch Ad on/off
-    if (_dmAdView==nil) {
-        [self initAd];
-    }else{
-        [self killAd];
-    }
+    // 广告开关 Switch Ad on/off
+//    if (_dmAdView==nil) {
+//        [self initAd];
+//    }else{
+//        [self killAd];
+//    }
 }
 
 //针对Banner的横竖屏⾃自适应⽅方法 //method For multible orientation
@@ -182,10 +214,15 @@
     // Uid is IDFV
     //如果用户将属于此Vender的所有App卸载，则idfv的值会被重置，即再重装此Vender的App，idfv的值和之前不同。
     // TODO IDFV/IDAD 保存到Keychain
-//    NSString *IDFV = [[[UIDevice alloc] identifierForVendor] UUIDString];
+    NSString *IDFV = [[[UIDevice alloc] identifierForVendor] UUIDString];
+    return IDFV;
+
+//    NSString *IDFA = [[[ASIdentifierManager alloc] advertisingIdentifier] UUIDString];
+//    return IDFA;
     
-    NSString *IDFA = [[[ASIdentifierManager alloc] advertisingIdentifier] UUIDString];
-    return IDFA;
+    
+    
+    
 }
 
 - (NSString *)getUid
