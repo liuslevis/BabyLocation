@@ -1,13 +1,14 @@
 import hashlib
 import flask
 from flask import jsonify
-import pymongo
-import bson.binary
-import bson.objectid
-import bson.errors
+import sys
+# import pymongo
+# import bson.binary
+# import bson.objectid
+# import bson.errors
+# from PIL import Image
 from flask import json
 from cStringIO import StringIO
-from PIL import Image
 from datetime import datetime, date, time
 import redis
 
@@ -15,7 +16,7 @@ global RDS
 DATE_TIME_FORMAT = "%Y-%m-%d-%H:%M:%S"
 
 app = flask.Flask(__name__)
-app.debug = True
+app.debug = True # auto reload
 
 @app.route('/ping',methods=['GET'])
 def checkServerAvailable():
@@ -23,6 +24,7 @@ def checkServerAvailable():
     return jsonify(result="server available")
 
 def hasUser(uid):
+    uid = uid.encode('utf8')
     r = getRedis()
     userkeys = r.hkeys( "user:%s"%str(uid) )
     if userkeys!=None and len(userkeys)>0:
@@ -32,6 +34,8 @@ def hasUser(uid):
 
 @app.route('/friendList/<uid>/<passwd>',methods=['GET'])
 def queryFriendList(uid, passwd):
+    uid = uid.encode('utf8')
+    passwd = passwd.encode('utf8')
     info = "query:GET /friendList/%s/%s"%(uid, passwd)
     print info
     if isValidUser(uid,passwd):
@@ -52,6 +56,10 @@ def queryFriendList(uid, passwd):
 
 @app.route('/addFriend/<uid>/<passwd>/<friendUid>',methods=['GET'])
 def addFriend(uid, passwd, friendUid):
+    uid = uid.encode('utf8')
+    passwd = passwd.encode('utf8')
+    friendUid = friendUid.encode('utf8')
+
     info = "query:GET /addFriend/%s/%s/%s"%(uid, passwd, friendUid)
     print info
     if isValidUser(uid,passwd):
@@ -69,6 +77,13 @@ def addFriend(uid, passwd, friendUid):
 
 @app.route('/signup/<uid>/<passwd>/<phone>/<name>/<email>/<uuid>',methods=['GET'])
 def signup(uid, passwd, phone, name, email, uuid):
+    uid = uid.encode('utf8')
+    passwd = passwd.encode('utf8')
+    phone = phone.encode('utf8')
+    name = name.encode('utf8')
+    email = email.encode('utf8')
+    uuid = uuid.encode('utf8')
+
     info = "query:GET /signup/%s/%s/%s/%s/%s/%s"%(uid, passwd, phone, name, email, uuid)
     print info
     r = getRedis()
@@ -101,6 +116,9 @@ def signup(uid, passwd, phone, name, email, uuid):
             return jsonify(result="sign up failed")
 
 def isValidUser(uid,tryPass):
+    uid = uid.encode('utf8')
+    tryPass = tryPass.encode('utf8')
+
     r = getRedis()
     uid = str(uid)
     tryPass = str(tryPass)
@@ -115,6 +133,9 @@ def isValidUser(uid,tryPass):
 
 @app.route('/login/<uid>/<passwd>',methods=['GET'])
 def login(uid, passwd):
+    uid = uid.encode('utf8')
+    passwd = passwd.encode('utf8')
+
     info = "query:GET /login/%s/%s"%(uid, passwd)
     print info
     r = getRedis()
@@ -140,6 +161,9 @@ def login(uid, passwd):
 # Baby App Update a Location
 @app.route('/baby/<uid>/lat/<latitude>/long/<longitude>',methods=['GET'])
 def updatetrack(uid,latitude,longitude):
+    uid = uid.encode('utf8')
+    latitude = latitude.encode('utf8')
+    longitude = longitude.encode('utf8')
     
     # assert(r!=None, 'ERR: cant connect to Redis!')
     # get cur time str
@@ -156,7 +180,7 @@ def updatetrack(uid,latitude,longitude):
     value = lat_long_time
     r = getRedis()
     res = r.rpush(key,value) #return num of elem in list (>=1)
-    info = 'query:UPDATE a baby  @(%s,%s,%s)'%(uid,latitude,longitude) + ' Redis: RPUSH(%s,%s)'%(key,value) + "result:%d"%res
+    info = 'query:UPDATE a baby  @(%s,%s,%s)'%(uid,latitude,longitude) + ' Redis: RPUSH(\'%s\',\'%s\')'%(key,value) + "result:%d"%res
 
     print info
     if res>=1:
@@ -167,6 +191,8 @@ def updatetrack(uid,latitude,longitude):
 # return JSON  {timeseq:[str,...],latseq:[str,...],longseq:[str,...]} 
 @app.route('/baby/<uid>/track',methods=['GET'])
 def querytrack(uid):
+    uid = uid.encode('utf8')
+
     # Read from Redis
     key = 'baby:'+uid+':tracklist'
     r = getRedis()
@@ -221,8 +247,8 @@ def getRedis():
     finally:
         return RDS
 
-    
-
-
 if __name__ == '__main__':
-    app.run(port=7777)
+    # app.debug = False
+    # app.run(port=7777) # test on local
+
+    app.run(host='0.0.0.0',port=7777) # listen on all public IPs.
