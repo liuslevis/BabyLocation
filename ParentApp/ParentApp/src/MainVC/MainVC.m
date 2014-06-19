@@ -10,10 +10,11 @@
 #import "ChildMenuTVC.h"
 #import "DavidlauUtils.h"
 #import "APIDefine.h"
+#import "SingleModel.h"
 
 @interface MainVC ()
-@property (weak, nonatomic) IBOutlet UIView *placeHolder;
-@property (strong, nonatomic) UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UIButton *btnUpdate;
+@property (weak, nonatomic) IBOutlet UIButton *btnAddBaby;
 @property BOOL isJustLogin;
 @end
 
@@ -135,6 +136,15 @@
     NSLog(@"MainVC viewDidLoad}");
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"viewWillAppear");
+    if ([[SingleModel sharedInstance].friends count] > 0) {
+        NSLog(@"viewWillAppear friend count:%d",[[SingleModel sharedInstance].friends count]);
+        self.btnAddBaby.hidden = YES;
+    }
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"MainVC viewDidAppear{");
@@ -144,10 +154,13 @@
         self.isJustLogin = NO;
         [self pressUpdateModel:self];
     }else{
-        [self didFinishedSelectChildAtIndex:self.curChildIndex];
+        if ([[SingleModel sharedInstance].friends count] > 0) {
+            NSLog(@"viewDidAppear friend count:%d",[[SingleModel sharedInstance].friends count]);
+            self.btnAddBaby.hidden = YES;
+            [self didFinishedSelectChildAtIndex:self.curChildIndex];
+        }
     }
     
-
     NSLog(@"MainVC viewDidAppear}");
 }
 
@@ -178,6 +191,8 @@
                 self.childAvatars = [self.childAvatars arrayByAddingObject:kid_avatar];
             }
         }
+        // TODO 更新地图信息
+        
     }
     if ([keyPath isEqualToString:@"userInfo"]){
         NSLog(@"MainVC KVO: Model userInfo changed!");
@@ -187,6 +202,7 @@
 
 // 更新SingleModel的信息，并显示儿童信息
 - (IBAction)pressUpdateModel:(id)sender {
+    self.btnUpdate.enabled = NO;
     NSLog(@"MainVC pressUpdateModel");
 
     // 准备等待菊花
@@ -213,6 +229,7 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             //重新选中孩子
+            self.btnUpdate.enabled = YES;
             [self viewDidAppear:YES];
         });
     });
@@ -226,31 +243,7 @@
     // 绘制所有孩子的路径
     [self drawAllChildsRouteLine];
     // 绘制所有孩子的Annotation，弹出一个
-    [self setChildrensAnnotationAndPop:self];
-}
-
-- (void)showWaitingIndicator{
-    //set up indicator
-    NSLog(@"Start Wating 1");
-    self.indicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.indicator.frame = CGRectMake (30, 30, 80, 80);
-    self.indicator.hidden = NO;
-    self.indicator.center = self.view.center;
-    [self.view insertSubview:self.indicator atIndex:100]; // to be on the safe side
-    [self.view bringSubviewToFront:self.indicator];
-    [self.indicator startAnimating];
-
-
-}
-
-- (void)hideWaitingIndicator{
-    NSLog(@"Stop Wating");
-
-    if (self.indicator) {
-        [self.indicator removeFromSuperview];
-        [self.indicator stopAnimating];
-        self.indicator = nil;
-    }
+    [self setChildrensAnnotationsAndPopOne:self];
 }
 
 // 按下某个孩子气泡的按钮：发送消息
@@ -271,7 +264,7 @@
     [DavidlauUtils alertTitle:@"功能说明" message:@"设置孩子离开安全区域后的报警方式：电话，电邮，短信等等" delegate:nil cancelBtn:@"取消" otherBtnName:nil];
 }
 // 按键事件：显示当前选中的小孩
-- (IBAction)setChildrensAnnotationAndPop:(id)sender {
+- (IBAction)setChildrensAnnotationsAndPopOne:(id)sender {
     NSLog(@"pressShow:查看 %@ 的位置",[self curChildUid]);
     // 添加所有孩子的最后位置Pin focus当前所选的孩子Pin
     [self.mapView removeAnnotations:self.mapView.annotations];
@@ -288,18 +281,28 @@
         if([SingleModel sharedInstance].friends &&
            self.curChildIndex < [[SingleModel sharedInstance].friends count]){
             UserInfo *kidInfo = [[SingleModel sharedInstance].friends objectAtIndex:self.curChildIndex];
-            NSDate *lastUpdateDate = [dateFormat dateFromString:kidInfo.lastUpdateDateTime];
-            NSTimeInterval interval = [lastUpdateDate timeIntervalSinceNow];
-            subtitle = [DavidlauUtils howLongIsTheInterval:interval];
-            if (VERBOSE_MODE) NSLog(@"last update time of kid uid %@: %@", kidInfo.uid, [DavidlauUtils howLongIsTheInterval:interval]);
+            
+            if([kidInfo.lastUpdateDateTime length]==0){
+                subtitle = @"无记录";
+            }else{
+                NSDate *lastUpdateDate = [dateFormat dateFromString:kidInfo.lastUpdateDateTime];
+                NSTimeInterval interval = [lastUpdateDate timeIntervalSinceNow];
+                subtitle = [DavidlauUtils howLongIsTheInterval:interval];
+                if (VERBOSE_MODE) NSLog(@"last update time of kid uid %@ - %@ - %f - lastdate %@", kidInfo.uid, [DavidlauUtils howLongIsTheInterval:interval],interval,kidInfo.lastUpdateDateTime);
+
+            }
+            
 
 
         }
+        // Annotation的图标（笑脸）
         UIImage *childAvatar = [self childAvatarForIndex:childIndex]?[self childAvatarForIndex:childIndex]:[UIImage imageNamed:@"happyface"];
+        
+        //地图气泡Annotation 放在最后的位置
         NSArray *lastChildLocations =[self.childLocationsList objectAtIndex:childIndex];
         CLLocation *lastLocation = [lastChildLocations lastObject];
         NSLog(@"create child anno:%@ %@", childUid,childName);
-        // 注意！title一定要有内容，不然 起泡不出来
+        // 注意！Annotation title一定要有内容，不然 气泡不出来
         ChildrenMapAnnotation *childAnnotation = [[ChildrenMapAnnotation alloc] initWithCoordinates:lastLocation.coordinate
                                                                                               title:title subtitle:subtitle
                                                                                                name:childName
@@ -318,17 +321,10 @@
 //    [self.mapView showAnnotations:self.mapView.annotations animated:YES];
 }
 
+// camera移动到经纬度location
 - (void)focusOnLocation:(CLLocation *)location{
     [self.mapView setCamera:[MKMapCamera cameraLookingAtCenterCoordinate:location.coordinate fromEyeCoordinate:location.coordinate eyeAltitude:5000]];
 }
-
-//#pragma mark Show History Line of a Child
-//// 下载并返回某人textName的历史轨迹
-//// return: NSArray of CLLocation*
-//- (NSArray *)downloadHistoryRouteOfChild:(int)childIndex{
-//    NSLog(@"MainVC downloadHistoryRouteOfChild:%d", childIndex);
-//    return [[SingleModel sharedInstance] downloadHistoryLocationOfChildAtIndex:childIndex];
-//}
 
 // 从Model读取每个小孩的位置，并添加Overlay (显示轨迹）
 - (void)drawAllChildsRouteLine {
@@ -345,11 +341,8 @@
             self.childLocationsList = [self.childLocationsList arrayByAddingObject:locations];
         }
     }
-//    if([self.childRouteList count]){
-        NSLog(@"MainVC drawAllChildsRouteLine: addOverlays %d", [self.childRouteList count]);
-//        if(self.mapView.overlays) [self.mapView removeOverlays:self.mapView.overlays];
-        [self.mapView addOverlays:self.childRouteList];
-//    }
+    if(VERBOSE_MODE) NSLog(@"MainVC drawAllChildsRouteLine: addOverlays %d", [self.childRouteList count]);
+    [self.mapView addOverlays:self.childRouteList];
 }
 
 // 生成 MKPolyline routeline
@@ -385,10 +378,29 @@
             routeLineView.fillColor = [UIColor redColor];
             routeLineView.strokeColor = [UIColor redColor];
         }
-        else
+        else if([polyline.title isEqualToString:@"2"])
         {
             routeLineView.fillColor = [UIColor orangeColor];
             routeLineView.strokeColor = [UIColor orangeColor];
+        }
+        else if([polyline.title isEqualToString:@"3"])
+        {
+            routeLineView.fillColor = [UIColor brownColor];
+            routeLineView.strokeColor = [UIColor brownColor];
+        }
+        else if([polyline.title isEqualToString:@"4"])
+        {
+            routeLineView.fillColor = [UIColor greenColor];
+            routeLineView.strokeColor = [UIColor greenColor];
+        }
+        else if([polyline.title isEqualToString:@"5"])
+        {
+            routeLineView.fillColor = [UIColor yellowColor];
+            routeLineView.strokeColor = [UIColor yellowColor];
+        }
+        else{
+            routeLineView.fillColor = [UIColor blueColor];
+            routeLineView.strokeColor = [UIColor blueColor];
         }
         
         routeLineView.lineWidth = 10;
@@ -428,7 +440,8 @@
         
         // Cutom AnnotationView
         
-        // Multiple UIButtons on right
+        // 气泡Annotation中的按钮 Multiple UIButtons on right
+        /*
         int numOfButton = 3;
         UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 32*numOfButton, 32)];
 
@@ -449,12 +462,11 @@
             [button setImage:[UIImage imageNamed:@"notification"] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(pressSetAlertMode:) forControlEvents:UIControlEventTouchDown];
         [rightView addSubview:button];
-
-
-
-        [annotationView setRightCalloutAccessoryView:rightView];
         
-        // Avatar on left 孩子头像 BUG
+        [annotationView setRightCalloutAccessoryView:rightView];
+          */
+        
+        // Avatar on left 孩子头像
         UIImageView *leftImageView = [[UIImageView alloc] initWithImage:((ChildrenMapAnnotation *)annotation).avatar];
         CGFloat resizedWidth = 48;
         CGFloat resizedHeight = 48;

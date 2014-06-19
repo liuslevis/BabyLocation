@@ -10,7 +10,7 @@
 #define AppConstants_h
 
 #define DEMO_MODE NO
-#define VERBOSE_MODE YES
+#define VERBOSE_MODE NO
 
 #define APP_USER_UID_KEY @"BabyLocation_UserInfo_uid"
 #define APP_USER_PASSWD_KEY @"BabyLocation_UserInfo_passwd"
@@ -24,7 +24,7 @@
 #define SIGNUP_BTN_SECTION 1
 #define SIGNUP_BTN_ROW 0
 
-#define LOGOUT_BTN_SECTION 3
+#define LOGOUT_BTN_SECTION 5
 #define LOGOUT_BTN_ROW 0
 
 #define CLOSE_APP_BTN_SECTION 3

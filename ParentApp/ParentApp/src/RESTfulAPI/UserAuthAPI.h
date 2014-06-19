@@ -25,7 +25,12 @@
 
 + (BOOL)isServerRunning;
 
+//+(BOOL)addFriend:(NSString *)friendUid
+//       withMyUid:(NSString *)myUid
+//       passwdMd5:(NSString *)passwd;
+
 +(BOOL)addFriend:(NSString *)friendUid
+    withNickName:(NSString *)friendName
        withMyUid:(NSString *)myUid
        passwdMd5:(NSString *)passwd;
 
@@ -41,6 +46,10 @@
 // 返回friends with uid
 + (NSArray *)queryFriendsUidListByUid:(NSString *)uid
                               passMd5:(NSString *)passmd5;
+// 返回friends with uid,name
++ (NSArray *)queryFriendsListByUid:(NSString *)uid
+                           passMd5:(NSString *)passmd5;
+
 
 // 获取好友的详细信息，包括地理位置，根据输入friends的uid，返回friends with detail
 + (NSArray *)queryFriendsDetailInfo:(NSArray *)friends // array of UserInfo

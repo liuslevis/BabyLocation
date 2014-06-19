@@ -73,14 +73,16 @@
         if (kidInfo.avatar){
             cell.imageView.image = kidInfo.avatar;
         }else{
-            if([kidInfo.gender isEqualToString:@"boy"]){
-                cell.imageView.image = [UIImage imageNamed:@"boy"];
-            }else if([kidInfo.gender isEqualToString:@"girl"]){
-                cell.imageView.image = [UIImage imageNamed:@"girl"];
-            }else{
-                cell.imageView.image = [UIImage imageNamed:@"happyface"];
+            cell.imageView.image = [UIImage imageNamed:@"happyface"];
 
-            }
+//            if([kidInfo.gender isEqualToString:@"boy"]){
+//                cell.imageView.image = [UIImage imageNamed:@"boy"];
+//            }else if([kidInfo.gender isEqualToString:@"girl"]){
+//                cell.imageView.image = [UIImage imageNamed:@"girl"];
+//            }else{
+//                cell.imageView.image = [UIImage imageNamed:@"happyface"];
+//
+//            }
         }
     }
     return cell;

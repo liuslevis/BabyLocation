@@ -17,7 +17,7 @@
 + (SingleModel *)sharedInstance;
 
 -(void)updateSync;
-- (void)addFriend:(NSString *)uid;
+- (void)addFriend:(NSString *)uid withName:(NSString *)name;
 - (BOOL)isValidUser;
 //- (NSArray *)downloadHistoryLocationOfChildAtIndex:(int)childIndex; // array of CLLocation
 @end

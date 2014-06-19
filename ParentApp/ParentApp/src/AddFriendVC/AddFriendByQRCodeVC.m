@@ -8,12 +8,16 @@
 
 #import "AddFriendByQRCodeVC.h"
 #import "SingleModel.h"
+#import "SetFriendsNameVC.h"
+#import "AppConstants.h"
 
-@interface AddFriendByQRCodeVC ()
+@interface AddFriendByQRCodeVC () <AddFriendByQRCodeDelegate>
 
 @property (nonatomic, strong) AVCaptureSession *captureSession;
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
+@property (nonatomic, strong) NSString *friendUid;
+@property (nonatomic, weak) SetFriendsNameVC *modalVC;
 
 -(void)loadBeepSound;
 -(void)stopReading;
@@ -30,14 +34,33 @@
     }
     return self;
 }
+
+// <AddFriendByQRCodeDelegate> call by SetFriendNameVC
+- (void)DismissModalViewAndAddFriendWithUid:(NSString *)uid andName:(NSString *)name
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        [[SingleModel sharedInstance] addFriend:uid withName:name];// 添加宝贝
+        [[SingleModel sharedInstance] updateSync];// 更新好友列表
+    });
+    // 去除modal，
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+    // 回到root view
+    [self.navigationController popToRootViewControllerAnimated:YES];
+
+}
+
 - (IBAction)pressAddFriend:(id)sender {
     NSLog(@"press AddFirends");
     NSString *friendUid = [self.textField.text uppercaseString];//转成大写
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        [[SingleModel sharedInstance] addFriend:friendUid];// 添加宝贝
-        [[SingleModel sharedInstance] updateSync];// 更新好友列表
-    });
-    [self.navigationController popToRootViewControllerAnimated:YES];//等VC销毁后跳转
+    if ([friendUid length]>1) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // 获取好友UID
+            self.friendUid = [self.textField.text uppercaseString];//转成大写
+            // 跳转到设置好友名字VC with Uid
+            [self performSegueWithIdentifier:@"Set Friend Name Segue" sender:self];
+        });
+    }
 }
 
 - (void)viewDidLoad
@@ -46,6 +69,17 @@
     _captureSession = nil;
     [self loadBeepSound];
     [self startReading];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // DEMO_MODE 把 通过输入号码添加的控件隐藏
+    if(DEMO_MODE==NO){
+        self.addButton.hidden = YES;
+        self.textField.hidden = YES;
+    }
 }
 
 -(void)loadBeepSound{
@@ -116,12 +150,12 @@
                 self.statusLabel.text = @"扫描成功!";
                 [self stopReading];
                 
-                NSString *friendUid = [self.textField.text uppercaseString];//转成大写
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-                    [[SingleModel sharedInstance] addFriend:friendUid];// 添加宝贝
-                    [[SingleModel sharedInstance] updateSync];// 更新好友列表
-                });
-                [self.navigationController popToRootViewControllerAnimated:YES];//等VC销毁后跳转
+                // 获取好友UID
+                self.friendUid = [self.textField.text uppercaseString];//转成大写
+                
+                // 跳转到设置好友名字VC with Uid
+                [self performSegueWithIdentifier:@"Set Friend Name Segue" sender:self];
+                
 
             });
             
@@ -132,6 +166,17 @@
 
             //press add friend btn
 //            [self pressAddFriend:self];
+        }
+    }
+}
+
+// 传 friend uid给 SetFriendNameVC
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Set Friend Name Segue"]) {
+        if ([segue.destinationViewController isKindOfClass:[SetFriendsNameVC class]]) {
+            ((SetFriendsNameVC *)segue.destinationViewController).friendUid = self.friendUid;
+            ((SetFriendsNameVC *)segue.destinationViewController).delegate = self;
+            self.modalVC = (SetFriendsNameVC *)segue.destinationViewController;
         }
     }
 }

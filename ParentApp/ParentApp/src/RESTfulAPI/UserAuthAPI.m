@@ -128,14 +128,50 @@
     return NO;
 }
 
+//+(BOOL)addFriend:(NSString *)friendUid
+//       withMyUid:(NSString *)myUid
+//       passwdMd5:(NSString *)passwd
+//{
+//
+//    NSString *url = [[NSString stringWithFormat:URL_ADD_FRIENDS_WITH_MYUID_MYPASSMD5_FRIENDUID,myUid,passwd,friendUid]  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+//    if (VERBOSE_MODE) {
+//        NSLog(@"add friend via uid, url:%@",url);
+//    }
+//    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+//    NSError *error1;
+//    NSData *result_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error1];
+//    
+//    if(result_data==nil){
+//        NSLog(@"ERR: cant connect to server, check network! request url:%@ Error:%@",url,error1);
+//        return NO;
+//    }
+//    
+//    NSError *error;
+//    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:result_data options:NSJSONReadingMutableLeaves error:&error];
+//    
+//    if(json){
+//        NSString *result = [json objectForKey:@"result"];
+//        if( [@"failed to add friend" isEqualToString:result]){
+//            return NO;
+//        }else if([@"add friend success" isEqualToString:result]){
+//            return YES;
+//        }
+//    }else{
+//        NSLog(@"ERR: cant get JSON. request url:%@ Error:%@",url,error);
+//    }
+//
+//    return NO;
+//}
+
 +(BOOL)addFriend:(NSString *)friendUid
+    withNickName:(NSString *)friendName
        withMyUid:(NSString *)myUid
        passwdMd5:(NSString *)passwd
 {
-
-    NSString *url = [[NSString stringWithFormat:URL_ADD_FRIENDS_WITH_MYUID_MYPASSMD5_FRIENDUID,myUid,passwd,friendUid]  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *url = [[NSString stringWithFormat:URL_ADD_FRIENDS_WITH_MYUID_MYPASSMD5_FRIENDUID_FRIENDNAME,myUid,passwd,friendUid, friendName]  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     if (VERBOSE_MODE) {
-        NSLog(@"add friend via uid, url:%@",url);
+        NSLog(@"addFriend withNickName, url:%@",url);
     }
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSError *error1;
@@ -159,7 +195,7 @@
     }else{
         NSLog(@"ERR: cant get JSON. request url:%@ Error:%@",url,error);
     }
-
+    
     return NO;
 }
 
@@ -203,7 +239,7 @@
     return NO;
 }
 
-// friends: array of UserInfo, including names, avatar, histroy location
+// return friends: array of UserInfo, including uid
 + (NSArray *)queryFriendsUidListByUid:(NSString *)uid
                          passMd5:(NSString *)passmd5
 {
@@ -211,7 +247,7 @@
     if([self verifyUid:uid passwdMd5:passmd5]){
         if(VERBOSE_MODE) NSLog(@" query friend list");
         
-        NSString *url = [[NSString stringWithFormat:URL_UPDATE_FRIENDS,uid,passmd5] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *url = [[NSString stringWithFormat:URL_UPDATE_FRIENDS_UID,uid,passmd5] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         if (VERBOSE_MODE) {
             NSLog(@"query friend list:%@",url);
         }
@@ -253,6 +289,83 @@
     return friends;
 }
 
+
+// return friends: array of UserInfo, including uid, name
++ (NSArray *)queryFriendsListByUid:(NSString *)uid
+                              passMd5:(NSString *)passmd5
+{
+    NSArray *friends = [[NSArray alloc] init];
+    if([self verifyUid:uid passwdMd5:passmd5]){
+        if(VERBOSE_MODE) NSLog(@" query friend list");
+        NSError *error1;
+        //获取好友 uid list
+        NSString *url1 = [[NSString stringWithFormat:URL_UPDATE_FRIENDS_UID,uid,passmd5] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        if (VERBOSE_MODE) {
+            NSLog(@"query friend uid list:%@",url1);
+        }
+        NSURLRequest *request1 = [NSURLRequest requestWithURL:[NSURL URLWithString:url1]];
+        NSData *result_data1 = [NSURLConnection sendSynchronousRequest:request1 returningResponse:nil error:&error1];
+        
+        if(result_data1==nil){
+            NSLog(@"ERR: cant connect to server, check network! request url:%@ Error:%@",url1,error1);
+            return friends;
+        }
+        
+        NSDictionary *json_uids = [NSJSONSerialization JSONObjectWithData:result_data1 options:NSJSONReadingMutableLeaves error:&error1];
+        
+        //获取好友 name list
+        NSString *url2 = [[NSString stringWithFormat:URL_UPDATE_FRIENDS_NAME,uid,passmd5] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        if (VERBOSE_MODE) {
+            NSLog(@"query friend name list:%@",url2);
+        }
+        NSURLRequest *request2 = [NSURLRequest requestWithURL:[NSURL URLWithString:url2]];
+        NSError *error2;
+        NSData *result_data2 = [NSURLConnection sendSynchronousRequest:request2 returningResponse:nil error:&error2];
+        
+        if(result_data2==nil){
+            NSLog(@"ERR: cant connect to server, check network! request url:%@ Error:%@",url2,error2);
+            return friends;
+        }
+        
+        NSDictionary *json_names = [NSJSONSerialization JSONObjectWithData:result_data2 options:NSJSONReadingMutableLeaves error:&error2];
+
+        
+        if(json_uids!=nil && json_names!=nil){
+            NSString *result = [json_uids objectForKey:@"result"];
+            if( [@"query friends success" isEqualToString:result]){
+                
+                // get friend uid/name list
+                NSString *uid_str_list = [json_uids objectForKey:@"uid_list"];
+                NSArray *uid_list = [uid_str_list componentsSeparatedByString:@" "];
+                
+                NSString *name_str_list = [json_names objectForKey:@"name_list"];
+                NSArray *name_list = [name_str_list componentsSeparatedByString:@" "];
+                
+                for(int i = 0; i<[uid_list count] && i<[name_list count]; i++){
+                    NSString *uid = [uid_list objectAtIndex:i];
+                    NSString *name = [name_list objectAtIndex:i];
+                    if ( [uid length] > 0) {
+                        UserInfo *friend = [[UserInfo alloc] initWithUid:uid];
+                        friend.nickname = name;
+                        friends = [friends arrayByAddingObject:friend];
+                        if (VERBOSE_MODE) NSLog(@" get %dth friend:%@/%@", i,friend.uid,friend.nickname);
+                    }
+                }
+            }else if([@"query friends failed" isEqualToString:result]){
+                NSLog(@"ERR: get friend list failed");
+            }
+        }else{
+            NSLog(@"ERR: cant get JSON. request url:%@/%@ Error:%@/%@",url1,url2,error1,error2);
+        }
+    }else{
+        if(VERBOSE_MODE) NSLog(@"ERR: update friends failed, invalid user info");
+    }
+    if(VERBOSE_MODE)  NSLog(@"UserAuth queryFriendsListByUid: get friends: %d", [friends count]);
+    return friends;
+}
+
+
+
 // 获取好友的详细信息，包括地理位置，根据输入friends的uid
 + (NSArray *)queryFriendsDetailInfo:(NSArray *)friends // array of UserInfo with uid
                          byUid:(NSString *)uid
@@ -260,8 +373,8 @@
 {
     if([self verifyUid:uid passwdMd5:passmd5]){
         if(VERBOSE_MODE) NSLog(@" queryFriendsDetailInfo begin");
-        for(id friend in friends){
-            NSString *uid = ((UserInfo *)friend).uid;
+        for(id friendInfo in friends){
+            NSString *uid = ((UserInfo *)friendInfo).uid;
             if ([uid length]>0){
                 NSData *child_track_data;
 
@@ -303,10 +416,10 @@
                                               longitude:longitude]];
                     }
                     if(locations){
-                        ((UserInfo *)friend).history_location = locations;
-                        ((UserInfo *)friend).current_location = [locations objectAtIndex:0];
+                        ((UserInfo *)friendInfo).history_location = locations;
+                        ((UserInfo *)friendInfo).current_location = [locations objectAtIndex:0];
                         
-                        ((UserInfo *)friend).lastUpdateDateTime = [timeseq objectAtIndex:0]; // e.g. @"2014-06-11-17:24:11"
+                        ((UserInfo *)friendInfo).lastUpdateDateTime = [timeseq objectAtIndex:0]; // e.g. @"2014-06-11-17:24:11"
                     }
                 }
             }
