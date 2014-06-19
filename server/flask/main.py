@@ -32,21 +32,21 @@ def hasUser(uid):
     return False
 
 
-@app.route('/friendList/<uid>/<passwd>',methods=['GET'])
-def queryFriendList(uid, passwd):
+@app.route('/friendList_uid/<uid>/<passwd>',methods=['GET'])
+def queryFriendUidList(uid, passwd):
     uid = uid.encode('utf8')
     passwd = passwd.encode('utf8')
-    info = "query:GET /friendList/%s/%s"%(uid, passwd)
+    info = "query:GET /friendList_uid/%s/%s"%(uid, passwd)
     print info
     if isValidUser(uid,passwd):
         r = getRedis()
-        user_friend_key = "user:%s:friends"%uid
-        result_set = r.smembers(user_friend_key)
+        user_friend_key = "user:%s:friends_uid"%uid
+        result_li = r.lrange(user_friend_key,0,-1)
 
     uids_str = ''
-    print result_set
-    if type(set())==type(result_set):
-        for uid in list(result_set):
+    print result_li
+    if type(list())==type(result_li):
+        for uid in result_li:
             uids_str += str(uid)+' '
 
         return jsonify(result="query friends success",uid_list=uids_str)
@@ -54,26 +54,87 @@ def queryFriendList(uid, passwd):
     return jsonify(result="query friends failed",uid_list=uids_str)
 
 
-@app.route('/addFriend/<uid>/<passwd>/<friendUid>',methods=['GET'])
-def addFriend(uid, passwd, friendUid):
+@app.route('/friendList_name/<uid>/<passwd>',methods=['GET'])
+def queryFriendNameList(uid, passwd):
     uid = uid.encode('utf8')
     passwd = passwd.encode('utf8')
-    friendUid = friendUid.encode('utf8')
-
-    info = "query:GET /addFriend/%s/%s/%s"%(uid, passwd, friendUid)
+    info = "query:GET /friendList_name/%s/%s"%(uid, passwd)
     print info
     if isValidUser(uid,passwd):
         r = getRedis()
-        user_friend_key = "user:%s:friends"%uid
-        result = r.sadd(user_friend_key,friendUid)
-        if result==1:
+        user_friend_key = "user:%s:friends_name"%uid
+        result_li = r.lrange(user_friend_key,0,-1)
+
+    name_str = ''
+    print result_li
+    if type(list())==type(result_li):
+        for name in result_li:
+            name_str += str(name)+' '
+
+        return jsonify(result="query friends success",name_list=name_str)
+
+    return jsonify(result="query friends failed",name_list=name_str)
+
+# @app.route('/addFriend/<uid>/<passwd>/<friendUid>',methods=['GET'])
+# def addFriend(uid, passwd, friendUid):
+#     uid = uid.encode('utf8')
+#     passwd = passwd.encode('utf8')
+#     friendUid = friendUid.encode('utf8')
+
+#     info = "query:GET /addFriend/%s/%s/%s"%(uid, passwd, friendUid)
+#     print info
+#     if isValidUser(uid,passwd):
+#         r = getRedis()
+#         user_friend_key = "user:%s:friends_uid"%uid
+#         result = r.sadd(user_friend_key,friendUid)
+#         if result==1:
+#             return jsonify(result="add friend success")
+#         else:
+#             # already has
+#             return jsonify(result="add friend success")
+
+#     return jsonify(result="failed to add friend")
+
+@app.route('/addFriendWithName/<uid>/<passwd>/<friendUid>/<friendName>',methods=['GET'])
+def addFriendWithName(uid, passwd, friendUid,friendName):
+    uid = uid.encode('utf8')
+    passwd = passwd.encode('utf8')
+    friendUid = friendUid.encode('utf8')
+    friendName = friendName.encode('utf8')
+
+    info = "query:GET /addFriendWithName/%s/%s/%s/%s"%(uid, passwd, friendUid,friendName)
+    print info
+    if isValidUser(uid,passwd):
+        if not hasFriend(uid,friendUid):
+            r = getRedis()
+            
+            key1 = "user:%s:friends_uid"%uid
+            result = r.rpush(key1,friendUid)
+
+            key2 = "user:%s:friends_name"%uid
+            result2 = r.rpush(key2,friendName)
+                
             return jsonify(result="add friend success")
+            
         else:
+            print "addFriendWithName failed: %s already has friend %s" % (uid,friendUid)
             # already has
             return jsonify(result="add friend success")
 
     return jsonify(result="failed to add friend")
 
+def hasFriend(uid,friendUid):
+    r = getRedis()
+    key = "user:%s:friends_uid"
+    user_friend_key = "user:%s:friends_uid"%uid
+    result_li = r.lrange(user_friend_key,0,-1)
+
+    if type(list())==type(result_li):
+        for uid in result_li:
+            if uid == friendUid:
+                return True
+
+    return False
 
 @app.route('/signup/<uid>/<passwd>/<phone>/<name>/<email>/<uuid>',methods=['GET'])
 def signup(uid, passwd, phone, name, email, uuid):
