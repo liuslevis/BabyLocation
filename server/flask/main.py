@@ -14,6 +14,7 @@ import redis
 
 global RDS
 DATE_TIME_FORMAT = "%Y-%m-%d-%H:%M:%S"
+MAX_LOCATION_LIST_LEN = 1000
 
 app = flask.Flask(__name__)
 app.debug = True # auto reload
@@ -115,7 +116,7 @@ def addFriendWithName(uid, passwd, friendUid,friendName):
             result2 = r.rpush(key2,friendName)
                 
             return jsonify(result="add friend success")
-            
+
         else:
             print "addFriendWithName failed: %s already has friend %s" % (uid,friendUid)
             # already has
@@ -241,6 +242,7 @@ def updatetrack(uid,latitude,longitude):
     value = lat_long_time
     r = getRedis()
     res = r.rpush(key,value) #return num of elem in list (>=1)
+    r.ltrim(key,0,MAX_LOCATION_LIST_LEN)
     info = 'query:UPDATE a baby  @(%s,%s,%s)'%(uid,latitude,longitude) + ' Redis: RPUSH(\'%s\',\'%s\')'%(key,value) + "result:%d"%res
 
     print info
