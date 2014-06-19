@@ -26,6 +26,8 @@
 
 #define WHERE_AM_I @"我在哪？"
 
-#define UPDATE_LOCATION_EVERY_METERS 20
+#define UPDATE_LOCATION_EVERY_METERS 200
+
+#define DESIRED_ACCURACY kCLLocationAccuracyHundredMeters
 
 #endif

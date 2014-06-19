@@ -154,7 +154,7 @@
                 self.statusLabel.text = ONLINE;
                 self.statusSwitch.on = YES;
                 self.retryButton.hidden = YES;
-                // 地图VC执行  Update My Location, every 20m
+                // 地图VC执行  Update My Location, every 500m
                 MapVC *mapVC = (MapVC *)[self.tabBarController.viewControllers objectAtIndex:1];
                 [mapVC beginUpdateLocationMovedEvery:UPDATE_LOCATION_EVERY_METERS];
                 
@@ -164,7 +164,7 @@
                 self.statusLabel.text = OFFLINE;
                 self.statusSwitch.on = NO;
                 self.retryButton.hidden = NO;
-                // 地图VC执行  Update My Location, every 20m
+                // 地图VC执行  Update My Location, every 500m
                 MapVC *mapVC = (MapVC *)[self.tabBarController.viewControllers objectAtIndex:1];
                 [mapVC beginUpdateLocationMovedEvery:UPDATE_LOCATION_EVERY_METERS];
             });

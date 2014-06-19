@@ -9,10 +9,11 @@
 #import "MapVC.h"
 #import "MainViewController.h"
 #import "AppConstants.h"
+#import "MyMapAnnotation.h"
+#import "WGS84TOGCJ02.h"
 
 @interface MapVC ()
 
-- (IBAction)showMe:(id)sender;
 
 @end
 
@@ -40,26 +41,33 @@
     self.mapView.zoomEnabled = YES;
     self.mapView.scrollEnabled = YES;
     
-    // Begin Update My Location, every 20m
+    // Begin Update My Location, every 200m
     [self beginUpdateLocationMovedEvery:UPDATE_LOCATION_EVERY_METERS];
     
     [self showMe:self];
+    
+    // 小Pin 实时显示用户位置
+    self.mapView.showsUserLocation = YES;
 }
 
 - (IBAction)showMe:(id)sender
 {
+    // 小Pin 实时显示用户位置
+    self.mapView.showsUserLocation = YES;
+
+    // 移动视角到我
     [self focusMyLocation];
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id < MKAnnotation >)annotation
 {
     NSLog(@"viewForAnno");
-    NSString *IDENT = annotation.subtitle;
+    NSString *IDENT = @"pin on me";
     MKAnnotationView *aView = [mapView dequeueReusableAnnotationViewWithIdentifier:IDENT];
-    if(!aView)
+    if(!aView){
         aView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
                                                 reuseIdentifier:IDENT];
-    
+    }
     // set canShowCallout to YES and build aView’s callout accessory views here
     aView.annotation = annotation; // yes, this happens twice if no dequeue
     // maybe load up accessory views here (if not too expensive)?
@@ -85,9 +93,10 @@
     }
     
     // 设置精度
-    //    [self.locationManager desiredAccuracy];
+    self.locationManager.desiredAccuracy = DESIRED_ACCURACY;
+    
     // 设置位移通知 didUpdateLocations
-    self.locationManager.distanceFilter = meters;// notify me only 100m passed
+    self.locationManager.distanceFilter = meters;// notify me only 500m passed
     
     // 开始定位
     [self.locationManager startUpdatingLocation];
@@ -102,9 +111,17 @@
     //此处locations存储了持续更新的位置坐标值，取最后一个值为最新位置，如果不想让其持续更新位置，则在此方法中获取到一个值之后让locationManager stopUpdatingLocation
     self.currentLocation = [locations lastObject];
 
-    CLLocationCoordinate2D coor = self.currentLocation.coordinate;
-    self.latitude =  coor.latitude;
-    self.longitude = coor.longitude;
+    //判断是不是属于国内范围
+    CLLocationCoordinate2D coord;
+    if (![WGS84TOGCJ02 isLocationOutOfChina:[self.currentLocation coordinate]]) {
+        //转换后的coord，解决ChinaShift
+        coord = [WGS84TOGCJ02 transformFromWGSToGCJ:[self.currentLocation coordinate]];
+    }else{
+        coord = self.currentLocation.coordinate;
+    }
+
+    self.latitude =  coord.latitude;
+    self.longitude = coord.longitude;
     NSLog(@" update loation lat:%f long:%f",self.latitude,self.longitude);
     
     // Send RESTful request , tell server where i am

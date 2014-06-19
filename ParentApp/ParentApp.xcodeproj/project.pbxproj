@@ -7,78 +7,118 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040D8D6C190E9C1D0048D231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6B190E9C1D0048D231 /* Foundation.framework */; };
-		040D8D6E190E9C1D0048D231 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6D190E9C1D0048D231 /* CoreGraphics.framework */; };
-		040D8D70190E9C1D0048D231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6F190E9C1D0048D231 /* UIKit.framework */; };
-		040D8D76190E9C1D0048D231 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D74190E9C1D0048D231 /* InfoPlist.strings */; };
-		040D8D87190E9C1D0048D231 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D86190E9C1D0048D231 /* Images.xcassets */; };
 		040D8D8E190E9C1D0048D231 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D8D190E9C1D0048D231 /* XCTest.framework */; };
 		040D8D8F190E9C1D0048D231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6B190E9C1D0048D231 /* Foundation.framework */; };
 		040D8D90190E9C1D0048D231 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6F190E9C1D0048D231 /* UIKit.framework */; };
 		040D8D98190E9C1D0048D231 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D96190E9C1D0048D231 /* InfoPlist.strings */; };
 		040D8D9A190E9C1D0048D231 /* ParentAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 040D8D99190E9C1D0048D231 /* ParentAppTests.m */; };
-		041819B419209C6800D5288A /* DavidTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B219209C6800D5288A /* DavidTrack.txt */; };
-		041819B519209C6800D5288A /* XiaoKuiTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B319209C6800D5288A /* XiaoKuiTrack.txt */; };
-		041819B71920A30E00D5288A /* Login_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B61920A30E00D5288A /* Login_iPhone.storyboard */; };
-		041819B91920A35000D5288A /* MainAndSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B81920A35000D5288A /* MainAndSettings.storyboard */; };
-		043930021930B1CB0085E73A /* AddFriendByUid.m in Sources */ = {isa = PBXBuildFile; fileRef = 043930011930B1CB0085E73A /* AddFriendByUid.m */; };
-		043B0EA11941A01700429477 /* SingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA01941A01700429477 /* SingleModel.m */; };
-		043B0EA41941A1FE00429477 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA31941A1FE00429477 /* UserInfo.m */; };
-		044213F2191A11EA00E98D2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EB191A11EA00E98D2D /* main.m */; };
-		044213F3191A11EA00E98D2D /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213ED191A11EA00E98D2D /* MainAppDelegate.m */; };
-		044213F4191A11EA00E98D2D /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EF191A11EA00E98D2D /* MainViewController.m */; };
-		04421408191A125100E98D2D /* ParentApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04421406191A125100E98D2D /* ParentApp-Info.plist */; };
-		04421416191A129500E98D2D /* DavidlauUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140C191A129500E98D2D /* DavidlauUtils.m */; };
-		04421417191A129500E98D2D /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140F191A129500E98D2D /* LoginTVC.m */; };
-		04421419191A129500E98D2D /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421415191A129500E98D2D /* WelcomeVC.m */; };
-		04421454191A1D8700E98D2D /* ChildList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421448191A1D8700E98D2D /* ChildList.m */; };
-		04421455191A1D8700E98D2D /* ChildList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421449191A1D8700E98D2D /* ChildList.xib */; };
-		04421456191A1D8700E98D2D /* MainPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442144B191A1D8700E98D2D /* MainPage.m */; };
-		04421457191A1D8700E98D2D /* MainPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0442144C191A1D8700E98D2D /* MainPage.xib */; };
-		04421458191A1D8700E98D2D /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442144F191A1D8700E98D2D /* IISideController.m */; };
-		04421459191A1D8700E98D2D /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421451191A1D8700E98D2D /* IIViewDeckController.m */; };
-		0442145A191A1D8700E98D2D /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421453191A1D8700E98D2D /* IIWrapController.m */; };
-		04421495191A1E1700E98D2D /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421482191A1E1700E98D2D /* bitstream.c */; };
-		04421496191A1E1700E98D2D /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421484191A1E1700E98D2D /* mask.c */; };
-		04421497191A1E1700E98D2D /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421487191A1E1700E98D2D /* QRCodeGenerator.m */; };
-		04421498191A1E1700E98D2D /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421488191A1E1700E98D2D /* qrencode.c */; };
-		04421499191A1E1700E98D2D /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148A191A1E1700E98D2D /* qrinput.c */; };
-		0442149A191A1E1700E98D2D /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148C191A1E1700E98D2D /* qrspec.c */; };
-		0442149B191A1E1700E98D2D /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148E191A1E1700E98D2D /* rscode.c */; };
-		0442149C191A1E1700E98D2D /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421490191A1E1700E98D2D /* split.c */; };
-		0442149D191A1E1700E98D2D /* QRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421493191A1E1700E98D2D /* QRTest.m */; };
-		0442149E191A1E1700E98D2D /* QRTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421494191A1E1700E98D2D /* QRTest.xib */; };
-		04757B0019486F72009F151F /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757AFF19486F72009F151F /* footprint.png */; };
-		04757B0219487050009F151F /* happyface.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757B0119487050009F151F /* happyface.png */; };
-		0487BF8B192F6EBC009E9D4A /* UserAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */; };
-		0487BF90192F7CD8009E9D4A /* SignUpTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8F192F7CD8009E9D4A /* SignUpTVC.m */; };
-		0487BF94192FB3C0009E9D4A /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF93192FB3C0009E9D4A /* SettingsTVC.m */; };
-		04898B6E1940B54F00C35EB1 /* AddFriendByQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B6D1940B54F00C35EB1 /* AddFriendByQRCodeVC.m */; };
-		0493F050191CB5A600D36A42 /* MainAndSettings_Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */; };
-		0493F05A191CC05700D36A42 /* GenerateQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F059191CC05700D36A42 /* GenerateQRCodeVC.m */; };
-		0493F05D191CCCC800D36A42 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F05C191CCCC800D36A42 /* MainVC.m */; };
-		0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */; };
-		04CD3E3C1920AAB80042BE90 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E391920AAB80042BE90 /* location.png */; };
-		04CD3E3D1920AAB80042BE90 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3A1920AAB80042BE90 /* message.png */; };
-		04CD3E3E1920AAB80042BE90 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3B1920AAB80042BE90 /* notification.png */; };
-		04CD3E401920B1AA0042BE90 /* screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3F1920B1A90042BE90 /* screenShot.png */; };
-		04D0C957191E5592005738E8 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C955191E5592005738E8 /* boy.png */; };
-		04D0C958191E5592005738E8 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C956191E5592005738E8 /* girl.png */; };
-		04FDB3A8191DF60D007336F5 /* ChildMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDB3A7191DF60D007336F5 /* ChildMenuTVC.m */; };
+		0481E8EA195123E500156C77 /* ChildMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDB3A7191DF60D007336F5 /* ChildMenuTVC.m */; };
+		0481E8EB195123E500156C77 /* SignUpTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8F192F7CD8009E9D4A /* SignUpTVC.m */; };
+		0481E8EC195123E500156C77 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA31941A1FE00429477 /* UserInfo.m */; };
+		0481E8ED195123E500156C77 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148C191A1E1700E98D2D /* qrspec.c */; };
+		0481E8EE195123E500156C77 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421451191A1D8700E98D2D /* IIViewDeckController.m */; };
+		0481E8EF195123E500156C77 /* ChildrenMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */; };
+		0481E8F1195123E500156C77 /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421415191A129500E98D2D /* WelcomeVC.m */; };
+		0481E8F2195123E500156C77 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140F191A129500E98D2D /* LoginTVC.m */; };
+		0481E8F3195123E500156C77 /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421487191A1E1700E98D2D /* QRCodeGenerator.m */; };
+		0481E8F4195123E500156C77 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421482191A1E1700E98D2D /* bitstream.c */; };
+		0481E8F5195123E500156C77 /* AddFriendByQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B6D1940B54F00C35EB1 /* AddFriendByQRCodeVC.m */; };
+		0481E8F6195123E500156C77 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421490191A1E1700E98D2D /* split.c */; };
+		0481E8F7195123E500156C77 /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF93192FB3C0009E9D4A /* SettingsTVC.m */; };
+		0481E8F8195123E500156C77 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421453191A1D8700E98D2D /* IIWrapController.m */; };
+		0481E8F9195123E500156C77 /* GenerateQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F059191CC05700D36A42 /* GenerateQRCodeVC.m */; };
+		0481E8FA195123E500156C77 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442144F191A1D8700E98D2D /* IISideController.m */; };
+		0481E8FB195123E500156C77 /* DavidlauUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140C191A129500E98D2D /* DavidlauUtils.m */; };
+		0481E8FC195123E500156C77 /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213ED191A11EA00E98D2D /* MainAppDelegate.m */; };
+		0481E8FE195123E500156C77 /* UserAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */; };
+		0481E8FF195123E500156C77 /* QRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421493191A1E1700E98D2D /* QRTest.m */; };
+		0481E900195123E500156C77 /* MainPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442144B191A1D8700E98D2D /* MainPage.m */; };
+		0481E901195123E500156C77 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421488191A1E1700E98D2D /* qrencode.c */; };
+		0481E902195123E500156C77 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421484191A1E1700E98D2D /* mask.c */; };
+		0481E903195123E500156C77 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148E191A1E1700E98D2D /* rscode.c */; };
+		0481E904195123E500156C77 /* ChildList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421448191A1D8700E98D2D /* ChildList.m */; };
+		0481E905195123E500156C77 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F05C191CCCC800D36A42 /* MainVC.m */; };
+		0481E906195123E500156C77 /* SingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA01941A01700429477 /* SingleModel.m */; };
+		0481E907195123E500156C77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EB191A11EA00E98D2D /* main.m */; };
+		0481E908195123E500156C77 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148A191A1E1700E98D2D /* qrinput.c */; };
+		0481E90A195123E500156C77 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6D190E9C1D0048D231 /* CoreGraphics.framework */; };
+		0481E90B195123E500156C77 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6F190E9C1D0048D231 /* UIKit.framework */; };
+		0481E90C195123E500156C77 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6B190E9C1D0048D231 /* Foundation.framework */; };
+		0481E90E195123E500156C77 /* ChildList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421449191A1D8700E98D2D /* ChildList.xib */; };
+		0481E90F195123E500156C77 /* Login_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B61920A30E00D5288A /* Login_iPhone.storyboard */; };
+		0481E910195123E500156C77 /* screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3F1920B1A90042BE90 /* screenShot.png */; };
+		0481E911195123E500156C77 /* XiaoKuiTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B319209C6800D5288A /* XiaoKuiTrack.txt */; };
+		0481E912195123E500156C77 /* happyface.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757B0119487050009F151F /* happyface.png */; };
+		0481E913195123E500156C77 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C956191E5592005738E8 /* girl.png */; };
+		0481E914195123E500156C77 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E391920AAB80042BE90 /* location.png */; };
+		0481E915195123E500156C77 /* MainPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0442144C191A1D8700E98D2D /* MainPage.xib */; };
+		0481E916195123E500156C77 /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757AFF19486F72009F151F /* footprint.png */; };
+		0481E917195123E500156C77 /* DavidTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B219209C6800D5288A /* DavidTrack.txt */; };
+		0481E918195123E500156C77 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D86190E9C1D0048D231 /* Images.xcassets */; };
+		0481E919195123E500156C77 /* QRTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421494191A1E1700E98D2D /* QRTest.xib */; };
+		0481E91A195123E500156C77 /* MainAndSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B81920A35000D5288A /* MainAndSettings.storyboard */; };
+		0481E91B195123E500156C77 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3B1920AAB80042BE90 /* notification.png */; };
+		0481E91C195123E500156C77 /* ParentApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04421406191A125100E98D2D /* ParentApp-Info.plist */; };
+		0481E91D195123E500156C77 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C955191E5592005738E8 /* boy.png */; };
+		0481E91E195123E500156C77 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D74190E9C1D0048D231 /* InfoPlist.strings */; };
+		0481E91F195123E500156C77 /* MainAndSettings_Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */; };
+		0481E920195123E500156C77 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3A1920AAB80042BE90 /* message.png */; };
+		0487A1EE1950704200A82299 /* ChildMenuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDB3A7191DF60D007336F5 /* ChildMenuTVC.m */; };
+		0487A1EF1950704200A82299 /* SignUpTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8F192F7CD8009E9D4A /* SignUpTVC.m */; };
+		0487A1F01950704200A82299 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA31941A1FE00429477 /* UserInfo.m */; };
+		0487A1F11950704200A82299 /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148C191A1E1700E98D2D /* qrspec.c */; };
+		0487A1F21950704200A82299 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421451191A1D8700E98D2D /* IIViewDeckController.m */; };
+		0487A1F31950704200A82299 /* ChildrenMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */; };
+		0487A1F51950704200A82299 /* WelcomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421415191A129500E98D2D /* WelcomeVC.m */; };
+		0487A1F61950704200A82299 /* LoginTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140F191A129500E98D2D /* LoginTVC.m */; };
+		0487A1F71950704200A82299 /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421487191A1E1700E98D2D /* QRCodeGenerator.m */; };
+		0487A1F81950704200A82299 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421482191A1E1700E98D2D /* bitstream.c */; };
+		0487A1F91950704200A82299 /* AddFriendByQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B6D1940B54F00C35EB1 /* AddFriendByQRCodeVC.m */; };
+		0487A1FA1950704200A82299 /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421490191A1E1700E98D2D /* split.c */; };
+		0487A1FB1950704200A82299 /* SettingsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF93192FB3C0009E9D4A /* SettingsTVC.m */; };
+		0487A1FC1950704200A82299 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421453191A1D8700E98D2D /* IIWrapController.m */; };
+		0487A1FD1950704200A82299 /* GenerateQRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F059191CC05700D36A42 /* GenerateQRCodeVC.m */; };
+		0487A1FE1950704200A82299 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442144F191A1D8700E98D2D /* IISideController.m */; };
+		0487A1FF1950704200A82299 /* DavidlauUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442140C191A129500E98D2D /* DavidlauUtils.m */; };
+		0487A2001950704200A82299 /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213ED191A11EA00E98D2D /* MainAppDelegate.m */; };
+		0487A2021950704200A82299 /* UserAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */; };
+		0487A2031950704200A82299 /* QRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421493191A1E1700E98D2D /* QRTest.m */; };
+		0487A2041950704200A82299 /* MainPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442144B191A1D8700E98D2D /* MainPage.m */; };
+		0487A2051950704200A82299 /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421488191A1E1700E98D2D /* qrencode.c */; };
+		0487A2061950704200A82299 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 04421484191A1E1700E98D2D /* mask.c */; };
+		0487A2071950704200A82299 /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148E191A1E1700E98D2D /* rscode.c */; };
+		0487A2081950704200A82299 /* ChildList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04421448191A1D8700E98D2D /* ChildList.m */; };
+		0487A2091950704200A82299 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0493F05C191CCCC800D36A42 /* MainVC.m */; };
+		0487A20A1950704200A82299 /* SingleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043B0EA01941A01700429477 /* SingleModel.m */; };
+		0487A20B1950704200A82299 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 044213EB191A11EA00E98D2D /* main.m */; };
+		0487A20C1950704200A82299 /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 0442148A191A1E1700E98D2D /* qrinput.c */; };
+		0487A20E1950704200A82299 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6D190E9C1D0048D231 /* CoreGraphics.framework */; };
+		0487A20F1950704200A82299 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6F190E9C1D0048D231 /* UIKit.framework */; };
+		0487A2101950704200A82299 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 040D8D6B190E9C1D0048D231 /* Foundation.framework */; };
+		0487A2121950704200A82299 /* ChildList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421449191A1D8700E98D2D /* ChildList.xib */; };
+		0487A2131950704200A82299 /* Login_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B61920A30E00D5288A /* Login_iPhone.storyboard */; };
+		0487A2141950704200A82299 /* screenShot.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3F1920B1A90042BE90 /* screenShot.png */; };
+		0487A2151950704200A82299 /* XiaoKuiTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B319209C6800D5288A /* XiaoKuiTrack.txt */; };
+		0487A2161950704200A82299 /* happyface.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757B0119487050009F151F /* happyface.png */; };
+		0487A2171950704200A82299 /* girl.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C956191E5592005738E8 /* girl.png */; };
+		0487A2181950704200A82299 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E391920AAB80042BE90 /* location.png */; };
+		0487A2191950704200A82299 /* MainPage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0442144C191A1D8700E98D2D /* MainPage.xib */; };
+		0487A21A1950704200A82299 /* footprint.png in Resources */ = {isa = PBXBuildFile; fileRef = 04757AFF19486F72009F151F /* footprint.png */; };
+		0487A21B1950704200A82299 /* DavidTrack.txt in Resources */ = {isa = PBXBuildFile; fileRef = 041819B219209C6800D5288A /* DavidTrack.txt */; };
+		0487A21C1950704200A82299 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D86190E9C1D0048D231 /* Images.xcassets */; };
+		0487A21D1950704200A82299 /* QRTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04421494191A1E1700E98D2D /* QRTest.xib */; };
+		0487A21E1950704200A82299 /* MainAndSettings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041819B81920A35000D5288A /* MainAndSettings.storyboard */; };
+		0487A21F1950704200A82299 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3B1920AAB80042BE90 /* notification.png */; };
+		0487A2201950704200A82299 /* ParentApp-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04421406191A125100E98D2D /* ParentApp-Info.plist */; };
+		0487A2211950704200A82299 /* boy.png in Resources */ = {isa = PBXBuildFile; fileRef = 04D0C955191E5592005738E8 /* boy.png */; };
+		0487A2221950704200A82299 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 040D8D74190E9C1D0048D231 /* InfoPlist.strings */; };
+		0487A2231950704200A82299 /* MainAndSettings_Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0493F04F191CB5A600D36A42 /* MainAndSettings_Demo.storyboard */; };
+		0487A2241950704200A82299 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 04CD3E3A1920AAB80042BE90 /* message.png */; };
+		04B7101619528FBF006A7B68 /* SetFriendsNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B7101519528FBF006A7B68 /* SetFriendsNameVC.m */; };
+		04B7101719528FBF006A7B68 /* SetFriendsNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B7101519528FBF006A7B68 /* SetFriendsNameVC.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		040D8D91190E9C1D0048D231 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 040D8D60190E9C1D0048D231 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 040D8D67190E9C1D0048D231;
-			remoteInfo = ParentApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		040D8D68190E9C1D0048D231 /* ParentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040D8D6B190E9C1D0048D231 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		040D8D6D190E9C1D0048D231 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		040D8D6F190E9C1D0048D231 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -93,8 +133,6 @@
 		041819B319209C6800D5288A /* XiaoKuiTrack.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XiaoKuiTrack.txt; sourceTree = "<group>"; };
 		041819B61920A30E00D5288A /* Login_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login_iPhone.storyboard; sourceTree = "<group>"; };
 		041819B81920A35000D5288A /* MainAndSettings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainAndSettings.storyboard; sourceTree = "<group>"; };
-		043930001930B1CB0085E73A /* AddFriendByUid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendByUid.h; sourceTree = "<group>"; };
-		043930011930B1CB0085E73A /* AddFriendByUid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendByUid.m; sourceTree = "<group>"; };
 		043B0E9F1941A01700429477 /* SingleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleModel.h; sourceTree = "<group>"; };
 		043B0EA01941A01700429477 /* SingleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleModel.m; sourceTree = "<group>"; };
 		043B0EA21941A1FE00429477 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
@@ -102,8 +140,6 @@
 		044213EB191A11EA00E98D2D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		044213EC191A11EA00E98D2D /* MainAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainAppDelegate.h; path = "Supporting Files/MainAppDelegate.h"; sourceTree = "<group>"; };
 		044213ED191A11EA00E98D2D /* MainAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainAppDelegate.m; path = "Supporting Files/MainAppDelegate.m"; sourceTree = "<group>"; };
-		044213EE191A11EA00E98D2D /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = "Supporting Files/MainViewController.h"; sourceTree = "<group>"; };
-		044213EF191A11EA00E98D2D /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = "Supporting Files/MainViewController.m"; sourceTree = "<group>"; };
 		04421406191A125100E98D2D /* ParentApp-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ParentApp-Info.plist"; sourceTree = "<group>"; };
 		04421407191A125100E98D2D /* ParentApp-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParentApp-Prefix.pch"; sourceTree = "<group>"; };
 		04421409191A129500E98D2D /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppConstants.h; path = src/AppConstants.h; sourceTree = "<group>"; };
@@ -146,6 +182,10 @@
 		04421494191A1E1700E98D2D /* QRTest.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRTest.xib; sourceTree = "<group>"; };
 		04757AFF19486F72009F151F /* footprint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footprint.png; sourceTree = "<group>"; };
 		04757B0119487050009F151F /* happyface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = happyface.png; sourceTree = "<group>"; };
+		0481E925195123E500156C77 /* ParentApp Break copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParentApp Break copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0481E926195123E600156C77 /* ParentApp Break copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ParentApp Break copy-Info.plist"; path = "/Users/mac/Developer/0iOS/0babylocation/ParentApp/ParentApp Break copy-Info.plist"; sourceTree = "<absolute>"; };
+		0487A2291950704200A82299 /* ParentApp copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ParentApp copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0487A22A1950704200A82299 /* ParentApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "ParentApp copy-Info.plist"; path = "/Users/mac/Developer/0iOS/0babylocation/ParentApp/ParentApp copy-Info.plist"; sourceTree = "<absolute>"; };
 		0487BF89192F6EBC009E9D4A /* UserAuthAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAuthAPI.h; sourceTree = "<group>"; };
 		0487BF8A192F6EBC009E9D4A /* UserAuthAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAuthAPI.m; sourceTree = "<group>"; };
 		0487BF8C192F7468009E9D4A /* APIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIDefine.h; path = ParentApp/src/RESTfulAPI/APIDefine.h; sourceTree = SOURCE_ROOT; };
@@ -162,6 +202,9 @@
 		0493F05C191CCCC800D36A42 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
 		0493F063191D131500D36A42 /* ChildrenMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildrenMapAnnotation.h; sourceTree = "<group>"; };
 		0493F064191D131500D36A42 /* ChildrenMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildrenMapAnnotation.m; sourceTree = "<group>"; };
+		04B7101419528FBF006A7B68 /* SetFriendsNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetFriendsNameVC.h; sourceTree = "<group>"; };
+		04B7101519528FBF006A7B68 /* SetFriendsNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetFriendsNameVC.m; sourceTree = "<group>"; };
+		04B710181952B7FC006A7B68 /* AddFriendByQRCodeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendByQRCodeDelegate.h; sourceTree = "<group>"; };
 		04CD3E391920AAB80042BE90 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
 		04CD3E3A1920AAB80042BE90 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message.png; sourceTree = "<group>"; };
 		04CD3E3B1920AAB80042BE90 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification.png; sourceTree = "<group>"; };
@@ -174,16 +217,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		040D8D65190E9C1D0048D231 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				040D8D6E190E9C1D0048D231 /* CoreGraphics.framework in Frameworks */,
-				040D8D70190E9C1D0048D231 /* UIKit.framework in Frameworks */,
-				040D8D6C190E9C1D0048D231 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		040D8D89190E9C1D0048D231 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -191,6 +224,26 @@
 				040D8D8E190E9C1D0048D231 /* XCTest.framework in Frameworks */,
 				040D8D90190E9C1D0048D231 /* UIKit.framework in Frameworks */,
 				040D8D8F190E9C1D0048D231 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0481E909195123E500156C77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0481E90A195123E500156C77 /* CoreGraphics.framework in Frameworks */,
+				0481E90B195123E500156C77 /* UIKit.framework in Frameworks */,
+				0481E90C195123E500156C77 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0487A20D1950704200A82299 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0487A20E1950704200A82299 /* CoreGraphics.framework in Frameworks */,
+				0487A20F1950704200A82299 /* UIKit.framework in Frameworks */,
+				0487A2101950704200A82299 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,14 +257,17 @@
 				040D8D93190E9C1D0048D231 /* ParentAppTests */,
 				040D8D6A190E9C1D0048D231 /* Frameworks */,
 				040D8D69190E9C1D0048D231 /* Products */,
+				0487A22A1950704200A82299 /* ParentApp copy-Info.plist */,
+				0481E926195123E600156C77 /* ParentApp Break copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		040D8D69190E9C1D0048D231 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				040D8D68190E9C1D0048D231 /* ParentApp.app */,
 				040D8D8C190E9C1D0048D231 /* ParentAppTests.xctest */,
+				0487A2291950704200A82299 /* ParentApp copy.app */,
+				0481E925195123E500156C77 /* ParentApp Break copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,8 +320,6 @@
 				044213EB191A11EA00E98D2D /* main.m */,
 				044213EC191A11EA00E98D2D /* MainAppDelegate.h */,
 				044213ED191A11EA00E98D2D /* MainAppDelegate.m */,
-				044213EE191A11EA00E98D2D /* MainViewController.h */,
-				044213EF191A11EA00E98D2D /* MainViewController.m */,
 				040D8D74190E9C1D0048D231 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -438,10 +492,11 @@
 			children = (
 				0493F058191CC05700D36A42 /* GenerateQRCodeVC.h */,
 				0493F059191CC05700D36A42 /* GenerateQRCodeVC.m */,
-				043930001930B1CB0085E73A /* AddFriendByUid.h */,
-				043930011930B1CB0085E73A /* AddFriendByUid.m */,
 				04898B6C1940B54F00C35EB1 /* AddFriendByQRCodeVC.h */,
 				04898B6D1940B54F00C35EB1 /* AddFriendByQRCodeVC.m */,
+				04B7101419528FBF006A7B68 /* SetFriendsNameVC.h */,
+				04B7101519528FBF006A7B68 /* SetFriendsNameVC.m */,
+				04B710181952B7FC006A7B68 /* AddFriendByQRCodeDelegate.h */,
 			);
 			name = AddFriendVC;
 			path = src/AddFriendVC;
@@ -499,23 +554,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		040D8D67190E9C1D0048D231 /* ParentApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 040D8D9D190E9C1D0048D231 /* Build configuration list for PBXNativeTarget "ParentApp" */;
-			buildPhases = (
-				040D8D64190E9C1D0048D231 /* Sources */,
-				040D8D65190E9C1D0048D231 /* Frameworks */,
-				040D8D66190E9C1D0048D231 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ParentApp;
-			productName = ParentApp;
-			productReference = 040D8D68190E9C1D0048D231 /* ParentApp.app */;
-			productType = "com.apple.product-type.application";
-		};
 		040D8D8B190E9C1D0048D231 /* ParentAppTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 040D8DA0190E9C1D0048D231 /* Build configuration list for PBXNativeTarget "ParentAppTests" */;
@@ -527,12 +565,46 @@
 			buildRules = (
 			);
 			dependencies = (
-				040D8D92190E9C1D0048D231 /* PBXTargetDependency */,
 			);
 			name = ParentAppTests;
 			productName = ParentAppTests;
 			productReference = 040D8D8C190E9C1D0048D231 /* ParentAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		0481E8E8195123E500156C77 /* ParentApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0481E922195123E500156C77 /* Build configuration list for PBXNativeTarget "ParentApp" */;
+			buildPhases = (
+				0481E8E9195123E500156C77 /* Sources */,
+				0481E909195123E500156C77 /* Frameworks */,
+				0481E90D195123E500156C77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ParentApp;
+			productName = ParentApp;
+			productReference = 0481E925195123E500156C77 /* ParentApp Break copy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0487A1EC1950704200A82299 /* ParentApp Break */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0487A2261950704200A82299 /* Build configuration list for PBXNativeTarget "ParentApp Break" */;
+			buildPhases = (
+				0487A1ED1950704200A82299 /* Sources */,
+				0487A20D1950704200A82299 /* Frameworks */,
+				0487A2111950704200A82299 /* Resources */,
+				0487A2251950704200A82299 /* Run Script */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ParentApp Break";
+			productName = ParentApp;
+			productReference = 0487A2291950704200A82299 /* ParentApp copy.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -562,39 +634,14 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				040D8D67190E9C1D0048D231 /* ParentApp */,
 				040D8D8B190E9C1D0048D231 /* ParentAppTests */,
+				0487A1EC1950704200A82299 /* ParentApp Break */,
+				0481E8E8195123E500156C77 /* ParentApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		040D8D66190E9C1D0048D231 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				04421455191A1D8700E98D2D /* ChildList.xib in Resources */,
-				041819B71920A30E00D5288A /* Login_iPhone.storyboard in Resources */,
-				04CD3E401920B1AA0042BE90 /* screenShot.png in Resources */,
-				041819B519209C6800D5288A /* XiaoKuiTrack.txt in Resources */,
-				04757B0219487050009F151F /* happyface.png in Resources */,
-				04D0C958191E5592005738E8 /* girl.png in Resources */,
-				04CD3E3C1920AAB80042BE90 /* location.png in Resources */,
-				04421457191A1D8700E98D2D /* MainPage.xib in Resources */,
-				04757B0019486F72009F151F /* footprint.png in Resources */,
-				041819B419209C6800D5288A /* DavidTrack.txt in Resources */,
-				040D8D87190E9C1D0048D231 /* Images.xcassets in Resources */,
-				0442149E191A1E1700E98D2D /* QRTest.xib in Resources */,
-				041819B91920A35000D5288A /* MainAndSettings.storyboard in Resources */,
-				04CD3E3E1920AAB80042BE90 /* notification.png in Resources */,
-				04421408191A125100E98D2D /* ParentApp-Info.plist in Resources */,
-				04D0C957191E5592005738E8 /* boy.png in Resources */,
-				040D8D76190E9C1D0048D231 /* InfoPlist.strings in Resources */,
-				0493F050191CB5A600D36A42 /* MainAndSettings_Demo.storyboard in Resources */,
-				04CD3E3D1920AAB80042BE90 /* message.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		040D8D8A190E9C1D0048D231 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -603,47 +650,78 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		040D8D64190E9C1D0048D231 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		0481E90D195123E500156C77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04FDB3A8191DF60D007336F5 /* ChildMenuTVC.m in Sources */,
-				0487BF90192F7CD8009E9D4A /* SignUpTVC.m in Sources */,
-				043B0EA41941A1FE00429477 /* UserInfo.m in Sources */,
-				0442149A191A1E1700E98D2D /* qrspec.c in Sources */,
-				04421459191A1D8700E98D2D /* IIViewDeckController.m in Sources */,
-				0493F065191D131500D36A42 /* ChildrenMapAnnotation.m in Sources */,
-				044213F4191A11EA00E98D2D /* MainViewController.m in Sources */,
-				04421419191A129500E98D2D /* WelcomeVC.m in Sources */,
-				04421417191A129500E98D2D /* LoginTVC.m in Sources */,
-				04421497191A1E1700E98D2D /* QRCodeGenerator.m in Sources */,
-				04421495191A1E1700E98D2D /* bitstream.c in Sources */,
-				04898B6E1940B54F00C35EB1 /* AddFriendByQRCodeVC.m in Sources */,
-				0442149C191A1E1700E98D2D /* split.c in Sources */,
-				0487BF94192FB3C0009E9D4A /* SettingsTVC.m in Sources */,
-				0442145A191A1D8700E98D2D /* IIWrapController.m in Sources */,
-				0493F05A191CC05700D36A42 /* GenerateQRCodeVC.m in Sources */,
-				04421458191A1D8700E98D2D /* IISideController.m in Sources */,
-				04421416191A129500E98D2D /* DavidlauUtils.m in Sources */,
-				044213F3191A11EA00E98D2D /* MainAppDelegate.m in Sources */,
-				043930021930B1CB0085E73A /* AddFriendByUid.m in Sources */,
-				0487BF8B192F6EBC009E9D4A /* UserAuthAPI.m in Sources */,
-				0442149D191A1E1700E98D2D /* QRTest.m in Sources */,
-				04421456191A1D8700E98D2D /* MainPage.m in Sources */,
-				04421498191A1E1700E98D2D /* qrencode.c in Sources */,
-				04421496191A1E1700E98D2D /* mask.c in Sources */,
-				0442149B191A1E1700E98D2D /* rscode.c in Sources */,
-				04421454191A1D8700E98D2D /* ChildList.m in Sources */,
-				0493F05D191CCCC800D36A42 /* MainVC.m in Sources */,
-				043B0EA11941A01700429477 /* SingleModel.m in Sources */,
-				044213F2191A11EA00E98D2D /* main.m in Sources */,
-				04421499191A1E1700E98D2D /* qrinput.c in Sources */,
+				0481E90E195123E500156C77 /* ChildList.xib in Resources */,
+				0481E90F195123E500156C77 /* Login_iPhone.storyboard in Resources */,
+				0481E910195123E500156C77 /* screenShot.png in Resources */,
+				0481E911195123E500156C77 /* XiaoKuiTrack.txt in Resources */,
+				0481E912195123E500156C77 /* happyface.png in Resources */,
+				0481E913195123E500156C77 /* girl.png in Resources */,
+				0481E914195123E500156C77 /* location.png in Resources */,
+				0481E915195123E500156C77 /* MainPage.xib in Resources */,
+				0481E916195123E500156C77 /* footprint.png in Resources */,
+				0481E917195123E500156C77 /* DavidTrack.txt in Resources */,
+				0481E918195123E500156C77 /* Images.xcassets in Resources */,
+				0481E919195123E500156C77 /* QRTest.xib in Resources */,
+				0481E91A195123E500156C77 /* MainAndSettings.storyboard in Resources */,
+				0481E91B195123E500156C77 /* notification.png in Resources */,
+				0481E91C195123E500156C77 /* ParentApp-Info.plist in Resources */,
+				0481E91D195123E500156C77 /* boy.png in Resources */,
+				0481E91E195123E500156C77 /* InfoPlist.strings in Resources */,
+				0481E91F195123E500156C77 /* MainAndSettings_Demo.storyboard in Resources */,
+				0481E920195123E500156C77 /* message.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0487A2111950704200A82299 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0487A2121950704200A82299 /* ChildList.xib in Resources */,
+				0487A2131950704200A82299 /* Login_iPhone.storyboard in Resources */,
+				0487A2141950704200A82299 /* screenShot.png in Resources */,
+				0487A2151950704200A82299 /* XiaoKuiTrack.txt in Resources */,
+				0487A2161950704200A82299 /* happyface.png in Resources */,
+				0487A2171950704200A82299 /* girl.png in Resources */,
+				0487A2181950704200A82299 /* location.png in Resources */,
+				0487A2191950704200A82299 /* MainPage.xib in Resources */,
+				0487A21A1950704200A82299 /* footprint.png in Resources */,
+				0487A21B1950704200A82299 /* DavidTrack.txt in Resources */,
+				0487A21C1950704200A82299 /* Images.xcassets in Resources */,
+				0487A21D1950704200A82299 /* QRTest.xib in Resources */,
+				0487A21E1950704200A82299 /* MainAndSettings.storyboard in Resources */,
+				0487A21F1950704200A82299 /* notification.png in Resources */,
+				0487A2201950704200A82299 /* ParentApp-Info.plist in Resources */,
+				0487A2211950704200A82299 /* boy.png in Resources */,
+				0487A2221950704200A82299 /* InfoPlist.strings in Resources */,
+				0487A2231950704200A82299 /* MainAndSettings_Demo.storyboard in Resources */,
+				0487A2241950704200A82299 /* message.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0487A2251950704200A82299 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then /Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"edu.sysu.davidlau.ios.ParentApp\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhoneDevDavid\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\";\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		040D8D88190E9C1D0048D231 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -652,15 +730,81 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		040D8D92190E9C1D0048D231 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 040D8D67190E9C1D0048D231 /* ParentApp */;
-			targetProxy = 040D8D91190E9C1D0048D231 /* PBXContainerItemProxy */;
+		0481E8E9195123E500156C77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0481E8EA195123E500156C77 /* ChildMenuTVC.m in Sources */,
+				0481E8EB195123E500156C77 /* SignUpTVC.m in Sources */,
+				0481E8EC195123E500156C77 /* UserInfo.m in Sources */,
+				0481E8ED195123E500156C77 /* qrspec.c in Sources */,
+				0481E8EE195123E500156C77 /* IIViewDeckController.m in Sources */,
+				04B7101719528FBF006A7B68 /* SetFriendsNameVC.m in Sources */,
+				0481E8EF195123E500156C77 /* ChildrenMapAnnotation.m in Sources */,
+				0481E8F1195123E500156C77 /* WelcomeVC.m in Sources */,
+				0481E8F2195123E500156C77 /* LoginTVC.m in Sources */,
+				0481E8F3195123E500156C77 /* QRCodeGenerator.m in Sources */,
+				0481E8F4195123E500156C77 /* bitstream.c in Sources */,
+				0481E8F5195123E500156C77 /* AddFriendByQRCodeVC.m in Sources */,
+				0481E8F6195123E500156C77 /* split.c in Sources */,
+				0481E8F7195123E500156C77 /* SettingsTVC.m in Sources */,
+				0481E8F8195123E500156C77 /* IIWrapController.m in Sources */,
+				0481E8F9195123E500156C77 /* GenerateQRCodeVC.m in Sources */,
+				0481E8FA195123E500156C77 /* IISideController.m in Sources */,
+				0481E8FB195123E500156C77 /* DavidlauUtils.m in Sources */,
+				0481E8FC195123E500156C77 /* MainAppDelegate.m in Sources */,
+				0481E8FE195123E500156C77 /* UserAuthAPI.m in Sources */,
+				0481E8FF195123E500156C77 /* QRTest.m in Sources */,
+				0481E900195123E500156C77 /* MainPage.m in Sources */,
+				0481E901195123E500156C77 /* qrencode.c in Sources */,
+				0481E902195123E500156C77 /* mask.c in Sources */,
+				0481E903195123E500156C77 /* rscode.c in Sources */,
+				0481E904195123E500156C77 /* ChildList.m in Sources */,
+				0481E905195123E500156C77 /* MainVC.m in Sources */,
+				0481E906195123E500156C77 /* SingleModel.m in Sources */,
+				0481E907195123E500156C77 /* main.m in Sources */,
+				0481E908195123E500156C77 /* qrinput.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXTargetDependency section */
+		0487A1ED1950704200A82299 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0487A1EE1950704200A82299 /* ChildMenuTVC.m in Sources */,
+				0487A1EF1950704200A82299 /* SignUpTVC.m in Sources */,
+				0487A1F01950704200A82299 /* UserInfo.m in Sources */,
+				0487A1F11950704200A82299 /* qrspec.c in Sources */,
+				0487A1F21950704200A82299 /* IIViewDeckController.m in Sources */,
+				0487A1F31950704200A82299 /* ChildrenMapAnnotation.m in Sources */,
+				0487A1F51950704200A82299 /* WelcomeVC.m in Sources */,
+				0487A1F61950704200A82299 /* LoginTVC.m in Sources */,
+				0487A1F71950704200A82299 /* QRCodeGenerator.m in Sources */,
+				0487A1F81950704200A82299 /* bitstream.c in Sources */,
+				0487A1F91950704200A82299 /* AddFriendByQRCodeVC.m in Sources */,
+				0487A1FA1950704200A82299 /* split.c in Sources */,
+				0487A1FB1950704200A82299 /* SettingsTVC.m in Sources */,
+				0487A1FC1950704200A82299 /* IIWrapController.m in Sources */,
+				0487A1FD1950704200A82299 /* GenerateQRCodeVC.m in Sources */,
+				0487A1FE1950704200A82299 /* IISideController.m in Sources */,
+				0487A1FF1950704200A82299 /* DavidlauUtils.m in Sources */,
+				0487A2001950704200A82299 /* MainAppDelegate.m in Sources */,
+				0487A2021950704200A82299 /* UserAuthAPI.m in Sources */,
+				0487A2031950704200A82299 /* QRTest.m in Sources */,
+				0487A2041950704200A82299 /* MainPage.m in Sources */,
+				0487A2051950704200A82299 /* qrencode.c in Sources */,
+				0487A2061950704200A82299 /* mask.c in Sources */,
+				0487A2071950704200A82299 /* rscode.c in Sources */,
+				0487A2081950704200A82299 /* ChildList.m in Sources */,
+				0487A2091950704200A82299 /* MainVC.m in Sources */,
+				0487A20A1950704200A82299 /* SingleModel.m in Sources */,
+				0487A20B1950704200A82299 /* main.m in Sources */,
+				04B7101619528FBF006A7B68 /* SetFriendsNameVC.m in Sources */,
+				0487A20C1950704200A82299 /* qrinput.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
 		040D8D74190E9C1D0048D231 /* InfoPlist.strings */ = {
@@ -698,7 +842,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = iPhoneDevDavid;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = iPhoneDevDavid;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -714,7 +859,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -737,7 +882,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = iPhoneDevDavid;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = iPhoneDevDavid;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -747,36 +893,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		040D8D9E190E9C1D0048D231 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ParentApp/ParentApp-Prefix.pch";
-				INFOPLIST_FILE = "ParentApp/ParentApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		040D8D9F190E9C1D0048D231 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ParentApp/ParentApp-Prefix.pch";
-				INFOPLIST_FILE = "ParentApp/ParentApp-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -820,6 +940,70 @@
 			};
 			name = Release;
 		};
+		0481E923195123E500156C77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParentApp/ParentApp-Prefix.pch";
+				INFOPLIST_FILE = "ParentApp Break copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "ParentApp Break copy";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0481E924195123E500156C77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParentApp/ParentApp-Prefix.pch";
+				INFOPLIST_FILE = "ParentApp Break copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "ParentApp Break copy";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		0487A2271950704200A82299 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParentApp/ParentApp-Prefix.pch";
+				INFOPLIST_FILE = "ParentApp copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "ParentApp copy";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0487A2281950704200A82299 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ParentApp/ParentApp-Prefix.pch";
+				INFOPLIST_FILE = "ParentApp copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "ParentApp copy";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -832,20 +1016,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		040D8D9D190E9C1D0048D231 /* Build configuration list for PBXNativeTarget "ParentApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				040D8D9E190E9C1D0048D231 /* Debug */,
-				040D8D9F190E9C1D0048D231 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		040D8DA0190E9C1D0048D231 /* Build configuration list for PBXNativeTarget "ParentAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				040D8DA1190E9C1D0048D231 /* Debug */,
 				040D8DA2190E9C1D0048D231 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0481E922195123E500156C77 /* Build configuration list for PBXNativeTarget "ParentApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0481E923195123E500156C77 /* Debug */,
+				0481E924195123E500156C77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0487A2261950704200A82299 /* Build configuration list for PBXNativeTarget "ParentApp Break" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0487A2271950704200A82299 /* Debug */,
+				0487A2281950704200A82299 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

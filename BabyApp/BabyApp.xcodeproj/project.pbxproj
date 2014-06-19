@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045709C0195313DD00D50305 /* WGS84TOGCJ02.m in Sources */ = {isa = PBXBuildFile; fileRef = 045709BF195313DD00D50305 /* WGS84TOGCJ02.m */; };
+		045709C1195313DD00D50305 /* WGS84TOGCJ02.m in Sources */ = {isa = PBXBuildFile; fileRef = 045709BF195313DD00D50305 /* WGS84TOGCJ02.m */; };
 		047E99B719403F4D00A12325 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99B619403F4D00A12325 /* Foundation.framework */; };
 		047E99B919403F4D00A12325 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99B819403F4D00A12325 /* CoreGraphics.framework */; };
 		047E99BB19403F4D00A12325 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99BA19403F4D00A12325 /* UIKit.framework */; };
@@ -46,6 +48,50 @@
 		04898B661940A33E00C35EB1 /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B651940A33E00C35EB1 /* MapVC.m */; };
 		04898B681940A3D900C35EB1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04898B671940A3D900C35EB1 /* MapKit.framework */; };
 		04898B6B1940A47A00C35EB1 /* MyMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B6A1940A47A00C35EB1 /* MyMapAnnotation.m */; };
+		048FA0C31951A9AD004ADDFC /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 0495649C1940925200A7370A /* mask.c */; };
+		048FA0C41951A9AD004ADDFC /* qrspec.c in Sources */ = {isa = PBXBuildFile; fileRef = 049564A41940925200A7370A /* qrspec.c */; };
+		048FA0C51951A9AD004ADDFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 047E99C219403F4D00A12325 /* main.m */; };
+		048FA0C61951A9AD004ADDFC /* DavidlauUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B6219409F3300C35EB1 /* DavidlauUtils.m */; };
+		048FA0C71951A9AD004ADDFC /* UserAuthAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B5E19409C9700C35EB1 /* UserAuthAPI.m */; };
+		048FA0C81951A9AD004ADDFC /* rscode.c in Sources */ = {isa = PBXBuildFile; fileRef = 049564A61940925200A7370A /* rscode.c */; };
+		048FA0C91951A9AD004ADDFC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047E99CC19403F4D00A12325 /* MainViewController.m */; };
+		048FA0CA1951A9AD004ADDFC /* MainAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 047E99C619403F4D00A12325 /* MainAppDelegate.m */; };
+		048FA0CB1951A9AD004ADDFC /* qrencode.c in Sources */ = {isa = PBXBuildFile; fileRef = 049564A01940925200A7370A /* qrencode.c */; };
+		048FA0CC1951A9AD004ADDFC /* MapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B651940A33E00C35EB1 /* MapVC.m */; };
+		048FA0CD1951A9AD004ADDFC /* qrinput.c in Sources */ = {isa = PBXBuildFile; fileRef = 049564A21940925200A7370A /* qrinput.c */; };
+		048FA0CE1951A9AD004ADDFC /* MyMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04898B6A1940A47A00C35EB1 /* MyMapAnnotation.m */; };
+		048FA0CF1951A9AD004ADDFC /* split.c in Sources */ = {isa = PBXBuildFile; fileRef = 049564A81940925200A7370A /* split.c */; };
+		048FA0D01951A9AD004ADDFC /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 0495649A1940925200A7370A /* bitstream.c */; };
+		048FA0D11951A9AD004ADDFC /* QRTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 049564AB1940925200A7370A /* QRTest.m */; };
+		048FA0D21951A9AD004ADDFC /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495649F1940925200A7370A /* QRCodeGenerator.m */; };
+		048FA0D41951A9AD004ADDFC /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9CEB19408ECA00A12325 /* AddressBook.framework */; };
+		048FA0D51951A9AD004ADDFC /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9CEC19408ECA00A12325 /* AddressBookUI.framework */; };
+		048FA0D61951A9AD004ADDFC /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9CE919408EC000A12325 /* libiconv.dylib */; };
+		048FA0D71951A9AD004ADDFC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99F919406AB400A12325 /* CoreMedia.framework */; };
+		048FA0D81951A9AD004ADDFC /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9CE719408E9B00A12325 /* CoreVideo.framework */; };
+		048FA0D91951A9AD004ADDFC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0919406B0A00A12325 /* AVFoundation.framework */; };
+		048FA0DA1951A9AD004ADDFC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A1119406F0400A12325 /* libsqlite3.dylib */; };
+		048FA0DB1951A9AD004ADDFC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0F19406EF800A12325 /* libz.dylib */; };
+		048FA0DC1951A9AD004ADDFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99BA19403F4D00A12325 /* UIKit.framework */; };
+		048FA0DD1951A9AD004ADDFC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0D19406B1B00A12325 /* SystemConfiguration.framework */; };
+		048FA0DE1951A9AD004ADDFC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0B19406B1300A12325 /* AudioToolbox.framework */; };
+		048FA0DF1951A9AD004ADDFC /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0719406B0300A12325 /* EventKit.framework */; };
+		048FA0E01951A9AD004ADDFC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0519406AF900A12325 /* Social.framework */; };
+		048FA0E11951A9AD004ADDFC /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0319406AF000A12325 /* PassKit.framework */; };
+		048FA0E21951A9AD004ADDFC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E9A0119406AE300A12325 /* StoreKit.framework */; };
+		048FA0E31951A9AD004ADDFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99B819403F4D00A12325 /* CoreGraphics.framework */; };
+		048FA0E41951A9AD004ADDFC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99FF19406ACF00A12325 /* CoreText.framework */; };
+		048FA0E51951A9AD004ADDFC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99FD19406AC700A12325 /* QuartzCore.framework */; };
+		048FA0E61951A9AE004ADDFC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99FB19406ABF00A12325 /* MediaPlayer.framework */; };
+		048FA0E71951A9AE004ADDFC /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99EB1940498500A12325 /* AdSupport.framework */; };
+		048FA0E81951A9AE004ADDFC /* libDomobAdSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99F619406A8000A12325 /* libDomobAdSDK.a */; };
+		048FA0E91951A9AE004ADDFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047E99B619403F4D00A12325 /* Foundation.framework */; };
+		048FA0EA1951A9AE004ADDFC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04898B671940A3D900C35EB1 /* MapKit.framework */; };
+		048FA0EC1951A9AE004ADDFC /* QRTest.xib in Resources */ = {isa = PBXBuildFile; fileRef = 049564AC1940925200A7370A /* QRTest.xib */; };
+		048FA0ED1951A9AE004ADDFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047E99CE19403F4D00A12325 /* Images.xcassets */; };
+		048FA0EE1951A9AE004ADDFC /* DomobAdSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 047E99F519406A8000A12325 /* DomobAdSDKBundle.bundle */; };
+		048FA0EF1951A9AE004ADDFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 047E99BF19403F4D00A12325 /* InfoPlist.strings */; };
+		048FA0F01951A9AE004ADDFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047E99C819403F4D00A12325 /* Main.storyboard */; };
 		049564AD1940925200A7370A /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = 0495649A1940925200A7370A /* bitstream.c */; };
 		049564AE1940925200A7370A /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = 0495649C1940925200A7370A /* mask.c */; };
 		049564AF1940925200A7370A /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495649F1940925200A7370A /* QRCodeGenerator.m */; };
@@ -69,6 +115,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045709BE195313DD00D50305 /* WGS84TOGCJ02.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WGS84TOGCJ02.h; sourceTree = "<group>"; };
+		045709BF195313DD00D50305 /* WGS84TOGCJ02.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WGS84TOGCJ02.m; sourceTree = "<group>"; };
 		047E99B319403F4D00A12325 /* BabyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047E99B619403F4D00A12325 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		047E99B819403F4D00A12325 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -125,6 +173,8 @@
 		04898B671940A3D900C35EB1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		04898B691940A47A00C35EB1 /* MyMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyMapAnnotation.h; sourceTree = "<group>"; };
 		04898B6A1940A47A00C35EB1 /* MyMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyMapAnnotation.m; sourceTree = "<group>"; };
+		048FA0F41951A9AE004ADDFC /* BabyApp copy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BabyApp copy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		048FA0F51951A9AE004ADDFC /* BabyApp copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BabyApp copy-Info.plist"; path = "/Users/mac/Developer/0iOS/0babylocation/BabyApp/BabyApp copy-Info.plist"; sourceTree = "<absolute>"; };
 		0495649A1940925200A7370A /* bitstream.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = bitstream.c; sourceTree = "<group>"; };
 		0495649B1940925200A7370A /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bitstream.h; sourceTree = "<group>"; };
 		0495649C1940925200A7370A /* mask.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mask.c; sourceTree = "<group>"; };
@@ -187,6 +237,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		048FA0D31951A9AD004ADDFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048FA0D41951A9AD004ADDFC /* AddressBook.framework in Frameworks */,
+				048FA0D51951A9AD004ADDFC /* AddressBookUI.framework in Frameworks */,
+				048FA0D61951A9AD004ADDFC /* libiconv.dylib in Frameworks */,
+				048FA0D71951A9AD004ADDFC /* CoreMedia.framework in Frameworks */,
+				048FA0D81951A9AD004ADDFC /* CoreVideo.framework in Frameworks */,
+				048FA0D91951A9AD004ADDFC /* AVFoundation.framework in Frameworks */,
+				048FA0DA1951A9AD004ADDFC /* libsqlite3.dylib in Frameworks */,
+				048FA0DB1951A9AD004ADDFC /* libz.dylib in Frameworks */,
+				048FA0DC1951A9AD004ADDFC /* UIKit.framework in Frameworks */,
+				048FA0DD1951A9AD004ADDFC /* SystemConfiguration.framework in Frameworks */,
+				048FA0DE1951A9AD004ADDFC /* AudioToolbox.framework in Frameworks */,
+				048FA0DF1951A9AD004ADDFC /* EventKit.framework in Frameworks */,
+				048FA0E01951A9AD004ADDFC /* Social.framework in Frameworks */,
+				048FA0E11951A9AD004ADDFC /* PassKit.framework in Frameworks */,
+				048FA0E21951A9AD004ADDFC /* StoreKit.framework in Frameworks */,
+				048FA0E31951A9AD004ADDFC /* CoreGraphics.framework in Frameworks */,
+				048FA0E41951A9AD004ADDFC /* CoreText.framework in Frameworks */,
+				048FA0E51951A9AD004ADDFC /* QuartzCore.framework in Frameworks */,
+				048FA0E61951A9AE004ADDFC /* MediaPlayer.framework in Frameworks */,
+				048FA0E71951A9AE004ADDFC /* AdSupport.framework in Frameworks */,
+				048FA0E81951A9AE004ADDFC /* libDomobAdSDK.a in Frameworks */,
+				048FA0E91951A9AE004ADDFC /* Foundation.framework in Frameworks */,
+				048FA0EA1951A9AE004ADDFC /* MapKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -197,6 +277,7 @@
 				047E99DB19403F4E00A12325 /* BabyAppTests */,
 				047E99B519403F4D00A12325 /* Frameworks */,
 				047E99B419403F4D00A12325 /* Products */,
+				048FA0F51951A9AE004ADDFC /* BabyApp copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -205,6 +286,7 @@
 			children = (
 				047E99B319403F4D00A12325 /* BabyApp.app */,
 				047E99D419403F4D00A12325 /* BabyAppTests.xctest */,
+				048FA0F41951A9AE004ADDFC /* BabyApp copy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -254,6 +336,8 @@
 				047E99CC19403F4D00A12325 /* MainViewController.m */,
 				047E99CE19403F4D00A12325 /* Images.xcassets */,
 				047E99BD19403F4D00A12325 /* Supporting Files */,
+				045709BE195313DD00D50305 /* WGS84TOGCJ02.h */,
+				045709BF195313DD00D50305 /* WGS84TOGCJ02.m */,
 			);
 			path = BabyApp;
 			sourceTree = "<group>";
@@ -405,6 +489,24 @@
 			productReference = 047E99D419403F4D00A12325 /* BabyAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		048FA0C11951A9AD004ADDFC /* BabyApp copy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 048FA0F11951A9AE004ADDFC /* Build configuration list for PBXNativeTarget "BabyApp copy" */;
+			buildPhases = (
+				048FA0C21951A9AD004ADDFC /* Sources */,
+				048FA0D31951A9AD004ADDFC /* Frameworks */,
+				048FA0EB1951A9AE004ADDFC /* Resources */,
+				048FA0F61951A9C3004ADDFC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "BabyApp copy";
+			productName = BabyApp;
+			productReference = 048FA0F41951A9AE004ADDFC /* BabyApp copy.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -417,6 +519,9 @@
 				TargetAttributes = {
 					047E99B219403F4D00A12325 = {
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.iOS = {
 								enabled = 1;
 							};
@@ -445,6 +550,7 @@
 			targets = (
 				047E99B219403F4D00A12325 /* BabyApp */,
 				047E99D319403F4D00A12325 /* BabyAppTests */,
+				048FA0C11951A9AD004ADDFC /* BabyApp copy */,
 			);
 		};
 /* End PBXProject section */
@@ -470,7 +576,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		048FA0EB1951A9AE004ADDFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048FA0EC1951A9AE004ADDFC /* QRTest.xib in Resources */,
+				048FA0ED1951A9AE004ADDFC /* Images.xcassets in Resources */,
+				048FA0EE1951A9AE004ADDFC /* DomobAdSDKBundle.bundle in Resources */,
+				048FA0EF1951A9AE004ADDFC /* InfoPlist.strings in Resources */,
+				048FA0F01951A9AE004ADDFC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		048FA0F61951A9C3004ADDFC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\nexport CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then /Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"edu.sysu.davidlau.ios.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhoneDevDavid\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\";\nfi\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		047E99AF19403F4D00A12325 /* Sources */ = {
@@ -486,6 +620,7 @@
 				047E99CD19403F4D00A12325 /* MainViewController.m in Sources */,
 				047E99C719403F4D00A12325 /* MainAppDelegate.m in Sources */,
 				049564B01940925200A7370A /* qrencode.c in Sources */,
+				045709C0195313DD00D50305 /* WGS84TOGCJ02.m in Sources */,
 				04898B661940A33E00C35EB1 /* MapVC.m in Sources */,
 				049564B11940925200A7370A /* qrinput.c in Sources */,
 				04898B6B1940A47A00C35EB1 /* MyMapAnnotation.m in Sources */,
@@ -501,6 +636,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				047E99E219403F4E00A12325 /* BabyAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		048FA0C21951A9AD004ADDFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				048FA0C31951A9AD004ADDFC /* mask.c in Sources */,
+				048FA0C41951A9AD004ADDFC /* qrspec.c in Sources */,
+				048FA0C51951A9AD004ADDFC /* main.m in Sources */,
+				048FA0C61951A9AD004ADDFC /* DavidlauUtils.m in Sources */,
+				048FA0C71951A9AD004ADDFC /* UserAuthAPI.m in Sources */,
+				048FA0C81951A9AD004ADDFC /* rscode.c in Sources */,
+				048FA0C91951A9AD004ADDFC /* MainViewController.m in Sources */,
+				048FA0CA1951A9AD004ADDFC /* MainAppDelegate.m in Sources */,
+				048FA0CB1951A9AD004ADDFC /* qrencode.c in Sources */,
+				045709C1195313DD00D50305 /* WGS84TOGCJ02.m in Sources */,
+				048FA0CC1951A9AD004ADDFC /* MapVC.m in Sources */,
+				048FA0CD1951A9AD004ADDFC /* qrinput.c in Sources */,
+				048FA0CE1951A9AD004ADDFC /* MyMapAnnotation.m in Sources */,
+				048FA0CF1951A9AD004ADDFC /* split.c in Sources */,
+				048FA0D01951A9AD004ADDFC /* bitstream.c in Sources */,
+				048FA0D11951A9AD004ADDFC /* QRTest.m in Sources */,
+				048FA0D21951A9AD004ADDFC /* QRCodeGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +717,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = iPhoneDevDavid;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = iPhoneDevDavid;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -574,7 +734,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -596,7 +756,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = iPhoneDevDavid;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = iPhoneDevDavid;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -606,7 +767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -620,6 +781,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BabyApp/BabyApp-Prefix.pch";
 				INFOPLIST_FILE = "BabyApp/BabyApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BabyApp/DomobAdSDK",
@@ -638,6 +800,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BabyApp/BabyApp-Prefix.pch";
 				INFOPLIST_FILE = "BabyApp/BabyApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BabyApp/DomobAdSDK",
@@ -688,6 +851,48 @@
 			};
 			name = Release;
 		};
+		048FA0F21951A9AE004ADDFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = iPhoneDevDavid;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = iPhoneDevDavid;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BabyApp/BabyApp-Prefix.pch";
+				INFOPLIST_FILE = "BabyApp copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BabyApp/DomobAdSDK",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "BabyApp copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		048FA0F31951A9AE004ADDFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = iPhoneDevDavid;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = iPhoneDevDavid;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BabyApp/BabyApp-Prefix.pch";
+				INFOPLIST_FILE = "BabyApp copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/BabyApp/DomobAdSDK",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "BabyApp copy";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -714,6 +919,15 @@
 			buildConfigurations = (
 				047E99E919403F4E00A12325 /* Debug */,
 				047E99EA19403F4E00A12325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		048FA0F11951A9AE004ADDFC /* Build configuration list for PBXNativeTarget "BabyApp copy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				048FA0F21951A9AE004ADDFC /* Debug */,
+				048FA0F31951A9AE004ADDFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

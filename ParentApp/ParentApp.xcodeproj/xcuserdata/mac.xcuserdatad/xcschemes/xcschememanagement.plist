@@ -4,10 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ParentApp Break copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>ParentApp copy.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>ParentApp.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+		<key>default.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -18,6 +33,21 @@
 			<true/>
 		</dict>
 		<key>040D8D8B190E9C1D0048D231</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0481E8E8195123E500156C77</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0487A1EC1950704200A82299</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0487A22B1950717A00A82299</key>
 		<dict>
 			<key>primary</key>
 			<true/>

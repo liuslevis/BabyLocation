@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "040D8D67190E9C1D0048D231"
-               BuildableName = "ParentApp.app"
+               BlueprintIdentifier = "0481E8E8195123E500156C77"
+               BuildableName = "ParentApp Break copy.app"
                BlueprintName = "ParentApp"
                ReferencedContainer = "container:ParentApp.xcodeproj">
             </BuildableReference>
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "040D8D67190E9C1D0048D231"
-            BuildableName = "ParentApp.app"
+            BlueprintIdentifier = "0481E8E8195123E500156C77"
+            BuildableName = "ParentApp Break copy.app"
             BlueprintName = "ParentApp"
             ReferencedContainer = "container:ParentApp.xcodeproj">
          </BuildableReference>
@@ -61,8 +61,8 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "040D8D67190E9C1D0048D231"
-            BuildableName = "ParentApp.app"
+            BlueprintIdentifier = "0481E8E8195123E500156C77"
+            BuildableName = "ParentApp Break copy.app"
             BlueprintName = "ParentApp"
             ReferencedContainer = "container:ParentApp.xcodeproj">
          </BuildableReference>
@@ -79,8 +79,8 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "040D8D67190E9C1D0048D231"
-            BuildableName = "ParentApp.app"
+            BlueprintIdentifier = "0481E8E8195123E500156C77"
+            BuildableName = "ParentApp Break copy.app"
             BlueprintName = "ParentApp"
             ReferencedContainer = "container:ParentApp.xcodeproj">
          </BuildableReference>
