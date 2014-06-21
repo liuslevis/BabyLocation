@@ -9,6 +9,8 @@
 #ifndef RegLogVeriUser_AppConstants_h
 #define RegLogVeriUser_AppConstants_h
 
+#define SHOW_AD NO
+
 #define APP_USER_UID_KEY @"BabyLocation_UserInfo_uid"
 #define APP_USER_PASSWD_KEY @"BabyLocation_UserInfo_passwd"
 

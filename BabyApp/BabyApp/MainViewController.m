@@ -35,25 +35,27 @@
     
 #pragma mark TODO:DEBUG模拟器测试失败 initWithNibName:Banner没有执行
     // banner
-    if (self)
-    {
-        NSLog(@"init with nib: Banner");
-        self.title = NSLocalizedString(@"Banner", @"Banner");
-        
-        // 确定广告尺寸及位置
-        //Set the size and origin
-        _adX = 0;
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+    if(SHOW_AD){
+        if (self)
         {
-            if (!([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)) {
-                _adY = 20;
-            }else{
+            NSLog(@"init with nib: Banner");
+            self.title = NSLocalizedString(@"Banner", @"Banner");
+            
+            // 确定广告尺寸及位置
+            //Set the size and origin
+            _adX = 0;
+            
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+            {
+                if (!([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)) {
+                    _adY = 20;
+                }else{
+                }
             }
-        }
-        else
-        {
-            _adY = 20;
+            else
+            {
+                _adY = 20;
+            }
         }
     }
     return self;
@@ -188,11 +190,13 @@
 
     
     // 广告开关 Switch Ad on/off
-//    if (_dmAdView==nil) {
-//        [self initAd];
-//    }else{
-//        [self killAd];
-//    }
+    if (SHOW_AD) {
+        if (_dmAdView==nil) {
+            [self initAd];
+        }else{
+            [self killAd];
+        }
+    }
 }
 
 //针对Banner的横竖屏⾃自适应⽅方法 //method For multible orientation

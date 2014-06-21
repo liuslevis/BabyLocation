@@ -11,6 +11,7 @@
 #import "AppConstants.h"
 #import "MyMapAnnotation.h"
 #import "WGS84TOGCJ02.h"
+#import "UIKit/UIBarButtonItem.h"
 
 @interface MapVC ()
 
@@ -36,8 +37,6 @@
     // Init MapKitView
     self.mapView.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth);
     self.mapView.delegate = self;
-    
-    self.mapView.showsUserLocation = YES;
     self.mapView.zoomEnabled = YES;
     self.mapView.scrollEnabled = YES;
     
@@ -48,13 +47,12 @@
     
     // 小Pin 实时显示用户位置
     self.mapView.showsUserLocation = YES;
+    
+    // 地图图标 
 }
 
 - (IBAction)showMe:(id)sender
 {
-    // 小Pin 实时显示用户位置
-    self.mapView.showsUserLocation = YES;
-
     // 移动视角到我
     [self focusMyLocation];
 }
@@ -110,23 +108,26 @@
 {
     //此处locations存储了持续更新的位置坐标值，取最后一个值为最新位置，如果不想让其持续更新位置，则在此方法中获取到一个值之后让locationManager stopUpdatingLocation
     self.currentLocation = [locations lastObject];
+    NSString *uid = [MainViewController getUid];
+    
+    //    [UserAuthAPI updateLocationWithUid:uid atCLLocation:self.currentLocation];//上传原始GPS信息
 
-    //判断是不是属于国内范围
-    CLLocationCoordinate2D coord;
-    if (![WGS84TOGCJ02 isLocationOutOfChina:[self.currentLocation coordinate]]) {
+
+    // 存储修正中国区偏移后
+    // 判断是不是属于国内范围
+    if (![WGS84TOGCJ02 isLocationOutOfChina:self.currentLocation.coordinate]) {
         //转换后的coord，解决ChinaShift
-        coord = [WGS84TOGCJ02 transformFromWGSToGCJ:[self.currentLocation coordinate]];
+        self.currentFixedCoord = [WGS84TOGCJ02 transformFromWGSToGCJ:self.currentLocation.coordinate];
     }else{
-        coord = self.currentLocation.coordinate;
+        self.currentFixedCoord = self.currentLocation.coordinate;
     }
 
-    self.latitude =  coord.latitude;
-    self.longitude = coord.longitude;
-    NSLog(@" update loation lat:%f long:%f",self.latitude,self.longitude);
+    self.latitude =  self.currentFixedCoord.latitude;
+    self.longitude = self.currentFixedCoord.longitude;
+    NSLog(@" update fixed loation lat:%f long:%f",self.latitude,self.longitude);
     
     // Send RESTful request , tell server where i am
-    NSString *uid = [MainViewController getUid];
-    [UserAuthAPI updateLocationWithUid:uid atCLLocation:self.currentLocation];
+    [UserAuthAPI updateLocationWithUid:uid atCoordinate2D:self.currentFixedCoord];//上传ChinaShift修正后的信息
     
     // Focus on my location
     [self focusMyLocation];
@@ -136,7 +137,7 @@
 {
     NSLog(@"focus on me");
     // set camera
-    [self.mapView setCamera:[MKMapCamera cameraLookingAtCenterCoordinate:self.currentLocation.coordinate fromEyeCoordinate:self.currentLocation.coordinate eyeAltitude:5000]];
+    [self.mapView setCamera:[MKMapCamera cameraLookingAtCenterCoordinate:self.currentFixedCoord fromEyeCoordinate:self.currentFixedCoord eyeAltitude:5000]];
 }
 
 // Location更新失败的方法

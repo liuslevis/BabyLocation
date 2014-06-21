@@ -19,7 +19,8 @@
 
 @property double latitude;
 @property double longitude;
-@property CLLocation *currentLocation;
+@property (strong, nonatomic) CLLocation *currentLocation;// 系统返回坐标
+@property CLLocationCoordinate2D currentFixedCoord;// 中国区修正后坐标
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIButton *focusOnMe;
 

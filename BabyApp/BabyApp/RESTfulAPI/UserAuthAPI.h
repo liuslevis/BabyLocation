@@ -31,5 +31,7 @@
 
 +(BOOL)updateLocationWithUid:(NSString *)uid
                           atCLLocation:(CLLocation *)location;
++(BOOL)updateLocationWithUid:(NSString *)uid
+              atCoordinate2D:(CLLocationCoordinate2D )coord;
 
 @end

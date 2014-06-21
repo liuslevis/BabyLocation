@@ -115,7 +115,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"MainVC viewDidLoad{");
     [super viewDidLoad];
     
     self.mapView.delegate = self;
@@ -124,30 +123,18 @@
     
     // 设置 MainVC 监听 Model的值，若改变则 self.updateScreen
     [self setKVOFromModel:SingleModel.sharedInstance];
+}
 
-//    if (DEMO_MODE){
-//        // 演示使用：直接设置孩子列表
-////        self.childUidList = [NSArray arrayWithObjects: @"XiaoKui",@"David",nil];
-////        self.childNameList = [NSArray arrayWithObjects: @"小葵",@"小新",nil];
-////        self.childAvatars = [NSArray arrayWithObjects: // TODO: change to
-////                             [UIImage imageNamed:@"girl"],[UIImage imageNamed:@"boy"], nil];
-//    }else{// RELEASE MODE
+//- (void)viewWillAppear:(BOOL)animated
+//{
+//    if ([[SingleModel sharedInstance].friends count] > 0) {
+//        NSLog(@"viewWillAppear friend count:%ud",[[SingleModel sharedInstance].friends count]);
+//        self.btnAddBaby.hidden = YES;
+//    }
 //}
-    NSLog(@"MainVC viewDidLoad}");
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    NSLog(@"viewWillAppear");
-    if ([[SingleModel sharedInstance].friends count] > 0) {
-        NSLog(@"viewWillAppear friend count:%d",[[SingleModel sharedInstance].friends count]);
-        self.btnAddBaby.hidden = YES;
-    }
-}
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"MainVC viewDidAppear{");
     [super viewDidAppear:animated];
     //更新小孩信息，默认选择第一个小孩 显示其位置
     if (self.isJustLogin) {
@@ -155,13 +142,11 @@
         [self pressUpdateModel:self];
     }else{
         if ([[SingleModel sharedInstance].friends count] > 0) {
-            NSLog(@"viewDidAppear friend count:%d",[[SingleModel sharedInstance].friends count]);
+            NSLog(@"viewDidAppear friend count:%ud",[[SingleModel sharedInstance].friends count]);
             self.btnAddBaby.hidden = YES;
             [self didFinishedSelectChildAtIndex:self.curChildIndex];
         }
     }
-    
-    NSLog(@"MainVC viewDidAppear}");
 }
 
 // 设置KVO，当SingleModel有update，通知MainVC
@@ -174,7 +159,7 @@
 // KVO动作,当SingleModel改变，自动更新VC，自动更新屏幕
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"friends"]){
-        NSLog(@"MainVC KVO: Model's friends changed, Kids num:%d!",[SingleModel sharedInstance].friends.count );
+        NSLog(@"MainVC KVO: Model's friends changed, Kids num:%ud!",[SingleModel sharedInstance].friends.count );
         
         self.childUidList = [[NSArray alloc] init];
         self.childNameList = [[NSArray alloc] init];

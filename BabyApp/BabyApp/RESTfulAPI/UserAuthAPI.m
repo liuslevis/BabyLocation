@@ -154,6 +154,47 @@
 }
 
 
+
+
++(BOOL)updateLocationWithUid:(NSString *)uid
+              atCoordinate2D:(CLLocationCoordinate2D )coor
+{
+    double latitude =  coor.latitude;
+    double longitude = coor.longitude;
+    
+    if(VERBOSE_MODE) NSLog(@" prepare update loation lat:%f long:%f",latitude,longitude);
+    
+    NSString *url = [[NSString stringWithFormat:URL_REQ_UPDATE_LOCATION,uid,latitude,longitude]  stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    if (VERBOSE_MODE) {
+        NSLog(@"updateLocationWith Query:%@",url);
+    }
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    NSError *error1;
+    NSData *result_data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:&error1];
+    
+    if(result_data==nil){
+        NSLog(@"ERR: cant connect to server, check network! request url:%@ Error:%@",url,error1);
+        return NO;
+    }
+    
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:result_data options:NSJSONReadingMutableLeaves error:&error];
+    
+    if(json){
+        NSString *result = [json objectForKey:@"result"];
+        if( [@"failed to update location" isEqualToString:result]){
+            return NO;
+        }else if([@"update location success" isEqualToString:result]){
+            return YES;
+        }
+    }else{
+        NSLog(@"ERR: cant get JSON. request url:%@ Error:%@",url,error);
+    }
+    
+    return NO;
+}
+
+
 +(BOOL)updateLocationWithUid:(NSString *)uid
                 atCLLocation:(CLLocation *)location
 {
