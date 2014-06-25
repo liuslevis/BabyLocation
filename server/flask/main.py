@@ -44,15 +44,15 @@ def queryFriendUidList(uid, passwd):
         user_friend_key = "user:%s:friends_uid"%uid
         result_li = r.lrange(user_friend_key,0,-1)
 
-    uids_str = ''
-    print result_li
-    if type(list())==type(result_li):
-        for uid in result_li:
-            uids_str += str(uid)+' '
+        uids_str = ''
+        print result_li
+        if type(list())==type(result_li):
+            for uid in result_li:
+                uids_str += str(uid)+' '
 
-        return jsonify(result="query friends success",uid_list=uids_str)
+            return jsonify(result="query friends success",uid_list=uids_str)
 
-    return jsonify(result="query friends failed",uid_list=uids_str)
+    return jsonify(result="query friends failed",uid_list='')
 
 
 @app.route('/friendList_name/<uid>/<passwd>',methods=['GET'])
@@ -66,35 +66,15 @@ def queryFriendNameList(uid, passwd):
         user_friend_key = "user:%s:friends_name"%uid
         result_li = r.lrange(user_friend_key,0,-1)
 
-    name_str = ''
-    print result_li
-    if type(list())==type(result_li):
-        for name in result_li:
-            name_str += str(name)+' '
+        name_str = ''
+        print result_li
+        if type(list())==type(result_li):
+            for name in result_li:
+                name_str += str(name)+' '
 
-        return jsonify(result="query friends success",name_list=name_str)
+            return jsonify(result="query friends success",name_list=name_str)
 
-    return jsonify(result="query friends failed",name_list=name_str)
-
-# @app.route('/addFriend/<uid>/<passwd>/<friendUid>',methods=['GET'])
-# def addFriend(uid, passwd, friendUid):
-#     uid = uid.encode('utf8')
-#     passwd = passwd.encode('utf8')
-#     friendUid = friendUid.encode('utf8')
-
-#     info = "query:GET /addFriend/%s/%s/%s"%(uid, passwd, friendUid)
-#     print info
-#     if isValidUser(uid,passwd):
-#         r = getRedis()
-#         user_friend_key = "user:%s:friends_uid"%uid
-#         result = r.sadd(user_friend_key,friendUid)
-#         if result==1:
-#             return jsonify(result="add friend success")
-#         else:
-#             # already has
-#             return jsonify(result="add friend success")
-
-#     return jsonify(result="failed to add friend")
+    return jsonify(result="query friends failed",name_list='')
 
 @app.route('/addFriendWithName/<uid>/<passwd>/<friendUid>/<friendName>',methods=['GET'])
 def addFriendWithName(uid, passwd, friendUid,friendName):
