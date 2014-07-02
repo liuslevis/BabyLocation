@@ -145,6 +145,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04231F831963A19100C0CCED /* BabyApp copy 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BabyApp copy 2-Info.plist"; path = "/Users/mac/Developer/iOS/0babylocation/BabyApp/BabyApp copy 2-Info.plist"; sourceTree = "<absolute>"; };
+		04231FC81963A1A500C0CCED /* BabyApp copy 22-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BabyApp copy 22-Info.plist"; path = "/Users/mac/Developer/iOS/0babylocation/BabyApp/BabyApp copy 22-Info.plist"; sourceTree = "<absolute>"; };
 		045080191954237900FDBC22 /* refresh_btn_tint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh_btn_tint.png; sourceTree = "<group>"; };
 		0450801C19542B4700FDBC22 /* UIBarButtonBookmarks_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonBookmarks_2x.png; sourceTree = "<group>"; };
 		0450801D19542B4700FDBC22 /* UIBarButtonCamera_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UIBarButtonCamera_2x.png; sourceTree = "<group>"; };
@@ -163,7 +165,7 @@
 		0457FD181955818A004EFB95 /* baby_location_icon_40pt_x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baby_location_icon_40pt_x2.png; sourceTree = "<group>"; };
 		0457FD191955818A004EFB95 /* baby_location_icon_60pt_x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = baby_location_icon_60pt_x2.png; sourceTree = "<group>"; };
 		0457FD651955840D004EFB95 /* BabyApp copy copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BabyApp copy copy-Info.plist"; path = "/Users/mac/Developer/0iOS/0babylocation/BabyApp/BabyApp copy copy-Info.plist"; sourceTree = "<absolute>"; };
-		047E99B319403F4D00A12325 /* BabyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BabyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		047E99B319403F4D00A12325 /* 宝贝在哪？宝贝端.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宝贝在哪？宝贝端.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		047E99B619403F4D00A12325 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		047E99B819403F4D00A12325 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		047E99BA19403F4D00A12325 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -347,13 +349,15 @@
 				047E99B419403F4D00A12325 /* Products */,
 				048FA0F51951A9AE004ADDFC /* BabyApp copy-Info.plist */,
 				0457FD651955840D004EFB95 /* BabyApp copy copy-Info.plist */,
+				04231F831963A19100C0CCED /* BabyApp copy 2-Info.plist */,
+				04231FC81963A1A500C0CCED /* BabyApp copy 22-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		047E99B419403F4D00A12325 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				047E99B319403F4D00A12325 /* BabyApp.app */,
+				047E99B319403F4D00A12325 /* 宝贝在哪？宝贝端.app */,
 				047E99D419403F4D00A12325 /* BabyAppTests.xctest */,
 				048FA0F41951A9AE004ADDFC /* 宝贝在哪？宝贝版.app */,
 			);
@@ -538,7 +542,7 @@
 			);
 			name = BabyApp;
 			productName = BabyApp;
-			productReference = 047E99B319403F4D00A12325 /* BabyApp.app */;
+			productReference = 047E99B319403F4D00A12325 /* 宝贝在哪？宝贝端.app */;
 			productType = "com.apple.product-type.application";
 		};
 		047E99D319403F4D00A12325 /* BabyAppTests */ = {
@@ -702,7 +706,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\nexport CODESIGN_ALLOCATE=/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then /Applications/Xcode.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"edu.sysu.davidlau.ios.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhoneDevDavid\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\";\nfi\n\n";
+			shellScript = "\nexport CODESIGN_ALLOCATE=/Applications/XcodePB.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ] || [ \"${PLATFORM_NAME}\" == \"ipados\" ]; then /Applications/XcodePB.app/Contents/Developer/iphoneentitlements/gen_entitlements.py \"edu.sysu.davidlau.ios.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhoneDevDavid\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\";\nfi\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -887,7 +891,7 @@
 					"$(PROJECT_DIR)/BabyApp/DomobAdSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "宝贝在哪？宝贝端";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -906,7 +910,7 @@
 					"$(PROJECT_DIR)/BabyApp/DomobAdSDK",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "宝贝在哪？宝贝端";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
